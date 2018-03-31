@@ -18,6 +18,7 @@ function insert_data($ipfs_hash, $ipfs_name, $ipfs_size, $btc_add, $btc_fees){
         return false;
     }
 }
+insert_data("xx","xx",11,"xx","xx",12):
 function xss_code_generate(){
     if(isset($_SESSION['xss_code_generate'])){
         unset($_SESSION['xss_code_generate']);
