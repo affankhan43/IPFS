@@ -3,11 +3,54 @@ session_start();
   require __DIR__ . '/vendor/autoload.php';
   include 'core/funcs.php';
   use \Curl\Curl;
-  $error = array('','');
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
     if(isset($_FILES['docx'])){
-      print_r($_POST);
-      print_r($_FILES['docx']); 
+      $path_parts = pathinfo($_FILES["docx"]["name"]);
+      $extension = $path_parts['extension'];
+      if($extension == "png" || $extension == "jpg" || $extension == "jpeg" || $extension == "pdf"){
+        $fields = array();
+        $filenames = array($_FILES['docx']['tmp_name']);
+        $files = array();
+        foreach ($filenames as $f){
+          $files['passport'] = file_get_contents($f);
+        }
+      $url = "http://52.171.129.143/public/api/kyc_form";
+      $curl = curl_init();
+      $boundary = uniqid();
+      $delimiter = '-------------' . $boundary;
+      $post_data = build_data_files($boundary, $fields, $files);
+      curl_setopt_array($curl, array(
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+          CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POST => 1,
+        CURLOPT_POSTFIELDS => $post_data,
+        CURLOPT_HTTPHEADER => array(
+          "Authorization: ".$auth."",
+          "Content-Type: multipart/form-data; boundary=" . $delimiter,
+          "Content-Length: " . strlen($post_data)),
+      ));
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+      curl_close($curl);
+      if($err){
+        $error[1] = "cURL Error #:" . $err;
+      }
+      else{
+        $data = json_decode($response,true);
+        if($data['success'] == false){
+          $error[2] = $data['error'];
+        }
+        else{
+          $error[2] = $data['message'];
+        }
+      }
+      }
+      else{
+        $error[0] = "You Can only upload (png, jpg, jpeg, pdf)";
+      }
     }
     else{
       $error[0] = "Please Upload Document Before Uploading";
@@ -71,6 +114,21 @@ session_start();
         <div class="container">
           <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
           <form method="post"  enctype="multipart/form-data">
+<?php if(isset($error[0])){ ?>
+  <div class="alert alert-danger" role="alert">
+    <strong>Oh snap!</strong> <?php echo $error[0]; ?>
+  </div>
+<?php } ?>
+<?php if(isset($error[1])){ ?>
+  <div class="alert alert-warning" role="alert">
+    <strong>Oh snap!</strong> <?php echo $error[1]; ?>
+  </div>
+<?php } ?>
+<?php if(isset($error[2])){ ?>
+  <div class="alert alert-success" role="alert">
+    <strong>Oh snap!</strong> <?php echo $error[2]; ?>
+  </div>
+<?php } ?>
             <div class="form-group">
               <label for="passport-image">Upload Image</label>
               <input type="file" name="docx" class="form-control-file uploader" accept=".png, .jpg, .jpeg" required>
