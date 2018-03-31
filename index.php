@@ -1,4 +1,5 @@
 <?php
+include 'core/.env';
 $db = mysqli_connect($HostName,$HostUser,$HostPass,$dbName);
 print_r($db);
 session_start();
