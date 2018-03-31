@@ -1,9 +1,17 @@
 <?php
+session_start();
   require __DIR__ . '/vendor/autoload.php';
   include 'core/funcs.php';
   use \Curl\Curl;
-  if(isset($_POST['upload_now'])){
-    print_r($_POST);
+  $error = array('','');
+  if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
+    if(isset($_FILES['docx'])){
+      print_r($_POST);
+      print_r($_FILES['docx']); 
+    }
+    else{
+      $error[0] = "Please Upload Document Before Uploading";
+    }
   }
 ?>
 <!doctype html>
@@ -62,10 +70,10 @@
         <div class="card-header">Upload File</div>
         <div class="container">
           <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
-          <form method="post">
+          <form method="post"  enctype="multipart/form-data">
             <div class="form-group">
               <label for="passport-image">Upload Image</label>
-              <input type="file" name="passport" class="form-control-file uploader" accept=".png, .jpg, .jpeg" required>
+              <input type="file" name="docx" class="form-control-file uploader" accept=".png, .jpg, .jpeg" required>
               <input type="hidden" name="xss_code" value=<?php echo xss_code_generate(); ?> required>
               <input type="submit" name="upload_now" class="form-control btn btn-info" value="Upload Now!" required>
             </div>

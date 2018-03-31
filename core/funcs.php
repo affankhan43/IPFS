@@ -1,6 +1,10 @@
 <?php
 
 function xss_code_generate(){
+    if(isset($_SESSION['xss_code_generate'])){
+        unset($_SESSION['xss_code_generate']);
+        return $_SESSION['xss_code_generate'] = base64_encode(openssl_random_pseudo_bytes(32));
+    }
   return $_SESSION['xss_code_generate'] = base64_encode(openssl_random_pseudo_bytes(32));
 }
 
