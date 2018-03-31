@@ -12,7 +12,7 @@ session_start();
         $filenames = array($_FILES['docx']['tmp_name']);
         $files = array();
         foreach ($filenames as $f){
-          $files['passport'] = file_get_contents($f);
+          $files[$_FILES['docx']['name']] = file_get_contents($f);
         }
       $url = "http://159.65.131.43:5001/api/v0/add";
       $curl = curl_init();
@@ -40,7 +40,7 @@ session_start();
       else{
         $data_compose = json_decode($response,true);
         if(isset($response['Hash'])){
-
+          print_r($data_compose);
         } 
         else{
           $error[2] = "Unknown Error";
