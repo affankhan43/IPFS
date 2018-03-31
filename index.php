@@ -60,7 +60,7 @@ session_start();
               $errors[1] = "Unknown Error #10";
             }
             else{
-              $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES ('".$ipfs_hash."','".$ipfs_name."','".$ipfs_size."',0,'".$btc_add."','".$btc_fees."')";
+              $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000)";
               
               if(mysqli_query($db, $qry)){
                 $error[2] = "Successfully Data Added"; 
