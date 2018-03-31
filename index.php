@@ -39,9 +39,11 @@ session_start();
       }
       else{
         $data_compose = json_decode($response,true);
-        if(isset($response['Hash'])){
-          print_r($data_compose);
-          
+        if(isset($data_compose['Hash'])){
+          if(insert_data($data_compose['Hash'],$data_compose['Name'],$data_compose['Size'],'xxxxxx',15555)){
+            $error[2] = "Successfully Data Added"; 
+          }
+
         } 
         else{
           $error[2] = "Unknown Error".json_encode($response);
