@@ -31,6 +31,11 @@
     font-weight: bold;
     font-family:  sans-serif;
       }
+      .heading{
+        font-family: Roboto;
+        margin-top: 11px;
+
+      }
     </style>
   </head>
   <body>
@@ -44,13 +49,16 @@
       </ul>
   </nav>
     <div class="container">
-      <div class="card" style="width: 18rem;">
-        <div class="card-header">Featured</div>
-        <ul class="list-group list-group-flush">
+      <div class="card">
+        <div class="card-header">Upload File</div>
+        <div class="container">
+          <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
+        </div>
+        <!-- <ul class="list-group list-group-flush">
           <li class="list-group-item">Cras justo odio</li>
           <li class="list-group-item">Dapibus ac facilisis in</li>
           <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+        </ul> -->
       </div>
       <div class="col-md-6 kyc-form">
         <!--<div class="alert alert-danger" role="alert">
@@ -62,7 +70,7 @@
         <div class="alert alert-success" role="alert">
           <strong>Oh snap!</strong>
       </div>-->
-        <form method="post" enctype="multipart/form-data">
+        <!-- <form method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="fullname">Full Name</label>
             <input type="text" class="form-control" name="fullname" placeholder="Full Name" required>
@@ -90,7 +98,7 @@
         <div class="form-group">
           <input type="submit" class="form-control btn btn-primary" name="kyc-submit" value="Submit">
         </div>
-      </form>
+      </form> -->
     </div>
   </div>
 
