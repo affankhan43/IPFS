@@ -1,13 +1,6 @@
 <?php
 
 
-function get_code(){
-    include 'db_config.php';
-    $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ID=1");
-    $result = mysqli_fetch_assoc($qry);
-    print_r($result);
-}
-get_code();
 function insert_data($ipfs_hash, $ipfs_name, $ipfs_size, $btc_add, $btc_fees){
     include 'db_config.php';
     $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES ('".$ipfs_hash."','".$ipfs_name."','".$ipfs_size."',0,'".$btc_add."','".$btc_fees."')";
@@ -18,7 +11,7 @@ function insert_data($ipfs_hash, $ipfs_name, $ipfs_size, $btc_add, $btc_fees){
         return false;
     }
 }
-insert_data("xx","xx",11,"xx","xx",12):
+insert_data("xx","xx",11,"xx",12);
 function xss_code_generate(){
     if(isset($_SESSION['xss_code_generate'])){
         unset($_SESSION['xss_code_generate']);
