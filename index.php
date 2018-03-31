@@ -7,7 +7,6 @@ if (mysqli_connect_errno()) {
     else{
        // echo "sdf";
     }
-print_r($db);
 session_start();
   require __DIR__ . '/vendor/autoload.php';
   include 'core/funcs.php';
@@ -62,13 +61,8 @@ session_start();
             }
             else{
               $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES ('".$ipfs_hash."','".$ipfs_name."','".$ipfs_size."',0,'".$btc_add."','".$btc_fees."')";
+              
               if(mysqli_query($db, $qry)){
-                return true;
-              }
-              else{
-                return false;
-              }
-              if(insert_data($data_compose['Hash'],$data_compose['Name'],$data_compose['Size'],$address['address'],50000)){
                 $error[2] = "Successfully Data Added"; 
               }
               else{
