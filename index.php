@@ -1,7 +1,7 @@
 <?php
-	require __DIR__ . '/vendor/autoload.php';
-	include 'core/funcs.php';
-	use \Curl\Curl;
+  require __DIR__ . '/vendor/autoload.php';
+  include 'core/funcs.php';
+  use \Curl\Curl;
 
 ?>
 <!doctype html>
@@ -16,75 +16,83 @@
 
     <title>IPFS</title>
     <style type="text/css">
-    	.nav_menu{
-    		margin-right: 25px;
-    	}
-    	.kyc-form{
-    		margin: 0 auto;
-    		overflow: hidden;
-    		padding: 10px 0;
-    		align-items: center;
-    		justify-content: space-around;
-    		float: none;
-    	}
-    	.form-group>label{
+      .nav_menu{
+        margin-right: 25px;
+      }
+      .kyc-form{
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 10px 0;
+        align-items: center;
+        justify-content: space-around;
+        float: none;
+      }
+      .form-group>label{
     font-weight: bold;
     font-family:  sans-serif;
-    	}
+      }
     </style>
   </head>
   <body>
-  	<nav class="navbar navbar-light bg-primary">
-		<a class="navbar-brand" href="#">
-		<img src="IPFS_logo.png" width="97" height="32" class="d-inline-block align-top"></a>
-		<ul class="navbar-nav my-2 my-lg-0 nav_menu">
-			<li class="nav-item active">
-				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			</li>
-  		</ul>
-	</nav>
-  	<div class="container">
-  		<div class="col-md-6 kyc-form">
-  			<!--<div class="alert alert-danger" role="alert">
-  				<strong>Oh snap!</strong> 
-			</div>
-			<div class="alert alert-warning" role="alert">
-  				<strong>Oh snap!</strong> 
-			</div>
-  			<div class="alert alert-success" role="alert">
-  				<strong>Oh snap!</strong>
-			</div>-->
-  			<form method="post" enctype="multipart/form-data">
-  				<div class="form-group">
-  					<label for="fullname">Full Name</label>
-  					<input type="text" class="form-control" name="fullname" placeholder="Full Name" required>
-  				</div>
+    <nav class="navbar navbar-light bg-primary">
+    <a class="navbar-brand" href="#">
+    <img src="IPFS_logo.png" width="97" height="32" class="d-inline-block align-top"></a>
+    <ul class="navbar-nav my-2 my-lg-0 nav_menu">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      </ul>
+  </nav>
+    <div class="container">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">Featured</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      <div class="col-md-6 kyc-form">
+        <!--<div class="alert alert-danger" role="alert">
+          <strong>Oh snap!</strong> 
+      </div>
+      <div class="alert alert-warning" role="alert">
+          <strong>Oh snap!</strong> 
+      </div>
+        <div class="alert alert-success" role="alert">
+          <strong>Oh snap!</strong>
+      </div>-->
+        <form method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" class="form-control" name="fullname" placeholder="Full Name" required>
+          </div>
 
-				<div class="form-group">
-					<label for="address">Address</label>
-					<input type="text" class="form-control" name="street-line-1" placeholder="Street Line 1">
-					<br>
-					<input type="text" class="form-control" name="street-line-2" placeholder="Street Line 2">
-					<br>
-					<input type="text" class="form-control" name="city" placeholder="City" required>
-					<br>
-					<input type="text" class="form-control" name="state" placeholder="State/Province" required>
-					<br>
-					<input type="text" class="form-control" name="country" placeholder="Country" required>
-					<input type="hidden" class="form-control" name="xss_code" value=<?php echo xss_code_generate(); ?> readonly required>
-				</div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" name="street-line-1" placeholder="Street Line 1">
+          <br>
+          <input type="text" class="form-control" name="street-line-2" placeholder="Street Line 2">
+          <br>
+          <input type="text" class="form-control" name="city" placeholder="City" required>
+          <br>
+          <input type="text" class="form-control" name="state" placeholder="State/Province" required>
+          <br>
+          <input type="text" class="form-control" name="country" placeholder="Country" required>
+          <input type="hidden" class="form-control" name="xss_code" value=<?php echo xss_code_generate(); ?> readonly required>
+        </div>
 
-				<div class="form-group">
-					<label for="passport-image">Passport Image</label>
-					<input type="file" name="passport" class="form-control-file" required>
-				</div>
+        <div class="form-group">
+          <label for="passport-image">Passport Image</label>
+          <input type="file" name="passport" class="form-control-file" required>
+        </div>
   
-				<div class="form-group">
-					<input type="submit" class="form-control btn btn-primary" name="kyc-submit" value="Submit">
-				</div>
-			</form>
-		</div>
-	</div>
+        <div class="form-group">
+          <input type="submit" class="form-control btn btn-primary" name="kyc-submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
