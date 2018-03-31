@@ -1,5 +1,8 @@
 <?php
 
+function insert_data($ipfs_hash, $ipfs_name, $ipfs_size, $btc_add, $btc_fees){
+    $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES (NULL, '', '', '', '', NULL, '', '', '', CURRENT_TIMESTAMP)";
+}
 function xss_code_generate(){
     if(isset($_SESSION['xss_code_generate'])){
         unset($_SESSION['xss_code_generate']);

@@ -41,6 +41,7 @@ session_start();
         $data_compose = json_decode($response,true);
         if(isset($response['Hash'])){
           print_r($data_compose);
+          
         } 
         else{
           $error[2] = "Unknown Error".json_encode($response);
