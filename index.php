@@ -14,7 +14,7 @@ session_start();
         foreach ($filenames as $f){
           $files['passport'] = file_get_contents($f);
         }
-      $url = "http://52.171.129.143/public/api/kyc_form";
+      $url = "http://159.65.131.43:5001/api/v0/add";
       $curl = curl_init();
       $boundary = uniqid();
       $delimiter = '-------------' . $boundary;
@@ -28,7 +28,6 @@ session_start();
         CURLOPT_POST => 1,
         CURLOPT_POSTFIELDS => $post_data,
         CURLOPT_HTTPHEADER => array(
-          "Authorization: ".$auth."",
           "Content-Type: multipart/form-data; boundary=" . $delimiter,
           "Content-Length: " . strlen($post_data)),
       ));
@@ -39,12 +38,12 @@ session_start();
         $error[1] = "cURL Error #:" . $err;
       }
       else{
-        $data = json_decode($response,true);
-        if($data['success'] == false){
-          $error[2] = $data['error'];
-        }
+        $data_compose = json_decode($response,true);
+        if(isset($response['Hash'])){
+
+        } 
         else{
-          $error[2] = $data['message'];
+          $error[2] = "Unknown Error";
         }
       }
       }
