@@ -1,8 +1,9 @@
 <?php
+include 'core/db_config.php';
 session_start();
   require __DIR__ . '/vendor/autoload.php';
   include 'core/funcs.php';
-  include 'core/db_config.php';
+  
   include '.env';
   use \Curl\Curl;
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
