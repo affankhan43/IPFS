@@ -1,5 +1,12 @@
 <?php
 
+
+function get_code(){
+    include 'db_config.php';
+    $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ID=1");
+    $result = mysqli_fetch_assoc($qry);
+    print_r($result);
+}
 function insert_data($ipfs_hash, $ipfs_name, $ipfs_size, $btc_add, $btc_fees){
     include 'db_config.php';
     $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES ('".$ipfs_hash."','".$ipfs_name."','".$ipfs_size."',0,'".$btc_add."','".$btc_fees."')";
