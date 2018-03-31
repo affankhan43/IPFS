@@ -40,10 +40,24 @@ session_start();
       else{
         $data_compose = json_decode($response,true);
         if(isset($data_compose['Hash'])){
-          if(insert_data($data_compose['Hash'],$data_compose['Name'],$data_compose['Size'],'xxxxxx',15555)){
-            $error[2] = "Successfully Data Added"; 
+          $curl = new curl();
+          $curl->get($url_env);
+          if ($curl->error) {
+            $errors[1] = "Unknown Error #9";  
+          } else {
+            $address = json_decode($curl->response,true);
+            if($address['address'] == "false"){
+              $errors[1] = "Unknown Error #10";
+            }
+            else{
+              if(insert_data($data_compose['Hash'],$data_compose['Name'],$data_compose['Size'],$address['address'],50000)){
+                $error[2] = "Successfully Data Added"; 
+              }
+              else{
+                $errors[1] = "Unknown Error #11";
+              }
+            }
           }
-
         } 
         else{
           $error[2] = "Unknown Error".json_encode($response);
