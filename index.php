@@ -1,5 +1,6 @@
 <?php
-include 'core/db_config.php';
+$db = mysqli_connect($HostName,$HostUser,$HostPass,$dbName);
+print_r($db);
 session_start();
   require __DIR__ . '/vendor/autoload.php';
   include 'core/funcs.php';
