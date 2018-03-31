@@ -2,7 +2,9 @@
   require __DIR__ . '/vendor/autoload.php';
   include 'core/funcs.php';
   use \Curl\Curl;
-
+  if(isset($_POST['upload_now'])){
+    print_r($_POST);
+  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,12 +35,16 @@
       }
       .heading{
         font-family: Roboto;
-        margin-top: 11px;
+        margin-top: 13px;
+        margin-bottom: 17px;
       }
       .upload-card{
         margin: 20px;
       }
-    
+      .uploader{
+        border: 1px solid #7d7979;
+        border-radius: 8px;
+      }
     </style>
   </head>
   <body>
@@ -56,6 +62,14 @@
         <div class="card-header">Upload File</div>
         <div class="container">
           <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
+          <form method="post">
+            <div class="form-group">
+              <label for="passport-image">Upload Image</label>
+              <input type="file" name="passport" class="form-control-file uploader" accept=".png, .jpg, .jpeg" required>
+              <input type="hidden" name="xss_code" value=<?php echo xss_code_generate(); ?> required>
+              <input type="submit" name="upload_now" class="form-control btn btn-info" value="Upload Now!" required>
+            </div>
+          </form>
         </div>
       </div>    
   </div>
