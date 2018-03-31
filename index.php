@@ -43,7 +43,7 @@ session_start();
           print_r($data_compose);
         } 
         else{
-          $error[2] = "Unknown Error";
+          $error[2] = "Unknown Error".json_encode($response);
         }
       }
       }
