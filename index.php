@@ -2,6 +2,7 @@
 session_start();
   require __DIR__ . '/vendor/autoload.php';
   include 'core/funcs.php';
+  include '.env';
   use \Curl\Curl;
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
     if(isset($_FILES['docx'])){
