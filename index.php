@@ -196,9 +196,13 @@ session_start();
     </div>
     <div class="col-md-6">
       <div class="card upload-card">
-        <div class="card-header">IPFS Details</div>
+        <div class="card-header">Bitcoin Blockchain</div>
         <div class="container">
-          <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
+          <?php if($all_data['verified'] == 0){ ?>
+          <h3 class="heading"></h3>
+          <?php }elseif($all_data['verified'] == 1){ ?>
+          <?php } ?>
+          
           
         </div>
       </div>
