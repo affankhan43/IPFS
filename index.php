@@ -199,8 +199,10 @@ session_start();
         <div class="card-header">Bitcoin Blockchain</div>
         <div class="container">
           <?php if($all_data['verified'] == 0){ ?>
-          <h3 class="heading"></h3>
+          <h3 class="heading">Certify this document on Bitcoin BLockchain</h3>
+          <p style="text-align: center;" >Please send exactly <span class="badge badge-default" style="background: #d0c9c9;"><strong><?php echo $all_data['bitcoin_fees']/100000000; ?></strong></span> Bitcoin to</p>
           <?php }elseif($all_data['verified'] == 1){ ?>
+          <h3 class="heading">Verified</h3>
           <?php } ?>
           
           
