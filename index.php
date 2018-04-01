@@ -132,6 +132,7 @@ session_start();
         font-family: Roboto;
         margin-top: 13px;
         margin-bottom: 17px;
+        text-align: center;
       }
       .upload-card{
         margin: 20px;
@@ -139,6 +140,9 @@ session_start();
       .uploader{
         border: 1px solid #7d7979;
         border-radius: 8px;
+      }
+      .card_body{
+        text-align: center;
       }
     </style>
   </head>
@@ -188,19 +192,21 @@ session_start();
     <div class="col-md-6">
       <div class="card upload-card">
         <div class="card-header">IPFS Details</div>
-        <div class="container">
-          <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
-          
+        <div class="container card_body">
+          <p class="heading"><strong>IPFS HASH : </strong> <?php echo $all_data['ipfs_hash']?></p>
+          <p class="heading"><strong>IPFS FILE_NAME : </strong> <?php echo $all_data['ipfs_name']?></p>
+          <img src="https://gateway.ipfs.io/ipfs/QmSNTwF26eRxKPFpjUp1TWVq6CPuJqTuhNBTTwRSTSYq1n" class="heading" style="text-align: center;">
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="card upload-card">
         <div class="card-header">Bitcoin Blockchain</div>
-        <div class="container">
+        <div class="container card_body">
           <?php if($all_data['verified'] == 0){ ?>
           <h3 class="heading">Certify this document on Bitcoin BLockchain</h3>
-          <p style="text-align: center;" >Please send exactly <span class="badge badge-default" style="background: #d0c9c9;"><strong><?php echo $all_data['bitcoin_fees']/100000000; ?></strong></span> Bitcoin to</p>
+          <p>Please send exactly <span class="badge badge-default" style="background: #d0c9c9;"><strong><?php echo $all_data['bitcoin_fees']/100000000; ?></strong></span> Bitcoin to</p>
+          <img class="img-responsive" src=<?php echo "https://chart.googleapis.com/chart?chs=200x200&amp;choe=UTF-8&amp;chld=M|0&amp;cht=qr&amp;chl=".$all_data['bitcoin_address'] ?>>
           <?php }elseif($all_data['verified'] == 1){ ?>
           <h3 class="heading">Verified</h3>
           <?php } ?>
