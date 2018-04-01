@@ -21,7 +21,9 @@ session_start();
         
       }
       else{
-        $details = true; 
+        $details = true;
+        print_r($_SERVER);
+        echo $_SERVER['PHP_SELF']; 
       }
       
     }
@@ -76,6 +78,8 @@ session_start();
               $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000)";
               
               if(mysqli_query($db, $qry)){
+                $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
+                header('Location: '.$URL;);
                 $error[2] = "Successfully Data Added"; 
               }
               else{
