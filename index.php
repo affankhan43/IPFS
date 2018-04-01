@@ -10,9 +10,22 @@ if (mysqli_connect_errno()) {
 session_start();
   require __DIR__ . '/vendor/autoload.php';
   include 'core/funcs.php';
-  
   include '.env';
   use \Curl\Curl;
+  $details = false;
+  if(isset($_GET['hash']) || isset($_GET['txid'])){
+    if(!empty($_GET['hash'])){
+      $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
+      $result = mysqli_fetch_assoc($qry);
+      if(empty($result)){
+        
+      }
+      else{
+        $details = true; 
+      }
+      
+    }
+  }
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
     if(isset($_FILES['docx'])){
       $path_parts = pathinfo($_FILES["docx"]["name"]);
@@ -128,15 +141,16 @@ session_start();
   </head>
   <body>
     <nav class="navbar navbar-light bg-primary">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="index.php">
     <img src="IPFS_logo.png" width="97" height="32" class="d-inline-block align-top"></a>
     <ul class="navbar-nav my-2 my-lg-0 nav_menu">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       </ul>
   </nav>
     <div class="container">
+      <?php if($details != true){ ?>
       <div class="card upload-card">
         <div class="card-header">Upload File</div>
         <div class="container">
@@ -165,7 +179,8 @@ session_start();
             </div>
           </form>
         </div>
-      </div>    
+      </div>  
+      <?php } ?>  
   </div>
 
     <!-- Optional JavaScript -->
