@@ -22,9 +22,8 @@ session_start();
       }
       else{
         $details = true;
-        print_r($_SERVER);
-        echo $_SERVER['PHP_SELF']; 
-      }
+        $all_data = $result;
+       }
       
     }
   }
@@ -79,7 +78,7 @@ session_start();
               
               if(mysqli_query($db, $qry)){
                 $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
-                header('Location: '.$URL;);
+                header('Location: '.$URL);
                 $error[2] = "Successfully Data Added"; 
               }
               else{
@@ -184,7 +183,29 @@ session_start();
           </form>
         </div>
       </div>  
-      <?php } ?>  
+      <?php }else{ ?>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card upload-card">
+        <div class="card-header">IPFS Details</div>
+        <div class="container">
+          <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card upload-card">
+        <div class="card-header">IPFS Details</div>
+        <div class="container">
+          <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+      <?php } ?>
+
   </div>
 
     <!-- Optional JavaScript -->
