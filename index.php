@@ -132,7 +132,6 @@ session_start();
         font-family: Roboto;
         margin-top: 13px;
         margin-bottom: 17px;
-        text-align: center;
       }
       .upload-card{
         margin: 20px;
