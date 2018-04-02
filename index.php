@@ -226,7 +226,7 @@ session_start();
   </div>
 <?php } ?>
             <div class="form-group">
-              <label for="passport-image">Upload Image</label>
+              <label for="passport-image">View Document By IPFS HASH</label>
               <input type="file" name="docx" class="form-control-file uploader" accept=".png, .jpg, .jpeg" required>
               <input type="hidden" name="xss_code" value=<?php echo xss_code_generate(); ?> required>
               <input type="submit" name="upload_now" class="form-control btn btn-info" value="Upload Now!" required>
