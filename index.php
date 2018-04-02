@@ -33,11 +33,9 @@ session_start();
             $amount = json_decode($curl1->response,true);
 
             if($amount['amount']*100000000 >= ($all_data['bitcoin_fees'])){
-              echo "string";
               $updated_amount = $amount['amount']*100000000;
               $upd_qry = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
               if(mysqli_query($db, $upd_qry)){
-                echo "string";
                 }
               else{
                 $error[1] = "Please Refresh Again";
@@ -60,7 +58,7 @@ session_start();
 
                 }
                 elseif($txid['message'] == "success"){
-                  $upd_qry2 = "UPDATE `document_details` SET `verified` = 1 AND `bitcoin_txid` = '".$txid['txid']."' WHERE 'ipfs_hash' = '".$all_data['ipfs_hash']."'";
+                  $upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
               if(mysqli_query($db, $upd_qry2)){
 
               }
