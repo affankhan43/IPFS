@@ -31,11 +31,14 @@ session_start();
             $error[1] = "Unknown Error #9";  
           } else {
             $amount = json_decode($curl1->response,true);
-            if($amount['amount'] >= ($all_data['bitcoin_fees']*100000000)){
-              $upd_qry = "UPDATE `document_details` SET `bitcoin_received` = '".$amount['amount']."' WHERE 'ipfs_hash' = '".$all_data['ipfs_hash']."'";
-              if(mysqli_query($db, $upd_qry)){
 
-              }
+            if($amount['amount']*100000000 >= ($all_data['bitcoin_fees'])){
+              echo "string";
+              $updated_amount = $amount['amount']*100000000;
+              $upd_qry = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+              if(mysqli_query($db, $upd_qry)){
+                echo "string";
+                }
               else{
                 $error[1] = "Please Refresh Again";
               }
@@ -250,7 +253,7 @@ session_start();
         <div class="card-header">Bitcoin Blockchain</div>
         <div class="container card_body">
           <?php if($all_data['verified'] == 0){ ?>
-          <h3 class="heading">Certify this document on Bitcoin BLockchain</h3>
+          <h3 class="heading">Certify this document on Bitcoin Blockchain</h3>
 <?php if(isset($error[1])){ ?>
   <div class="alert alert-warning" role="alert">
     <strong>Oh snap!</strong> <?php echo $error[1]; ?>
