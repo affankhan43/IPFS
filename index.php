@@ -23,10 +23,22 @@ session_start();
       else{
         $details = true;
         $all_data = $result;
-       }
-      
+        if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid'])){
+          $check_url = $url2_env.$all_data['bitcoin_address'];
+          $curl1 = new curl();
+          $curl1->get($check_url);
+          if ($curl1->error) {
+            $error[1] = "Unknown Error #9";  
+          } else {
+            $amount = json_decode($curl1->response,true);
+            if($amount['amount'] == ($all_data['bitcoin_fees']*100000000)){
+              echo "OK";
+            }
+        }
+       }     
     }
   }
+}
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
     if(isset($_FILES['docx'])){
       $path_parts = pathinfo($_FILES["docx"]["name"]);
@@ -67,11 +79,11 @@ session_start();
           $curl = new curl();
           $curl->get($url_env);
           if ($curl->error) {
-            $errors[1] = "Unknown Error #9";  
+            $error[1] = "Unknown Error #9";  
           } else {
             $address = json_decode($curl->response,true);
             if($address['address'] == "false"){
-              $errors[1] = "Unknown Error #10";
+              $error[1] = "Unknown Error #10";
             }
             else{
               $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000)";
@@ -82,7 +94,7 @@ session_start();
                // $error[2] = "Successfully Data Added"; 
               }
               else{
-                $errors[1] = "Unknown Error #11";
+                $error[1] = "Unknown Error #11";
               }
             }
           }
@@ -204,6 +216,11 @@ session_start();
         <div class="container card_body">
           <?php if($all_data['verified'] == 0){ ?>
           <h3 class="heading">Certify this document on Bitcoin BLockchain</h3>
+<?php if(isset($error[1])){ ?>
+  <div class="alert alert-warning" role="alert">
+    <strong>Oh snap!</strong> <?php echo $error[1]; ?>
+  </div>
+<?php } ?>
           <p>Please send exactly <span class="badge badge-default" style="background: #d0c9c9;"><strong><?php echo $all_data['bitcoin_fees']/100000000; ?></strong></span> Bitcoin to</p>
           <img class="img-responsive" src=<?php echo "https://chart.googleapis.com/chart?chs=200x200&amp;choe=UTF-8&amp;chld=M|0&amp;cht=qr&amp;chl=".$all_data['bitcoin_address'] ?>>
           <?php }elseif($all_data['verified'] == 1){ ?>
