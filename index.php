@@ -233,6 +233,35 @@ session_start();
             </div>
           </form>
         </div>
+      </div>
+      <div class="card upload-card">
+        <div class="card-header">Upload File</div>
+        <div class="container">
+          <h3 class="heading">Upload a document on IPFS and have it certified in the Bitcoin blockchain</h3>
+          <form method="post"  enctype="multipart/form-data">
+<?php if(isset($error[0])){ ?>
+  <div class="alert alert-danger" role="alert">
+    <strong>Oh snap!</strong> <?php echo $error[0]; ?>
+  </div>
+<?php } ?>
+<?php if(isset($error[1])){ ?>
+  <div class="alert alert-warning" role="alert">
+    <strong>Oh snap!</strong> <?php echo $error[1]; ?>
+  </div>
+<?php } ?>
+<?php if(isset($error[2])){ ?>
+  <div class="alert alert-success" role="alert">
+    <strong>Oh snap!</strong> <?php echo $error[2]; ?>
+  </div>
+<?php } ?>
+            <div class="form-group">
+              <label for="passport-image">Upload Image</label>
+              <input type="file" name="docx" class="form-control-file uploader" accept=".png, .jpg, .jpeg" required>
+              <input type="hidden" name="xss_code" value=<?php echo xss_code_generate(); ?> required>
+              <input type="submit" name="upload_now" class="form-control btn btn-info" value="Upload Now!" required>
+            </div>
+          </form>
+        </div>
       </div>  
       <?php }else{ ?>
   <div class="row">
