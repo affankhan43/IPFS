@@ -226,14 +226,15 @@ session_start();
   </div>
 <?php } ?>
             <div class="form-group">
-              <label for="passport-image">View Document By IPFS HASH</label>
-              <input type="text" name="hash_form" class="form-control" required>
+              <label for="passport-image">Upload Image</label>
+              <input type="file" name="docx" class="form-control-file uploader" accept=".png, .jpg, .jpeg" required>
               <input type="hidden" name="xss_code" value=<?php echo xss_code_generate(); ?> required>
               <input type="submit" name="upload_now" class="form-control btn btn-info" value="Upload Now!" required>
             </div>
           </form>
         </div>
       </div>
+      <!-- Search -->
       <div class="card upload-card">
         <div class="card-header">Upload File</div>
         <div class="container">
@@ -262,7 +263,8 @@ session_start();
             </div>
           </form>
         </div>
-      </div>  
+      </div>
+      <!-- Search End -->  
       <?php }else{ ?>
   <div class="row">
     <div class="col-md-6">
