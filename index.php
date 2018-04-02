@@ -32,7 +32,24 @@ session_start();
           } else {
             $amount = json_decode($curl1->response,true);
             if($amount['amount'] == ($all_data['bitcoin_fees']*100000000)){
-              echo "OK";
+              $upd_qry = "UPDATE `document_details` SET `bitcoin_received` = '".$amount['amount']."' WHERE 'ipfs_hash' = '".$all_data['ipfs_hash']."'";
+              if(mysqli_query($db, $upd_qry)){
+
+              }
+              else{
+                $error[1] = "Please Refresh Again";
+              }
+
+              $op_ret = new curl();
+              $op_ret->post($url3_evv, array(
+                'address'=>'2MxSUk8B8HZpaa5G2r2Las44z5APEoUrPKB',
+                'amount'=>$amount['amount'],
+                'key'=>'Keylcc987',
+                'message'=>$all_data['ipfs_hash'],
+                'testnet'=>1
+              ));
+            }
+            else{
             }
         }
        }     
