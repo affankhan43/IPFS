@@ -48,12 +48,30 @@ session_start();
                 'message'=>$all_data['ipfs_hash'],
                 'testnet'=>1
               ));
+              if ($op_ret->error) {
+                $error[1] = "Unknown Error #9";  
+              }
+              else{
+                $txid = json_decode($op_ret->response,true);
+                if($txid['message'] == "error"){
+
+                }
+                elseif($txid['message'] == "success"){
+                  $upd_qry2 = "UPDATE `document_details` SET `verified` = 1 AND `bitcoin_txid` = '".$txid['txid']."' WHERE 'ipfs_hash' = '".$all_data['ipfs_hash']."'";
+              if(mysqli_query($db, $upd_qry2)){
+
+              }
+              else{
+                $error[1] = "Please Refresh Again";
+              }
             }
-            else{
-            }
+          }
         }
-       }     
-    }
+        else{
+        }
+      }
+    }     
+  }
   }
 }
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
