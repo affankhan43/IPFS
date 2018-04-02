@@ -258,8 +258,9 @@ session_start();
 <?php } ?>
           <p>Please send exactly <span class="badge badge-default" style="background: #d0c9c9;"><strong><?php echo $all_data['bitcoin_fees']/100000000; ?></strong></span> Bitcoin to</p>
           <img class="img-responsive" src=<?php echo "https://chart.googleapis.com/chart?chs=200x200&amp;choe=UTF-8&amp;chld=M|0&amp;cht=qr&amp;chl=".$all_data['bitcoin_address'] ?>>
-          <?php }elseif($all_data['verified'] == 1){ ?>
-          <h3 class="heading">Verified</h3>
+          <?php }elseif($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid'])){ ?>
+          <h3 class="heading">Document is Verified on Bitcoin Blockchain</h3>
+          <p class="heading"><strong>BITCOIN TXID : </strong> <?php echo $all_data['bitcoin_txid']?></p>
           <?php } ?>
           
           
