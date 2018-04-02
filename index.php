@@ -31,7 +31,7 @@ session_start();
             $error[1] = "Unknown Error #9";  
           } else {
             $amount = json_decode($curl1->response,true);
-            if($amount['amount'] == ($all_data['bitcoin_fees']*100000000)){
+            if($amount['amount'] >= ($all_data['bitcoin_fees']*100000000)){
               $upd_qry = "UPDATE `document_details` SET `bitcoin_received` = '".$amount['amount']."' WHERE 'ipfs_hash' = '".$all_data['ipfs_hash']."'";
               if(mysqli_query($db, $upd_qry)){
 
@@ -258,6 +258,7 @@ session_start();
 <?php } ?>
           <p>Please send exactly <span class="badge badge-default" style="background: #d0c9c9;"><strong><?php echo $all_data['bitcoin_fees']/100000000; ?></strong></span> Bitcoin to</p>
           <img class="img-responsive" src=<?php echo "https://chart.googleapis.com/chart?chs=200x200&amp;choe=UTF-8&amp;chld=M|0&amp;cht=qr&amp;chl=".$all_data['bitcoin_address'] ?>>
+          <p class="heading"><?php echo $all_data['bitcoin_address']?></p>
           <?php }elseif($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid'])){ ?>
           <h3 class="heading">Document is Verified on Bitcoin Blockchain</h3>
           <p class="heading"><strong>BITCOIN TXID : </strong> <?php echo $all_data['bitcoin_txid']?></p>
