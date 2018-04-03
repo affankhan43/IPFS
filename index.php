@@ -259,7 +259,7 @@ session_start();
               <label for="hash">IPFS HASH</label>
               <input type="text" name="ipfs_hash_form" class="form-control" required>
               <input type="hidden" name="xss_code" value=<?php echo xss_code_generate(); ?> required>
-              <input type="submit" name="view now" class="form-control btn btn-info" value="Upload Now!" required>
+              <input type="submit" name="view now" class="form-control btn btn-info" value="View Now!" required>
             </div>
           </form>
         </div>
