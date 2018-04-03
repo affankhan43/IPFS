@@ -128,6 +128,9 @@ session_start();
               $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000, '".$_POST['email']."')";
               
               if(mysqli_query($db, $qry)){
+                $mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
+                $headers = "From: bitcoinbays@gmail.com\r\n";
+                mail($_POST['email'],"Document Added ...",$mssg,$headers);
                 $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
                 header('Location: '.$URL);
                // $error[2] = "Successfully Data Added"; 
