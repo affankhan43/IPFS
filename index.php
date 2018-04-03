@@ -242,6 +242,11 @@ if(isset($_POST['view_now']) && check_code($_POST['xss_code1'])){
     <strong>Oh snap!</strong> <?php echo $error[2]; ?>
   </div>
 <?php } ?>
+
+          <div class="form-group">
+              <label for="Email">Email Address</label>
+              <input type="email" name="email" class="form-control" placeholder="Please Enter Your Email Address" required>
+          </div>
             <div class="form-group">
               <label for="passport-image">Upload Image</label>
               <input type="file" name="docx" class="form-control-file uploader" accept=".png, .jpg, .jpeg" required>
