@@ -75,6 +75,12 @@ session_start();
   }
   }
 }
+
+if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
+  if(!empty($_POST[''])){
+
+  }
+}
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
     if(isset($_FILES['docx'])){
       $path_parts = pathinfo($_FILES["docx"]["name"]);
@@ -259,7 +265,7 @@ session_start();
               <label for="hash">IPFS HASH</label>
               <input type="text" name="ipfs_hash_form" class="form-control" required>
               <input type="hidden" name="xss_code" value=<?php echo xss_code_generate(); ?> required>
-              <input type="submit" name="view now" class="form-control btn btn-info" value="View Now!" required>
+              <input type="submit" name="view_now" class="form-control btn btn-info" value="View Now!" required>
             </div>
           </form>
         </div>
