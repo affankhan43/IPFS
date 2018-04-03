@@ -287,7 +287,7 @@ if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
         <div class="container card_body">
           <p class="heading"><strong>IPFS HASH : </strong> <?php echo $all_data['ipfs_hash']?></p>
           <p class="heading"><strong>IPFS FILE_NAME : </strong> <?php echo $all_data['ipfs_name']?></p>
-          <img src="https://gateway.ipfs.io/ipfs/QmSNTwF26eRxKPFpjUp1TWVq6CPuJqTuhNBTTwRSTSYq1n" class="heading" style="text-align: center;">
+          <img src=<?php echo "https://gateway.ipfs.io/ipfs/".$all_data['ipfs_hash'] ?> class="heading" style="text-align: center;">
         </div>
       </div>
     </div>
