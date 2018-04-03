@@ -27,6 +27,23 @@ function check_code($token){
   return false;
 }
 
+
+function xss_code_generate1(){
+    if(isset($_SESSION['xss_code_generate1'])){
+        unset($_SESSION['xss_code_generate1']);
+        return $_SESSION['xss_code_generate1'] = base64_encode(openssl_random_pseudo_bytes(32));
+    }
+  return $_SESSION['xss_code_generate1'] = base64_encode(openssl_random_pseudo_bytes(32));
+}
+
+function check_code1($token){
+  if($_SESSION['xss_code_generate1'] == $token){
+    unset($_SESSION['xss_code_generate1']);
+    return true;
+  }
+  return false;
+}
+
 function build_data_files($boundary, $fields, $files){
     $data = '';
     $eol = "\r\n";

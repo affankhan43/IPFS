@@ -76,24 +76,13 @@ session_start();
   }
 }
 
-if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
-  if(!empty($_POST['ipfs_hash_form'])){
-    $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_POST['ipfs_hash_form']."' ");
-    $result = mysqli_fetch_assoc($qry);
-    if(empty($result)){
-
-    }
-    else{
-      $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$result['ipfs_hash'];
-      header('Location: '.$URL);
-    }
-  }
-}
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
+    echo "string";
     if(isset($_FILES['docx'])){
       $path_parts = pathinfo($_FILES["docx"]["name"]);
       $extension = $path_parts['extension'];
       if($extension == "png" || $extension == "jpg" || $extension == "jpeg" || $extension == "pdf"){
+        echo "string";
         $fields = array();
         $filenames = array($_FILES['docx']['tmp_name']);
         $files = array();
@@ -162,6 +151,20 @@ if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
       $error[0] = "Please Upload Document Before Uploading";
     }
   }
+
+if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
+  if(!empty($_POST['ipfs_hash_form'])){
+    $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_POST['ipfs_hash_form']."' ");
+    $result = mysqli_fetch_assoc($qry);
+    if(empty($result)){
+
+    }
+    else{
+      $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$result['ipfs_hash'];
+      header('Location: '.$URL);
+    }
+  }
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -253,7 +256,7 @@ if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
         <div class="card-header">View Document By IPFS HASH</div>
         <div class="container">
           <h3 class="heading"></h3>
-          <form method="post"  enctype="multipart/form-data">
+          <form method="post">
 <?php if(isset($error1[0])){ ?>
   <div class="alert alert-danger" role="alert">
     <strong>Oh snap!</strong> <?php echo $error1[0]; ?>
