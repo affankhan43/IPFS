@@ -78,7 +78,7 @@ session_start();
 
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
     echo "string";
-    if(isset($_FILES['docx'])){
+    if(isset($_FILES['docx']) && !empty($_POST['email'])){
       $path_parts = pathinfo($_FILES["docx"]["name"]);
       $extension = $path_parts['extension'];
       if($extension == "png" || $extension == "jpg" || $extension == "jpeg" || $extension == "pdf"){
@@ -125,7 +125,7 @@ session_start();
               $error[1] = "Unknown Error #10";
             }
             else{
-              $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000)";
+              $qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000, '".$_POST['email']."')";
               
               if(mysqli_query($db, $qry)){
                 $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
