@@ -77,8 +77,15 @@ session_start();
 }
 
 if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
-  if(!empty($_POST[''])){
+  if(!empty($_POST['ipfs_hash_form'])){
+    $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
+    $result = mysqli_fetch_assoc($qry);
+    if(empty($result)){
 
+    }
+    else{
+
+    }
   }
 }
   if(isset($_POST['upload_now']) && check_code($_POST['xss_code'])){
