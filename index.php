@@ -152,7 +152,7 @@ session_start();
     }
   }
 
-if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
+if(isset($_POST['view_now']) && check_code($_POST['xss_code1'])){
   if(!empty($_POST['ipfs_hash_form'])){
     $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_POST['ipfs_hash_form']."' ");
     $result = mysqli_fetch_assoc($qry);
@@ -275,7 +275,7 @@ if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
             <div class="form-group">
               <label for="hash">IPFS HASH</label>
               <input type="text" name="ipfs_hash_form" class="form-control" required>
-              <input type="hidden" name="xss_code" value=<?php echo xss_code_generate(); ?> required>
+              <input type="hidden" name="xss_code1" value=<?php echo xss_code_generate1(); ?> required>
               <input type="submit" name="view_now" class="form-control btn btn-info" value="View Now!" required>
             </div>
           </form>
