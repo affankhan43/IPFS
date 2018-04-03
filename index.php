@@ -84,7 +84,8 @@ if(isset($_POST['view_now']) && check_code($_POST['xss_code'])){
 
     }
     else{
-
+      $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$result['ipfs_hash'];
+      header('Location: '.$URL);
     }
   }
 }
