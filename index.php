@@ -319,7 +319,7 @@ if(isset($_POST['view_now']) && check_code($_POST['xss_code1'])){
           <?php }elseif($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid'])){ ?>
           <h3 class="heading">Document is Verified on Bitcoin Blockchain</h3>
           <p class="heading"><strong>BITCOIN TXID : </strong> <?php echo $all_data['bitcoin_txid']?></p>
-          <p class="heading"><a href=<?php echo "https://www.blocktrail.com/tBTC/tx/".$all_data['bitcoin_txid']; ?> class="btn btn-primary">View on Blockchain</a></p>
+          <p class="heading"><a href=<?php echo "https://www.blocktrail.com/tBTC/tx/".$all_data['bitcoin_txid']; ?> target="_blank" class="btn btn-primary">View on Blockchain</a></p>
           <?php } ?>
           
           
