@@ -155,7 +155,7 @@ session_start();
     }
   }
 
-if(isset($_POST['view_now']) && check_code($_POST['xss_code1'])){
+if(isset($_POST['view_now']) && check_code1($_POST['xss_code1'])){
   if(!empty($_POST['ipfs_hash_form'])){
     $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_POST['ipfs_hash_form']."' ");
     $result = mysqli_fetch_assoc($qry);
