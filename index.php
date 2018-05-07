@@ -19,7 +19,7 @@
 		box-shadow:         0px 0px 10px 0px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 	}
 	.eth h3{
-		font-weight: bold;
+		/* font-weight: bold; */
 		text-transform: uppercase;
 	}
 	.eth:hover{
@@ -59,7 +59,7 @@
 			<a class="col-md-4 eth" href="#">
 					<br><br>
 					<img src="bitcoin.png" width="100px" height="100px"><br><br>
-					<h3>Bitcoin Blockchain</h3><br>
+					<h3 style="font-weight:bold;">Bitcoin Blockchain</h3><br>
 					<button type="button" class="btn btn-lg btn-block btn-primary">Select</button>
 					<br>
 			</a>
