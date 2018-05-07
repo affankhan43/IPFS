@@ -72,7 +72,7 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4  verf">
 				<br>
-				<h3>Verify Anything</h3>
+				<h3 class="text-center">Verify Anything</h3>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
