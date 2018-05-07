@@ -91,7 +91,7 @@
 	<form id="form-submission">
 		<h3>Submit Form</h3>
 		<div id="form"></div>
-		<button type="button" name="button" class="btn btn-lg btn-block btn-primary">Submit</button>
+		<button onclick="submitForm();" type="button" name="button" class="btn btn-lg btn-block btn-primary">Submit</button>
 	</form>
 
 
@@ -110,6 +110,11 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 			var formRenderOpts = { container, formData, dataType: 'json' }; $(container).formRender(formRenderOpts);
 		});
 
+	}
+
+	function submitForm(){
+		var formData = $("form").serializeArray();
+		console.log(formData);
 	}
 
 </script>
