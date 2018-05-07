@@ -20,8 +20,7 @@
 		text-transform: uppercase;
 	}
 	.eth:hover{
-		color: white;
-		background-color: #27ae60;
+		color: #3d3d3d;
 		text-decoration: none;
 		transition: all 0.7s ease-in;
 	}
@@ -69,15 +68,12 @@
 					<br>
 			</a>
 			<div class="col-md-1"></div>
-
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
-			<div class="col-md-4"></div>
-			<div class="col-md-4  verf">
-				<br>
-				<h3 class="text-center">Verify Anything</h3>
 			</div>
-			<div class="col-md-4"></div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-center">Verify Anything</h3>
+				</div>
+			</div>
 		</div>
 	</div>
 
