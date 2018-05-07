@@ -9,7 +9,7 @@
 				background: #ECE9E6;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-padding: 100px;
+padding: 150px;
 			}
 		</style>
 	</head>
@@ -21,9 +21,8 @@ padding: 100px;
 					<div class="card">
 					  <img class="card-img-top" src="..." alt="Card image cap">
 					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					    <h5 class="card-title">Bitcoin Blockchain</h5>
+					    <a href="#" class="btn btn-primary btn-block text-center">Select</a>
 					  </div>
 					</div>
 				</div>
@@ -31,9 +30,8 @@ padding: 100px;
 					<div class="card">
 					  <img class="card-img-top" src="..." alt="Card image cap">
 					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					    <h5 class="card-title">Ethereum Blockchain</h5>
+					    <a href="#" class="btn btn-primary btn-block text-center">Select</a>
 					  </div>
 					</div>
 				</div>
