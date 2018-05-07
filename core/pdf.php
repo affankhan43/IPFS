@@ -1,6 +1,6 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
+ini_set("display_errors", 1);
+   include("config.php");
 require 'fpdf181/fpdf.php';
 
 $pdf = new FPDF();
