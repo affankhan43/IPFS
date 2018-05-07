@@ -60,21 +60,21 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-1"></div>
-				<a class="col-md-4 eth" href="#">
+				<div class="col-md-4 eth">
 						<br><br>
 						<img src="bitcoin.png" width="100px" height="100px"><br><br>
 						<h3>Bitcoin Blockchain</h3><br>
 						<button onclick="selectBlock();" type="button" class="btn btn-lg btn-block btn-primary">Select</button>
 						<br>
-				</a>
+				</div>
 				<div class="col-md-2"></div>
-				<a class="col-md-4 eth" href="#">
+				<div class="col-md-4 eth">
 						<br><br>
 						<img src="eth.svg" width="100px" height="100px"><br><br>
 						<h3>Ethereum Blockchain</h3><br>
 						<button type="button" class="btn btn-lg btn-block btn-primary">Coming Soon</button>
 						<br>
-				</a>
+				</div>
 				<div class="col-md-1"></div>
 				</div>
 				<br/>
