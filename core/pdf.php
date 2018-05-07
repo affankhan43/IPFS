@@ -6,7 +6,7 @@ ini_set("display_errors", 1);
 
 if(isset($_POST['action']) && $_POST['action'] == 'saveform'){
 
-  echo $_POST['formData'] . '   ' . $_POST['fileData'];
+  echo $_POST['formdata'] . '   ' . $_POST['filedata'];
 
   // require('fpdf/fpdf.php');
   // $pdf = new FPDF();
