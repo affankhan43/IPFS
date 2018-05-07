@@ -19,7 +19,7 @@ padding: 150px;
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="card">
-					  <img width="100px" class="card-img-top" src="bitcoin.png" alt="Card image cap">
+					  <img width="100px" src="bitcoin.png" alt="Card image cap">
 					  <div class="card-body">
 					    <h5 class="card-title">Bitcoin Blockchain</h5>
 					    <a href="#" class="btn btn-primary btn-block text-center">Select</a>
@@ -28,7 +28,7 @@ padding: 150px;
 				</div>
 				<div class="col-sm-6">
 					<div class="card">
-					  <img width="100px" class="card-img-top" src="eth.svg" alt="Card image cap">
+					  <img width="100px" src="eth.svg" alt="Card image cap">
 					  <div class="card-body">
 					    <h5 class="card-title">Ethereum Blockchain</h5>
 					    <a href="#" class="btn btn-primary btn-block text-center">Select</a>
