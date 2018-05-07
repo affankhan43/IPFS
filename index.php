@@ -116,7 +116,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 		var formData = $("form").serializeArray();
 		var fileData = $("form input[type='file']")[0].files[0];
 
-		console.log(formData + ' ' + fileData);
+		console.log(formData);
 	}
 
 </script>
