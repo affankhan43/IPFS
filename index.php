@@ -117,7 +117,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 		var fileData = $("form input[type='file']")[0].files[0];
 
 		$.ajax({
-		  url: "../core/pdf.php",
+		  url: "core/pdf.php",
 		  processData : false,
 			data : {'action' : 'saveform', 'formdata' : formData, 'filedata' : fileData},
 			success : function(msg){
