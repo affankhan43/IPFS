@@ -14,9 +14,9 @@
 		color: #3d3d3d;
 		background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 		transition: all 0.7s ease-in;
-		-webkit-box-shadow: 0px 0px 10px 0px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-		-moz-box-shadow:    0px 0px 10px 0px #ccc;  /* Firefox 3.5 - 3.6 */
-		box-shadow:         0px 0px 10px 0px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+		-webkit-box-shadow: 0px 0px 15px 0px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+		-moz-box-shadow:    0px 0px 15px 0px #ccc;  /* Firefox 3.5 - 3.6 */
+		box-shadow:         0px 0px 15px 0px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 	}
 	.eth h3{
 		/* font-weight: bold; */
