@@ -64,7 +64,7 @@
 						<br><br>
 						<img src="bitcoin.png" width="100px" height="100px"><br><br>
 						<h3>Bitcoin Blockchain</h3><br>
-						<button type="button" class="btn btn-lg btn-block btn-primary">Select</button>
+						<button onclick="selectBlock();" type="button" class="btn btn-lg btn-block btn-primary">Select</button>
 						<br>
 				</a>
 				<div class="col-md-2"></div>
