@@ -9,7 +9,7 @@
 	}
 	.eth{
 		text-align: center !important;
-		color: white;
+		color: #3d3d3d;
 		background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 		transition: all 0.7s ease-in;
 	}
