@@ -68,10 +68,6 @@
 			<div class="col-md-1"></div>
 
 			<div class="col-md-4"></div>
-			<div class="col-md-4">
-				<br><br><br><br>
-				<button class="btn btn-danger btn-lg btn-block">Go</button>
-			</div>
 			<div class="col-md-4"></div>
 			<div class="col-md-4"></div>
 			<div class="col-md-4  verf">
