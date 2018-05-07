@@ -122,6 +122,9 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 			data : {'action' : 'saveform', 'formdata' : formData, 'filedata' : fileData},
 			success : function(msg){
 				console.log(msg);
+			},
+			error : function(err){
+				console.log(err);
 			}
 		});
 
