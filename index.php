@@ -51,44 +51,52 @@
 </head>
 <body>
 	<div id="select-blockchain">
-	<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
-	<br/>
-	<br/>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-1"></div>
-			<a class="col-md-4 eth" href="#">
-					<br><br>
-					<img src="bitcoin.png" width="100px" height="100px"><br><br>
-					<h3>Bitcoin Blockchain</h3><br>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Select</button>
-					<br>
-			</a>
-			<div class="col-md-2"></div>
-			<a class="col-md-4 eth" href="#">
-					<br><br>
-					<img src="eth.svg" width="100px" height="100px"><br><br>
-					<h3>Ethereum Blockchain</h3><br>
-					<button type="button" class="btn btn-lg btn-block btn-primary">Coming Soon</button>
-					<br>
-			</a>
-			<div class="col-md-1"></div>
-			</div>
-			<br/>
-			<br/>
-			<br/>
+		<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
+		<br/>
+		<br/>
+		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<h3 class="text-center">Verify Anything</h3>
+				<div class="col-md-1"></div>
+				<a class="col-md-4 eth" href="#">
+						<br><br>
+						<img src="bitcoin.png" width="100px" height="100px"><br><br>
+						<h3>Bitcoin Blockchain</h3><br>
+						<button type="button" class="btn btn-lg btn-block btn-primary">Select</button>
+						<br>
+				</a>
+				<div class="col-md-2"></div>
+				<a class="col-md-4 eth" href="#">
+						<br><br>
+						<img src="eth.svg" width="100px" height="100px"><br><br>
+						<h3>Ethereum Blockchain</h3><br>
+						<button type="button" class="btn btn-lg btn-block btn-primary">Coming Soon</button>
+						<br>
+				</a>
+				<div class="col-md-1"></div>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="text-center">Verify Anything</h3>
+					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 
+	<div id="form-submission">
+
+		<div id="form"></div>
+
+	</div>
 
 
 <script
 src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="form-builder.min.js"></script>
+<script type="text/javascript" src="form-render.min.js"></script>
+<script type="text/javascript" src="demo.js"></script>
 </body>
 </html>
