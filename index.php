@@ -14,7 +14,7 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
 	</head>
 	<body>
 
-		<div class="container">
+		<div class="jumbotron container">
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="card">
