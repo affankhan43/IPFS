@@ -88,11 +88,11 @@
 			</div>
 	</div>
 
-	<div id="form-submission">
+	<form id="form-submission">
 		<h3>Submit Form</h3>
 		<div id="form"></div>
 		<button type="button" name="button" class="btn btn-lg btn-block btn-primary">Submit</button>
-	</div>
+	</form>
 
 
 <script
