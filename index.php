@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 	<style media="screen">
 	body{
-		padding: 100px;
+		padding: 80px;
 	}
 	.eth{
 		text-align: center !important;
@@ -52,7 +52,7 @@
 			<div class="col-md-1"></div>
 			<a class="col-md-4 eth" href="#">
 					<br><br>
-					<img src="bitcoin.png" width="50px" height="50px"><br><br>
+					<img src="bitcoin.png" width="100px" height="100px"><br><br>
 					<h3>Bitcoin Blockchain</h3><br>
 					<h5>Fees: 0.0002 BTC</h5>
 					<br>
@@ -60,7 +60,7 @@
 			<div class="col-md-2"></div>
 			<a class="col-md-4 eth" href="#">
 					<br><br>
-					<img src="eth.svg" width="50px" height="50px"><br><br>
+					<img src="eth.svg" width="100px" height="100px"><br><br>
 					<h3>Ethereum Blockchain</h3><br>
 					<h5>Coming Soon</h5>
 					<br>
