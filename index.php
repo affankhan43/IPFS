@@ -50,7 +50,7 @@
 	</style>
 </head>
 <body>
-	<h2 class="text-center">Select Blockchain</h2>
+	<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
 	<br/>
 	<br/>
 	<div class="container">
@@ -59,7 +59,7 @@
 			<a class="col-md-4 eth" href="#">
 					<br><br>
 					<img src="bitcoin.png" width="100px" height="100px"><br><br>
-					<h3 style="font-weight:bold;">Bitcoin Blockchain</h3><br>
+					<h3>Bitcoin Blockchain</h3><br>
 					<button type="button" class="btn btn-lg btn-block btn-primary">Select</button>
 					<br>
 			</a>
