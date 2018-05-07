@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Blockcain</title>
+	<title>IPFS</title>
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 	<style media="screen">
 	.eth{
@@ -42,10 +42,9 @@
 	</style>
 </head>
 <body>
-	<h1>Select BlockChain</h1>
-	<br><br>
 	<div class="container">
 		<div class="row">
+			<h2 class="text-center">Select Blockchain</h2>
 			<div class="col-md-1"></div>
 			<a class="col-md-4 eth" href="#">
 					<br><br>
