@@ -10,7 +10,7 @@
 	.eth{
 		text-align: center !important;
 		color: white;
-		background-color: #333;
+		background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 		transition: all 0.7s ease-in;
 	}
 	.eth h3{
