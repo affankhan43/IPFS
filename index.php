@@ -47,7 +47,7 @@
 	/*.btn .btn-success{
 		display: none !important;
 	}*/
-	#form{
+	#form-submission{
 		display: none;
 	}
 	</style>
@@ -103,7 +103,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 <script type="text/javascript">
 	function selectBlock(){
 		$("#select-blockchain").fadeOut();
-		$("#form").fadeIn();
+		$("#form-submission").fadeIn();
 		var container = document.getElementById('form');
 		$.post('http://159.65.131.43/ipfs-admin/upload.php',{'action' : 'getFormData'} , function(msg) {
 			var formData = msg;
