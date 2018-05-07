@@ -16,6 +16,7 @@
 		transition: all 0.7s ease-in;
 	}
 	.eth h3{
+		font-weight: bold;
 		text-transform: uppercase;
 	}
 	.eth:hover{
