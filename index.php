@@ -120,7 +120,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 		  url: "core/pdf.php",
 			type: 'POST',
 		  processData : false,
-			data : {'action' : 'saveform', 'formdata' : formData, 'filedata' : fileData},
+			data : {'action' : 'saveform'},
 			success : function(msg){
 				console.log(msg);
 			},
