@@ -6,7 +6,7 @@ require('fpdf/fpdf.php');
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->InsertText('asdasd \n asdasdasd \n asdasasd \n sad asdasdsa');
+$pdf->MultiCell(0,5,utf8_decode('asdasdasdasd' . chr(10) . 'zxczxczx'),1);
 $pdf->Output();
 
 // if(isset($_POST['action']) && $_POST['action'] == 'savepdf'){
