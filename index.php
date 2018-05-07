@@ -57,7 +57,7 @@
 					<br><br>
 					<img src="bitcoin.png" width="100px" height="100px"><br><br>
 					<h3>Bitcoin Blockchain</h3><br>
-					<h5>Fees: 0.0002 BTC</h5>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Select</button>
 					<br>
 			</a>
 			<div class="col-md-2"></div>
@@ -65,7 +65,7 @@
 					<br><br>
 					<img src="eth.svg" width="100px" height="100px"><br><br>
 					<h3>Ethereum Blockchain</h3><br>
-					<h5>Coming Soon</h5>
+					<button type="button" class="btn btn-lg btn-block btn-primary">Coming Soon</button>
 					<br>
 			</a>
 			<div class="col-md-1"></div>
