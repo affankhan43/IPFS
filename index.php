@@ -3,9 +3,11 @@
 <head>
 	<title>IPFS</title>
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
 	<style media="screen">
 	body{
 		padding: 80px;
+    font-family: 'Gothic A1', sans-serif;
 	}
 	.eth{
 		text-align: center !important;
