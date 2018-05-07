@@ -4,6 +4,9 @@
 	<title>IPFS</title>
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 	<style media="screen">
+	body{
+		padding: 100px;
+	}
 	.eth{
 		text-align: center !important;
 		color: white;
@@ -43,7 +46,7 @@
 </head>
 <body>
 	<h2 class="text-center">Select Blockchain</h2>
-	
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-1"></div>
