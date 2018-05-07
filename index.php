@@ -114,8 +114,11 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 
 	function submitForm(){
 		var formData = $("form").serializeArray();
-		formData.push($("form input[type='file']")[0].files[0]);
-		console.log(formData);
+		var fileData = $("form input[type='file']")[0].files[0];
+		$.post('../core/pdf.php', {'action':'saveform', 'formData' : formData, 'fileData': fileData}, function(msg){
+			console.log(msg);
+		});
+
 	}
 
 </script>
