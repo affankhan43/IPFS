@@ -91,7 +91,7 @@
 	<div id="form-submission">
 		<h3>Submit Form</h3>
 		<div id="form"></div>
-
+		<button type="button" name="button" class="btn btn-lg btn-block btn-primary">Submit</button>
 	</div>
 
 
