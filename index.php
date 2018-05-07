@@ -101,7 +101,8 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 	  var container = document.getElementById('form');
 		$.post('http://159.65.131.43/ipfs-admin/upload.php',{'action' : 'getFormData'} , function(msg) {
 			var formData = msg;
-			var formRenderOpts = { container, formData, dataType: 'json' }; $(container).formRender(formRenderOpts); </script>
+			var formRenderOpts = { container, formData, dataType: 'json' }; $(container).formRender(formRenderOpts);
 		});
+</script>
 </body>
 </html>
