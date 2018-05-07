@@ -50,6 +50,7 @@
 	</style>
 </head>
 <body>
+	<div id="select-blockchain">
 	<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
 	<br/>
 	<br/>
