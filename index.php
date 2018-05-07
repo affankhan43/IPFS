@@ -42,9 +42,10 @@
 	</style>
 </head>
 <body>
+	<h2 class="text-center">Select Blockchain</h2>
+	
 	<div class="container">
 		<div class="row">
-			<h2 class="text-center">Select Blockchain</h2>
 			<div class="col-md-1"></div>
 			<a class="col-md-4 eth" href="#">
 					<br><br>
