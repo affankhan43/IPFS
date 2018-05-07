@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-require('fpdf.php');
+require('fpdf/fpdf.php');
 
 $pdf = new FPDF();
 $pdf->AddPage();
