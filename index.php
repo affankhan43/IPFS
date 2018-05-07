@@ -47,6 +47,9 @@
 	/*.btn .btn-success{
 		display: none !important;
 	}*/
+	#form{
+		display: none;
+	}
 	</style>
 </head>
 <body>
