@@ -99,6 +99,9 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 <script type="text/javascript" src="form-render.min.js"></script>
 <script type="text/javascript">
 	  var container = document.getElementById('form');
-		var formData = '[ { "type": "text", "label": "Text Field", "name": "text-1525705648742", "subtype": "text", "className": "red form-control" }, { "type": "file", "label": "File Upload", "className": "form-control", "name": "file-1525705650188", "subtype": "file" } ]'; var formRenderOpts = { container, formData, dataType: 'json' }; $(container).formRender(formRenderOpts); </script>
+		$.post('http://159.65.131.43/ipfs-admin/upload.php',{'action' : 'getFormData'} , function(msg) {
+			var formData = msg;
+			var formRenderOpts = { container, formData, dataType: 'json' }; $(container).formRender(formRenderOpts); </script>
+		});
 </body>
 </html>
