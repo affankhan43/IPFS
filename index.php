@@ -1,42 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>IPFS</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-		<style media="screen">
-			body{
-				background: #ECE9E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-padding: 150px;
-			}
-		</style>
-	</head>
-	<body>
+<html>
+<head>
+	<title>Blockcain</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<style media="screen">
+	.eth{
+		text-align: center !important;
+		color: white;
+		background-color: #333;
+		transition: all 0.7s ease-in;
+	}
+	.eth h3{
+		text-transform: uppercase;
+	}
+	.eth:hover{
+		color: white;
+		background-color: #27ae60;
+		text-decoration: none;
+		transition: all 0.7s ease-in;
+	}
+	.sub{
+		width: 500px;
+		text-align: center;
+		padding: 10px 50px;
+		background: #333;
+		color: white;
+		margin-top: 50px;
+	}
+	.verf{
+		border-top: 2px solid black;
+		margin-top: 90px;
+		text-align: center;
 
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6">
-					<div class="card">
-					  <img class="text-center" width="100px" src="bitcoin.png" alt="Card image cap">
-					  <div class="card-body">
-					    <h5 class="card-title">Bitcoin Blockchain</h5>
-					    <a href="#" class="btn btn-primary btn-block text-center">Select</a>
-					  </div>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="card">
-					  <img class="text-center" width="100px" src="eth.svg" alt="Card image cap">
-					  <div class="card-body">
-					    <h5 class="card-title">Ethereum Blockchain</h5>
-					    <a href="#" class="btn btn-primary btn-block text-center">Select</a>
-					  </div>
-					</div>
-				</div>
+	}
+	.icon-checkbox-group{
+		display: none !important;
+	}
+	/*.btn .btn-success{
+		display: none !important;
+	}*/
+	</style>
+</head>
+<body>
+	<h1>Select BlockChain</h1>
+	<br><br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<a class="col-md-4 eth" href="#">
+					<br><br>
+					<img src="img/Bitcoin.svg.png" width="50px" height="50px"><br><br>
+					<h3>Bitcoin Blockchain</h3><br>
+					<h5>Fees: 0.0002 BTC</h5>
+					<br>
+			</a>
+			<div class="col-md-2"></div>
+			<a class="col-md-4 eth" href="#">
+					<br><br>
+					<img src="img/eth.svg" width="50px" height="50px"><br><br>
+					<h3>Ethereum Blockchain</h3><br>
+					<h5>Coming Soon</h5>
+					<br>
+			</a>
+			<div class="col-md-1"></div>
+
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<br><br><br><br>
+				<button class="btn btn-danger btn-lg btn-block">Go</button>
 			</div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4  verf">
+				<br>
+				<h3>Verify Anything</h3>
+			</div>
+			<div class="col-md-4"></div>
 		</div>
+	</div>
 
-	</body>
+
+
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+</body>
 </html>
