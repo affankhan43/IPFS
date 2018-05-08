@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="style.css">
 	<style media="screen">
 	body{
-		padding: 80px;
     font-family: 'Gothic A1', sans-serif;
 	}
 	.eth{
@@ -114,13 +113,13 @@ input.form-control{
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-2">
 				<div class="sidenav">
 					<a class="sidenav_header">IPFS</a>
 				  <a onclick="verifPage()">Verfiy</a>
 				</div>
 			</div>
-			<div class="col-sm-9">
+			<div class="col-sm-10">
 				<div id="select-blockchain">
 					<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
 					<br/>
