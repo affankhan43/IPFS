@@ -103,7 +103,7 @@ input{
 box-shadow: none;
 padding: 10px;
 border-radius: 5px;
-margin-left: 10px;
+margin-left: 10px !important; 
 }
 input.form-control{
 	height: inherit !important;
