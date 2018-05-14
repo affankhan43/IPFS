@@ -1,6 +1,7 @@
 <?php 
 	if(isset($_POST['ipfs_button'])){
 		print_r($_POST);
+		echo '<script type="text/javascript">selectBlock()</script>';
 	}
 ?>
 <!DOCTYPE html>
