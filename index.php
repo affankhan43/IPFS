@@ -195,6 +195,10 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 		var reader = new FileReader();
     	reader.onload = function(e) {
     		console.log(e.target.result);
+    		$.post('http://159.65.131.43/ipfs/mpost.php',{'msg' : 'make_pdf'} , function(msg) {
+				var response = msg;
+				console.log(response);
+			});
       		$('#blah').attr('src', e.target.result);
     	}
     	reader.readAsDataURL(fileData);
