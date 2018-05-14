@@ -1,9 +1,3 @@
-<?php 
-	if(isset($_POST['ipfs_button'])){
-		print_r($_POST);
-		echo '<script type="text/javascript">selectBlock()</script>';
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -162,7 +156,7 @@ input.form-control{
 						</div>
 				</div>
 
-				<form id="form-submission">
+				<form id="form-submission" enctype="multipart/form-data">
 					<h3>Submit Form</h3>
 					<div id="form"></div>
 					<button onclick="submitForm();" type="button" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
