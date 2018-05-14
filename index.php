@@ -1,3 +1,8 @@
+<?php 
+	if(isset($_POST['ipfs_button'])){
+		print_r($_POST);
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -159,7 +164,7 @@ input.form-control{
 				<form id="form-submission" method="post" enctype="multipart/form-data">
 					<h3>Submit Form</h3>
 					<div id="form"></div>
-					<button onclick="submitForm();" type="submit" name="button" class="btn btn-lg btn-block btn-primary">Submit</button>
+					<button onclick="submitForm();" type="submit" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
 				</form>
 
 			</div>
