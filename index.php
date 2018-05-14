@@ -50,6 +50,9 @@
 	#form-submission{
 		display: none;
 	}
+	#blah{
+		display: none;
+	}
 	/* The sidebar menu */
 	.sidenav {
 		 height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -194,6 +197,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
       		$('#blah').attr('src', e.target.result);
     	}
     	reader.readAsDataURL(fileData);
+    	$("#blah").fadeIn();
 		console.log(fileData);
 		console.log(formData);
 	}
