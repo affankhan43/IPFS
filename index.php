@@ -156,7 +156,7 @@ input.form-control{
 						</div>
 				</div>
 
-				<form id="form-submission">
+				<form id="form-submission" method="post" enctype="multipart/form-data">
 					<h3>Submit Form</h3>
 					<div id="form"></div>
 					<button onclick="submitForm();" type="button" name="button" class="btn btn-lg btn-block btn-primary">Submit</button>
