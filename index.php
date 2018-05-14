@@ -195,8 +195,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 	function submitForm(){
 		var formData = $("form").serializeArray();
 		var fileData = $("form input[type='file']")[0].files[0];
-		var formarray = $("form").serializeArray();
-		console.log(formarray);
+		console.log(fileData);
 		console.log(formData);
 	}
 
