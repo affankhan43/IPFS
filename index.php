@@ -194,6 +194,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 		var fileData = $("form input[type='file']")[0].files[0];
 		var reader = new FileReader();
     	reader.onload = function(e) {
+    		console.log(e.target.result);
       		$('#blah').attr('src', e.target.result);
     	}
     	reader.readAsDataURL(fileData);
