@@ -159,7 +159,7 @@ input.form-control{
 				<form id="form-submission" method="post" enctype="multipart/form-data">
 					<h3>Submit Form</h3>
 					<div id="form"></div>
-					<button onclick="submitForm();" type="button" name="button" class="btn btn-lg btn-block btn-primary">Submit</button>
+					<button onclick="submitForm();" type="submit" name="button" class="btn btn-lg btn-block btn-primary">Submit</button>
 				</form>
 
 			</div>
