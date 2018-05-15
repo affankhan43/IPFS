@@ -176,7 +176,7 @@ input.form-control{
 					<div class="col-12">
 						<h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
 					</div>
-					<div class="col-lg-6 mb-6">
+					<div class="col-lg-4 mb-4">
 						<div class="card text-white bg-info">
 							<div class="card-header">IPFS DETAILS</div>
 							<div class="card-block">
@@ -185,7 +185,7 @@ input.form-control{
 						</div>
 					</div>
 
-					<div class="col-lg-6 mb-6 bg-default">
+					<div class="col-lg-4 mb-4 bg-default">
 						<div class="card">
 							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
 
