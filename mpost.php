@@ -73,7 +73,6 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 	else{
 				$data_compose = json_decode($response,true);
 				if(isset($data_compose['Hash'])){
-					echo $data_compose['Hash'];
 					$curl = new curl();
 					$curl->get($url_env);
 					if ($curl->error) {
@@ -87,11 +86,11 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 						else{
 						$qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000, 'Null')";
 						if(mysqli_query($db, $qry)){
-							$mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
-							$headers = "From: bitcoinbays@gmail.com\r\n";
-							mail($_POST['email'],"Document Added ...",$mssg,$headers);
-							$URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
-							header('Location: '.$URL);
+							// $mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
+							// $headers = "From: bitcoinbays@gmail.com\r\n";
+							// mail($_POST['email'],"Document Added ...",$mssg,$headers);
+							// $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
+							// header('Location: '.$URL);
                				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'])); 
 						}
 						else{
