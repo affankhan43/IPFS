@@ -168,11 +168,11 @@ input.form-control{
 
 				<section id="txdetails" class="row">
 					<div class="col-12">
-						<h3 class="mb-4">Basic Cards</h3>
+						<h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
 					</div>
 					<div class="col-lg-6 mb-6 bg-default">
 						<div class="card">
-							<div class="card-header">Default Card</div>
+							<div class="card-header">IPFS DETAILS</div>
 							<div class="card-block">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
 														ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
@@ -182,13 +182,12 @@ input.form-control{
 						</div>
 					</div>
 					<div class="col-lg-6 mb-6">
-						<div class="card text-white bg-primary">
-							<div class="card-header">Primary Card</div>
+						<div class="card text-white bg-info">
+							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
 							<div class="card-block">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-														ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
-														nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
-														pharetra molestie. Fusce et dui urna.</p>
+								<p>Send exactly <div id="resp_fee"></div> </p>
+								<img id="resp_qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" />
+								<p id="resp_address"></p>
 							</div>
 						</div>
 					</div>
