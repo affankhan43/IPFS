@@ -188,7 +188,7 @@ input.form-control{
 
 							<div class="card-block">
 								<p class="text-center">Send exactly <div id="resp_fee"></div> </p>
-								<img class="text-center" id="resp_qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" />
+								<img style="display: table; margin: 0 auto;" id="resp_qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" />
 								<p id="resp_address"></p>
 							</div>
 						</div>
