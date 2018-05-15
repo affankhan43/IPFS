@@ -172,7 +172,7 @@ input.form-control{
 					</div>
 					<div class="col-lg-6 mb-6">
 						<div class="card text-white bg-info">
-							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
+							<div class="card-header">IPFS DETAILS</div>
 							<div class="card-block">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
 														ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
@@ -184,7 +184,7 @@ input.form-control{
 
 					<div class="col-lg-6 mb-6 bg-default">
 						<div class="card">
-							<div class="card-header">IPFS DETAILS</div>
+							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
 
 							<div class="card-block">
 								<p>Send exactly <div id="resp_fee"></div> </p>
