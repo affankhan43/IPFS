@@ -25,6 +25,13 @@ header("Access-Control-Allow-Headers: *");
 
 
 if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData']) && isset($_POST['file_type']) && $_POST['msg'] == "make_pdf"){
+	$type = explode("/",$_POST['file_type']);
+	if(!isset($type[1])){
+		$file_type = $type[0];
+	}
+	else{
+		$file_type = $type[1];	
+	}
 	$post_string = "";
 	$image_y = sizeof($_POST['form_data'])*2*5 + 20;
 	for ($i=0; $i < sizeof($_POST['form_data']); $i++){
@@ -35,7 +42,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$pdf->SetFont('Arial','B',16);
 	$pdf->MultiCell(0,5,$post_string,0);
 	$info = getimagesize($_POST['fileData']);
-	$pdf->Image($_POST['fileData'],10,$image_y,$info[0]/3,$info[1]/3,$_POST['file_type']);
+	$pdf->Image($_POST['fileData'],10,$image_y,$info[0]/3,$info[1]/3,$file_type);
 	$filename = uniqid().'.pdf';
 	$pdf->Output($filename,'F');
 	if(file_exists($filename)){
