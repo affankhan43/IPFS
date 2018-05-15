@@ -73,6 +73,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 	else{
 				$data_compose = json_decode($response,true);
 				if(isset($data_compose['Hash'])){
+					echo $data_compose['Hash'];
 					$curl = new curl();
 					$curl->get($url_env);
 					if ($curl->error) {
