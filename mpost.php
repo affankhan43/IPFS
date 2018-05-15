@@ -38,7 +38,9 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$pdf->Image($_POST['fileData'],10,$image_y,$info[0]/3,$info[1]/3,'jpeg');
 	$filename = uniqid().'.pdf';
 	$pdf->Output($filename,'F');
-	echo $_POST['fileData'];
+	if(file_exists($filename)){
+		echo "Done Successfully";
+	}
 }
 
 ?>
