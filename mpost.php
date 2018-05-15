@@ -1,29 +1,20 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
-// $field_data[0] = array('field'=>'Name'  ,'value' => "Affan" );
-// $field_data[1] = array('field'=>'Gender','value' => "Male" );
-// $field_data[2] = array('field'=>'Area'  ,'value' => "Karachi" );
-// $field_data[3] = array('field'=>'Area'  ,'value' => "Karachi" );
-// $field_data[4] = array('field'=>'Area'  ,'value' => "Karachi" );
-// $field_data[5] = array('field'=>'Area'  ,'value' => "Karachi" );
-// $field_data[6] = array('field'=>'Area'  ,'value' => "Karachi" );
-// $post_string = "";
-// $image_y = sizeof($field_data)*2*5 + 20;
-// for ($i=0; $i < sizeof($field_data); $i++){
-// 		$post_string .= " \n ".$field_data[$i]['field']." : ".$field_data[$i]['value']." \n ";
-// }
+
+	include 'core/.env';
+	$db = mysqli_connect($HostName,$HostUser,$HostPass,$dbName) or die("Could not connect to the database");
+	if (mysqli_connect_errno()) {
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	else{
+		//echo "sdf";
+	}
+	require __DIR__ . '/vendor/autoload.php';
 	require('core/fpdf/fpdf.php');
 	include 'core/funcs.php';
-//  $pdf = new FPDF();
-//  $pdf->AddPage();
-//  $pdf->SetFont('Arial','B',16);
- 
-//  $info = getimagesize($bsx);
-//  $pdf->MultiCell(0,5,$post_string,0);
-//  $pdf->Image($bsx,10,$image_y,$info[0],$info[1],'png');
-//  $pdf->Output('F');
-
+	include '.env';
+	use \Curl\Curl;
 
 if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData']) && isset($_POST['file_type']) && $_POST['msg'] == "make_pdf"){
 	$type = explode("/",$_POST['file_type']);
@@ -77,14 +68,43 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 	$err = curl_error($curl);
 		 	curl_close($curl);
 		 	if($err){
-		 		echo "cURL Error #:" . $err;
+		 		echo json_encode(array("success"=>false,"message"=>"cUrl Error#"));
 		 	}
 		 	else{
-	  			//$data_compose = json_decode($response,true);
-		 		echo $response;
-		 	}
-		 }
+				$data_compose = json_decode($response,true);
+				if(isset($data_compose['Hash'])){
+					$curl = new curl();
+					$curl->get($url_env);
+					if ($curl->error) {
+						echo json_encode(array("success"=>false,"message"=>"Unknown Error #09"));  
+					}
+					else{
+						$address = json_decode($curl->response,true);
+						if($address['address'] == "false"){
+							echo json_encode(array("success"=>false,"message"=>"Unknown Error #10"));
+						}
+						else{
+						$qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000, 'Null')";
+						if(mysqli_query($db, $qry)){
+							$mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
+							$headers = "From: bitcoinbays@gmail.com\r\n";
+							mail($_POST['email'],"Document Added ...",$mssg,$headers);
+							$URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
+							header('Location: '.$URL);
+               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added")); 
+						}
+						else{
+							echo json_encode(array("success"=>false,"message"=>"Unknown Error #11"));
+						}
+					}
+				}
+			}
+			else{
+				echo json_encode(array("success"=>false,"message"=>"Hash Error"));
+			}
+		}
 	}
+}
 }
 
 ?>
