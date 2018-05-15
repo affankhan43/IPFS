@@ -51,6 +51,9 @@
 		display: none;
 	}
 	#txdetails{
+		display: block;
+	}
+	#select-blockchain{
 		display: none;
 	}
 	#blah{
