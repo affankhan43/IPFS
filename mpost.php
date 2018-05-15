@@ -68,9 +68,11 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 	$err = curl_error($curl);
 		 	curl_close($curl);
 		 	if($err){
+		 		unlink($filename);
 		 		echo json_encode(array("success"=>false,"message"=>"cUrl Error#"));
 		 	}
 		 	else{
+		 		unlink($filename);
 				$data_compose = json_decode($response,true);
 				if(isset($data_compose['Hash'])){
 					$curl = new curl();

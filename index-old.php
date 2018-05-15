@@ -300,7 +300,7 @@ if(isset($_POST['view_now']) && check_code1($_POST['xss_code1'])){
           <p class="heading"><strong>IPFS HASH : </strong> <?php echo $all_data['ipfs_hash']?></p>
           <p class="heading"><strong>IPFS FILE_NAME : </strong> <?php echo $all_data['ipfs_name']?></p>
           <img src=<?php echo "https://gateway.ipfs.io/ipfs/".$all_data['ipfs_hash'] ?> class="heading img-fluid" style="text-align: center;">
-          <embed src=<?php echo "https://gateway.ipfs.io/ipfs/".$all_data['ipfs_hash'] ?> width="300px" height="700px" />
+          <embed src=<?php echo "https://gateway.ipfs.io/ipfs/".$all_data['ipfs_hash'] ?> class="heading img-fluid" style="text-align: center;" />
         </div>
       </div>
     </div>
