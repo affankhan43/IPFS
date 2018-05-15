@@ -89,7 +89,16 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							echo json_encode(array("success"=>false,"message"=>"Unknown Error #10"));
 						}
 						else{
-						$qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."',50000, 'Null')";
+							$get_qry = "SELECT fees FROM message_fees WHERE coin='bitcoin'";
+							$result = mysqli_query($db, $get_qry);
+							$value = ($result->fetch_assoc());
+							if(isset($value['fees'])){
+								$value_fees = $value['fees'];
+							}
+							else{
+								$value_fees = 50000;
+							}
+							$qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."','".$value_fees."', 'Null')";
 						if(mysqli_query($db, $qry)){
 							// $mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
 							// $headers = "From: bitcoinbays@gmail.com\r\n";
