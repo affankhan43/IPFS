@@ -106,7 +106,7 @@ input{
 box-shadow: none;
 padding: 10px;
 border-radius: 5px;
-margin-left: 10px !important; 
+margin-left: 10px !important;
 }
 input.form-control{
 	height: inherit !important;
@@ -124,6 +124,7 @@ input.form-control{
 				</div>
 			</div>
 			<div class="col-sm-10" style="padding: 50px 0px 0px 0px">
+
 				<div id="select-blockchain">
 					<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
 					<br/>
@@ -164,6 +165,80 @@ input.form-control{
 					<div id="form"></div>
 					<button onclick="submitForm();" type="button" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
 				</form>
+
+				<section id="txdetails" class="row">
+					<div class="col-12">
+						<h3 class="mb-4">Basic Cards</h3>
+					</div>
+					<div class="col-lg-4 mb-4 bg-default">
+						<div class="card">
+							<div class="card-header">Default Card</div>
+							<div class="card-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+														ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
+														nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
+														pharetra molestie. Fusce et dui urna.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 mb-4">
+						<div class="card text-white bg-primary">
+							<div class="card-header">Primary Card</div>
+							<div class="card-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+														ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
+														nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
+														pharetra molestie. Fusce et dui urna.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 mb-4">
+						<div class="card text-white bg-success">
+							<div class="card-header">Success Card</div>
+							<div class="card-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+														ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
+														nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
+														pharetra molestie. Fusce et dui urna.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 mb-4">
+						<div class="card text-white bg-info">
+							<div class="card-header">Info Card</div>
+							<div class="card-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+															ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
+															nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
+															pharetra molestie. Fusce et dui urna.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 mb-4">
+						<div class="card text-white bg-warning">
+							<div class="card-header">Warning Card</div>
+							<div class="card-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+															ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
+															nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
+															pharetra molestie. Fusce et dui urna.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 mb-4">
+						<div class="card text-white bg-danger">
+							<div class="card-header">Danger Card</div>
+							<div class="card-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+															ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
+															nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
+															pharetra molestie. Fusce et dui urna.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
 				<img id="blah" src="#" alt="your image" />
 			</div>
 		</div>
