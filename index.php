@@ -188,7 +188,7 @@ input.form-control{
 
 							<div class="card-block">
 								<p class="text-center">Send exactly <div id="resp_fee"></div> </p>
-								<img style="display: table; margin: 0 auto;" id="resp_qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example" />
+								<img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
 								<p id="resp_address"></p>
 							</div>
 						</div>
@@ -233,7 +233,11 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 				var response = JSON.parse(msg);
 				$("#form-submission").fadeOut();
 				$("#txdetails").fadeIn();
-				console.log(response);
+				$("#resp_ipfs").html(response.HASH);
+				$("#resp_fee").html(response.fees);
+				$("#resp_qr").src("https://api.qrserver.com/v1/create-qr-code/?size=350x350&data="+response.address);
+				$("#resp_address").html(response.address);
+				// console.log(response);
 			});
       		$('#blah').attr('src', e.target.result);
     	}
