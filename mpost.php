@@ -13,7 +13,7 @@ header("Access-Control-Allow-Headers: *");
 // for ($i=0; $i < sizeof($field_data); $i++){
 // 		$post_string .= " \n ".$field_data[$i]['field']." : ".$field_data[$i]['value']." \n ";
 // }
-// require('core/fpdf/fpdf.php');
+ require('core/fpdf/fpdf.php');
 //  $pdf = new FPDF();
 //  $pdf->AddPage();
 //  $pdf->SetFont('Arial','B',16);
@@ -22,8 +22,19 @@ header("Access-Control-Allow-Headers: *");
 //  $pdf->Output('F');
 
 
-if(isset($_POST['msg']) && $_POST['msg'] == "make_pdf"){
-	print_r($_POST);
+if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData']) && $_POST['msg'] == "make_pdf"){
+	$post_string = "";
+	$image_y = sizeof($_POST['form_data'])*2*5 + 20;
+	for ($i=0; $i < sizeof($_POST['form_data']); $i++){
+		$post_string .= " \n ".$_POST['form_data'][$i]['name']." : ".$_POST['form_data'][$i]['value']." \n ";
+	}
+	$pdf = new FPDF();
+	$pdf->AddPage();
+	$pdf->SetFont('Arial','B',16);
+	$pdf->MultiCell(0,5,$post_string,0);
+	//$pdf->Image('',10,$image_y,30);
+	$pdf->Output('F');
+	echo "Done Successfully";
 }
 
 ?>
