@@ -28,12 +28,11 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	for ($i=0; $i < sizeof($_POST['form_data']); $i++){
 		$post_string .= " \n ".$_POST['form_data'][$i]['name']." : ".$_POST['form_data'][$i]['value']." \n ";
 	}
-	// $pdf = new FPDF();
-	// $pdf->AddPage();
-	// $pdf->SetFont('Arial','B',16);
-	// $pdf->MultiCell(0,5,$post_string,0);
-	// //$pdf->Image('',10,$image_y,30);
-	// $pdf->Output('F');
+	$pdf = new FPDF();
+	$pdf->AddPage();
+	$pdf->SetFont('Arial','B',16);
+	$pdf->MultiCell(0,5,$post_string,0);
+	$pdf->Output('F');
 	echo $post_string;
 	//echo "Done Successfully";
 }
