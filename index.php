@@ -192,10 +192,11 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 	function submitForm(){
 		var formData = $("form").serializeArray();
 		var fileData = $("form input[type='file']")[0].files[0];
+		var fileType = $("form input[type='file']")[0].files[0]['type'];
 		var reader = new FileReader();
     	reader.onload = function(e) {
     		//console.log(e.target.result);
-    		$.post('http://159.65.131.43/ipfs/mpost.php',{'msg' : 'make_pdf','form_data': formData,'fileData':e.target.result } , function(msg) {
+    		$.post('http://159.65.131.43/ipfs/mpost.php',{'msg' : 'make_pdf','form_data': formData,'fileData':e.target.result, 'file_type' : fileType } , function(msg) {
 				var response = msg;
 				console.log(response);
 			});
