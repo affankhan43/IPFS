@@ -13,12 +13,14 @@ header("Access-Control-Allow-Headers: *");
 // for ($i=0; $i < sizeof($field_data); $i++){
 // 		$post_string .= " \n ".$field_data[$i]['field']." : ".$field_data[$i]['value']." \n ";
 // }
- require('core/fpdf/fpdf.php');
+	require('core/fpdf/fpdf.php');
 //  $pdf = new FPDF();
 //  $pdf->AddPage();
 //  $pdf->SetFont('Arial','B',16);
+ 
+//  $info = getimagesize($bsx);
 //  $pdf->MultiCell(0,5,$post_string,0);
-//  $pdf->Image('bitcoin.png',10,$image_y,30);
+//  $pdf->Image($bsx,10,$image_y,$info[0],$info[1],'png');
 //  $pdf->Output('F');
 
 
@@ -32,7 +34,8 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$pdf->AddPage();
 	$pdf->SetFont('Arial','B',16);
 	$pdf->MultiCell(0,5,$post_string,0);
-	//$pdf->Image($_POST['fileData'],10,$image_y,30,'png');
+	$info = getimagesize($_POST['fileData']);
+	$pdf->Image($_POST['fileData'],10,$image_y,$info[0],$info[1],'jpeg');
 	$filename = uniqid().'.pdf';
 	$pdf->Output($filename,'F');
 	echo $_POST['fileData'];
