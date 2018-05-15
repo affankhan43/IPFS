@@ -16,9 +16,6 @@ header("Access-Control-Allow-Headers: *");
 	include '.env';
 	use \Curl\Curl;
 
-	
-	print_r($value);
-
 if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData']) && isset($_POST['file_type']) && $_POST['msg'] == "make_pdf"){
 	$type = explode("/",$_POST['file_type']);
 	if(!isset($type[1])){
