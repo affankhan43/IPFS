@@ -14,6 +14,7 @@ header("Access-Control-Allow-Headers: *");
 // 		$post_string .= " \n ".$field_data[$i]['field']." : ".$field_data[$i]['value']." \n ";
 // }
 	require('core/fpdf/fpdf.php');
+	include 'core/funcs.php';
 //  $pdf = new FPDF();
 //  $pdf->AddPage();
 //  $pdf->SetFont('Arial','B',16);
@@ -49,40 +50,40 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		$path_parts = pathinfo($filename);
 		$extension = $path_parts['extension'];
 		if($extension == "pdf"){
-        	$fields = array();
-        	$filenames = array($path_parts['basename']);
-        	$files = array();
-        	foreach ($filenames as $f){
-          		$files[$path_parts['basename']] = file_get_contents($f);
-        	}
-			$url = "http://159.65.131.43:5001/api/v0/add";
-			$curl = curl_init();
-			$boundary = uniqid();
-			$delimiter = '-------------' . $boundary;
-			$post_data = build_data_files($boundary, $fields, $files);
-			curl_setopt_array($curl, array(
-				CURLOPT_URL => $url,
-				CURLOPT_RETURNTRANSFER => 1,
-				CURLOPT_MAXREDIRS => 10,
-				CURLOPT_TIMEOUT => 30,
-				CURLOPT_CUSTOMREQUEST => "POST",
-				CURLOPT_POST => 1,
-				CURLOPT_POSTFIELDS => $post_data,
-				CURLOPT_HTTPHEADER => array(
-					"Content-Type: multipart/form-data; boundary=" . $delimiter,
-					"Content-Length: " . strlen($post_data)),
-			));
-			$response = curl_exec($curl);
-			$err = curl_error($curl);
-			curl_close($curl);
-			if($err){
-				echo "cURL Error #:" . $err;
-			}
-			else{
-	 			//$data_compose = json_decode($response,true);
-				echo $response;
-			}
-		}
+         	$fields = array();
+         	$filenames = array($path_parts['basename']);
+         	$files = array();
+         	foreach ($filenames as $f){
+           		$files[$path_parts['basename']] = file_get_contents($f);
+         	}
+		 	$url = "http://159.65.131.43:5001/api/v0/add";
+		 	$curl = curl_init();
+		 	$boundary = uniqid();
+		 	$delimiter = '-------------' . $boundary;
+		 	$post_data = build_data_files($boundary, $fields, $files);
+		 	curl_setopt_array($curl, array(
+		 		CURLOPT_URL => $url,
+		 		CURLOPT_RETURNTRANSFER => 1,
+		 		CURLOPT_MAXREDIRS => 10,
+		 		CURLOPT_TIMEOUT => 30,
+		 		CURLOPT_CUSTOMREQUEST => "POST",
+		 		CURLOPT_POST => 1,
+		 		CURLOPT_POSTFIELDS => $post_data,
+		 		CURLOPT_HTTPHEADER => array(
+		 			"Content-Type: multipart/form-data; boundary=" . $delimiter,
+		 			"Content-Length: " . strlen($post_data)),
+		 	));
+		 	$response = curl_exec($curl);
+		 	$err = curl_error($curl);
+		 	curl_close($curl);
+		 	if($err){
+		 		echo "cURL Error #:" . $err;
+		 	}
+		 	else{
+	  			//$data_compose = json_decode($response,true);
+		 		echo $response;
+		 	}
+		 }
 	}
 }
 
