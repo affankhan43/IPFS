@@ -35,7 +35,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$pdf->SetFont('Arial','B',16);
 	$pdf->MultiCell(0,5,$post_string,0);
 	$info = getimagesize($_POST['fileData']);
-	$pdf->Image($_POST['fileData'],10,$image_y,$info[0],$info[1],'jpeg');
+	$pdf->Image($_POST['fileData'],10,$image_y,$info[0]/2,$info[1]/2,'jpeg');
 	$filename = uniqid().'.pdf';
 	$pdf->Output($filename,'F');
 	echo $_POST['fileData'];
