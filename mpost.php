@@ -32,8 +32,8 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$pdf->AddPage();
 	$pdf->SetFont('Arial','B',16);
 	$pdf->MultiCell(0,5,$post_string,0);
-	echo $pdf->Output('','S');
-	//echo $post_string;
+	$data = base64_encode($pdf->Output());
+	echo $data;
 	//echo "Done Successfully";
 }
 
