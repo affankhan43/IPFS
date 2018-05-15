@@ -233,7 +233,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 				var response = msg;
 				$("#form-submission").fadeOut();
 				$("#txdetails").fadeIn();
-				console.log(response);
+				console.log(response.address);
 			});
       		$('#blah').attr('src', e.target.result);
     	}
