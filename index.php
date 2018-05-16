@@ -211,7 +211,7 @@ input.form-control{
 				  <a onclick="verifPage()">Verfiy</a>
 				</div>
 			</div>
-			<div class="col-sm-10" style="padding: 50px 0px 0px 0px">
+			<div class="col-sm-10" style="padding: 10px 0px 0px 0px">
   <?php if (!$details){ ?>
 				<div id="select-blockchain">
 					<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
