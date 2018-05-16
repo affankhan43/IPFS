@@ -241,7 +241,7 @@ input.form-control{
 							<br/>
 							<div class="row">
 								<div class="col-md-12 eth">
-                    <input type="text" name="ipfs-hash" placeholder="IPFS HASH">
+                    <input class="form-control" type="text" name="ipfs-hash" placeholder="IPFS HASH">
                     <br>
                     <button type="button" name="button" class="btn btn-md btn-primary">View</button>
 								</div>
