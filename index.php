@@ -79,7 +79,7 @@ session_start();
   }
   }
 }
-if(!$details){
+if($details){
   echo "sdasdasd";
 }
  ?>
