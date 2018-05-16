@@ -77,7 +77,9 @@ session_start();
   }
   }
 }
-echo $details;
+if($details){
+  echo "sdasdasd";
+}
  ?>
 
 <!DOCTYPE html>
