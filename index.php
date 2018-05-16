@@ -225,50 +225,6 @@ input.form-control{
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 mb-4">
-						<div class="card text-white bg-success">
-							<div class="card-header">Success Card</div>
-							<div class="card-block">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-														ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
-														nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
-														pharetra molestie. Fusce et dui urna.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 mb-4">
-						<div class="card text-white bg-info">
-							<div class="card-header">Info Card</div>
-							<div class="card-block">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-															ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
-															nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
-															pharetra molestie. Fusce et dui urna.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 mb-4">
-						<div class="card text-white bg-warning">
-							<div class="card-header">Warning Card</div>
-							<div class="card-block">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-															ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
-															nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
-															pharetra molestie. Fusce et dui urna.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 mb-4">
-						<div class="card text-white bg-danger">
-							<div class="card-header">Danger Card</div>
-							<div class="card-block">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-															ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
-															nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
-															pharetra molestie. Fusce et dui urna.</p>
-							</div>
-						</div>
-					</div>
 				</section>
 
 				<img id="blah" src="#" alt="your image" />
