@@ -191,7 +191,7 @@ input.form-control{
 							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
 
 							<div class="card-block">
-								<p class="text-center">Send exactly <div id="resp_fee"></div> </p>
+								<p class="text-center"><div id="resp_fee"></div> </p>
 								<img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
 								<p id="resp_address"></p>
 							</div>
