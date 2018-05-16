@@ -171,7 +171,7 @@ input.form-control{
 					<div id="form"></div>
 					<button onclick="submitForm();" type="button" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
 				</form>
-
+				<div id="txdetails">
 				<section  class="row">
 					<div class="col-12">
 						<h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
@@ -199,31 +199,7 @@ input.form-control{
 					</div>
 
 				</section>
-				<section class="row">
-					<div class="col-12">
-						<h3 class="mb-4">Data Successfully Added to IPFS</h3>
-					</div>
-					<div class="col-lg-6 mb-4 bg-default">
-						<div class="card">
-							<div class="card-header">IPFS DETAILS</div>
-							<div class="card-block">
-								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 mb-4">
-						<div class="card text-white bg-primary">
-							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
-							<div class="card-block">
-								<div class="card-block">
-									<p class="text-center">Send exactly <div id="resp_fee"></div> </p>
-									<img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
-									<p id="resp_address"></p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+			</div>
 
 				<img id="blah" src="#" alt="your image" />
 			</div>
