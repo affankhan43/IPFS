@@ -21,6 +21,7 @@ session_start();
     if(!empty($_GET['hash'])){
       $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
       $result = mysqli_fetch_assoc($qry);
+      echo $result;
       if(empty($result)){
 
       }
