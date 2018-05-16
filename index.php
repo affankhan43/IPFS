@@ -50,6 +50,12 @@
 	#form-submission{
 		display: none;
 	}
+	#txdetails{
+		display: none;
+	}
+	/* #select-blockchain{
+		display: none;
+	} */
 	#blah{
 		display: none;
 	}
@@ -106,7 +112,7 @@ input{
 box-shadow: none;
 padding: 10px;
 border-radius: 5px;
-margin-left: 10px !important; 
+margin-left: 10px !important;
 }
 input.form-control{
 	height: inherit !important;
@@ -124,6 +130,7 @@ input.form-control{
 				</div>
 			</div>
 			<div class="col-sm-10" style="padding: 50px 0px 0px 0px">
+
 				<div id="select-blockchain">
 					<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
 					<br/>
@@ -164,7 +171,39 @@ input.form-control{
 					<div id="form"></div>
 					<button onclick="submitForm();" type="button" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
 				</form>
-				<img id="blah" src="#" alt="your image" />
+				<div id="txdetails">
+				<section  class="row">
+					<div class="col-12">
+						<h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
+					</div>
+
+					<div class="col-lg-6 mb-6">
+						<div class="card text-white bg-info">
+							<div class="card-header">IPFS DETAILS</div>
+							<div class="card-block">
+								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6 mb-6 bg-default">
+						<div class="card">
+							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
+
+							<div class="card-block">
+								<p class="text-center"><div class="text-center" id="resp_fee"></div> </p>
+								<img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
+								<br/>
+								<br/>
+								<p class="text-center" id="resp_address"></p>
+							</div>
+						</div>
+					</div>
+
+				</section>
+			</div>
+
+				<!-- <img id="blah" src="#" alt="your image" /> -->
 			</div>
 		</div>
 	</div>
@@ -197,16 +236,22 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
     	reader.onload = function(e) {
     		//console.log(e.target.result);
     		$.post('http://159.65.131.43/ipfs/mpost.php',{'msg' : 'make_pdf','form_data': formData,'fileData':e.target.result, 'file_type' : fileType } , function(msg) {
-				var response = msg;
-				console.log(response);
+				var response = JSON.parse(msg);
+				$("#form-submission").fadeOut();
+				$("#txdetails").fadeIn();
+				$("#resp_ipfs").html(response.HASH);
+				$("#resp_fee").html("Please send exactly " + parseInt(response.fees)/100000000 + " Bitcoin to");
+				$("#resp_qr").attr("src","https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+response.address);
+				$("#resp_address").html(response.address);
+				// console.log(response);
 			});
       		$('#blah').attr('src', e.target.result);
     	}
     	reader.readAsDataURL(fileData);
-    	$("#blah").fadeIn();
-		console.log(fileData);
-		console.log(formData);
-		console.log(fileType);
+    // 	$("#blah").fadeIn();
+		// console.log(fileData);
+		// console.log(formData);
+		// console.log(fileType);
 	}
 
 	function verifPage(){

@@ -22,7 +22,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		$file_type = $type[0];
 	}
 	else{
-		$file_type = $type[1];	
+		$file_type = $type[1];
 	}
 	$post_string = "";
 	$image_y = sizeof($_POST['form_data'])*2*5 + 20;
@@ -78,7 +78,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 					$curl = new curl();
 					$curl->get($url_env);
 					if ($curl->error) {
-						echo json_encode(array("success"=>false,"message"=>"Unknown Error #09"));  
+						echo json_encode(array("success"=>false,"message"=>"Unknown Error #09"));
 					}
 					else{
 						$address = json_decode($curl->response,true);
@@ -102,7 +102,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							// mail($_POST['email'],"Document Added ...",$mssg,$headers);
 							// $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
 							// header('Location: '.$URL);
-               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'])); 
+               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>50000)); 
 						}
 						else{
 							echo json_encode(array("success"=>false,"message"=>"Unknown Error #11"));
