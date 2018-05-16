@@ -207,7 +207,7 @@ input.form-control{
 		<div class="row">
 			<div class="col-sm-2">
 				<div class="sidenav">
-					<a class="sidenav_header">IPFS</a>
+					<a class="sidenav_header" href="http://159.65.131.43/ipfs/index.php">IPFS</a>
 				  <a onclick="verifPage()">Verfiy</a>
 				</div>
 			</div>
