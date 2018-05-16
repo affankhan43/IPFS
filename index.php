@@ -172,7 +172,7 @@ input.form-control{
 					<button onclick="submitForm();" type="button" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
 				</form>
 
-				<section id="txdetails" class="row">
+				<section  class="row">
 					<div class="col-12">
 						<h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
 					</div>
@@ -199,9 +199,9 @@ input.form-control{
 					</div>
 
 				</section>
-				<section class="row">
+				<section id="txdetails" class="row">
 					<div class="col-12">
-						<h3 class="mb-4">Basic Cards</h3>
+						<h3 class="mb-4">Data Successfully Added to IPFS</h3>
 					</div>
 					<div class="col-lg-6 mb-4 bg-default">
 						<div class="card">
