@@ -240,7 +240,7 @@ input.form-control{
 							<br/>
 							<br/>
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-md-12 eth">
 									<h3 class="text-center">Verify Anything</h3>
 								</div>
 							</div>
