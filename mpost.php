@@ -15,11 +15,7 @@ header("Access-Control-Allow-Headers: *");
 	include 'core/funcs.php';
 	include '.env';
 	use \Curl\Curl;
-	$get_qry = "SELECT fees FROM message_fees WHERE coin='bitcoin'";
-	$result = mysqli_query($db, $get_qry);
-	$value = ($result->fetch_assoc());
-	print_r($value);
-
+	
 if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData']) && isset($_POST['file_type']) && $_POST['msg'] == "make_pdf"){
 	$type = explode("/",$_POST['file_type']);
 	if(!isset($type[1])){
@@ -94,7 +90,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							$result = mysqli_query($db, $get_qry);
 							$value = ($result->fetch_assoc());
 							if(isset($value['fees'])){
-								$value_fees = $value['fees'];
+								$value_fees = intval($value['fees']);
 							}
 							else{
 								$value_fees = 50000;
