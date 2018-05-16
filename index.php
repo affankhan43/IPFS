@@ -207,10 +207,7 @@ input.form-control{
 						<div class="card">
 							<div class="card-header">Default Card</div>
 							<div class="card-block">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-														ut ante in sapien blandit luctus sed ut lacus. Phasellus urna est, faucibus
-														nec ultrices placerat, feugiat et ligula. Donec vestibulum magna a dui
-														pharetra molestie. Fusce et dui urna.</p>
+								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
 							</div>
 						</div>
 					</div>
