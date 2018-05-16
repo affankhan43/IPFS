@@ -51,11 +51,11 @@
 		display: none;
 	}
 	#txdetails{
-		display: block;
-	}
-	#select-blockchain{
 		display: none;
 	}
+	/* #select-blockchain{
+		display: none;
+	} */
 	#blah{
 		display: none;
 	}
