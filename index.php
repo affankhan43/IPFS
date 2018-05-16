@@ -216,7 +216,6 @@ input.form-control{
 				<div id="select-blockchain">
 					<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
 					<br/>
-					<br/>
 					<div class="container">
 						<div class="row">
 							<div class="col-md-1"></div>
