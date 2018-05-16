@@ -193,6 +193,8 @@ input.form-control{
 							<div class="card-block">
 								<p class="text-center"><div class="text-center" id="resp_fee"></div> </p>
 								<img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
+								<br/>
+								<br/>
 								<p class="text-center" id="resp_address"></p>
 							</div>
 						</div>
