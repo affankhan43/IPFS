@@ -203,7 +203,7 @@ input.form-control{
 					<div class="col-12">
 						<h3 class="mb-4">Basic Cards</h3>
 					</div>
-					<div class="col-lg-4 mb-4 bg-default">
+					<div class="col-lg-6 mb-4 bg-default">
 						<div class="card">
 							<div class="card-header">Default Card</div>
 							<div class="card-block">
@@ -214,7 +214,7 @@ input.form-control{
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 mb-4">
+					<div class="col-lg-6 mb-4">
 						<div class="card text-white bg-primary">
 							<div class="card-header">Primary Card</div>
 							<div class="card-block">
