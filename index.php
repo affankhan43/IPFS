@@ -199,7 +199,7 @@ input.form-control{
 					</div>
 
 				</section>
-				<section id="txdetails" class="row">
+				<section class="row">
 					<div class="col-12">
 						<h3 class="mb-4">Data Successfully Added to IPFS</h3>
 					</div>
