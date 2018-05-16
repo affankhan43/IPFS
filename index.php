@@ -240,11 +240,15 @@ input.form-control{
 							<br/>
 							<br/>
 							<div class="row">
-								<div class="col-md-12 eth">
-                    <input class="form-control" type="text" name="ipfs-hash" placeholder="IPFS HASH">
-                    <br>
-                    <button type="button" name="button" class="btn btn-md btn-primary">View</button>
-								</div>
+                <div class="col-lg-12 mb-12 bg-default">
+                  <div class="card">
+                    <div class="card-block">
+                      <input class="form-control" type="text" name="ipfs-hash" placeholder="IPFS HASH">
+                      <br>
+                      <button type="button" name="button" class="btn btn-md btn-primary">View</button>
+                    </div>
+                  </div>
+                </div>
 							</div>
 						</div>
 				</div>
