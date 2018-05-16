@@ -241,7 +241,9 @@ input.form-control{
 							<br/>
 							<div class="row">
 								<div class="col-md-12 eth">
-									<h3 class="text-center">Verify Anything</h3>
+                    <input type="text" name="ipfs-hash" placeholder="IPFS HASH">
+                    <br>
+                    <button type="button" name="button" class="btn btn-md btn-primary">View</button>
 								</div>
 							</div>
 						</div>
