@@ -82,6 +82,8 @@ session_start();
 if($details){
   echo "sdasdasd";
 }
+
+echo "231231212312";
  ?>
 
 <!DOCTYPE html>
