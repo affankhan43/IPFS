@@ -297,7 +297,7 @@ input.form-control{
                <div class="card text-white bg-info">
             <div class="card-header">IPFS DETAILS</div>
             <div class="card-block">
-              <p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
+              <p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"><?php echo $all_data['ipfs_hash']?></span></p>
             </div>
           </div>
         </div>
@@ -306,11 +306,18 @@ input.form-control{
             <div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
 
             <div class="card-block">
-              <p class="text-center"><div class="text-center" id="resp_fee"></div> </p>
-              <img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
+            <?php if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid']){ ?>
+              <p class="text-center"><div class="text-center" id="resp_fee"><?php echo $all_data['bitcoin_fees']/100000000; ?></div> </p>
+              <img style="display: table; margin: 0 auto;" id="resp_qr" src=<?php echo "https://chart.googleapis.com/chart?chs=200x200&amp;choe=UTF-8&amp;chld=M|0&amp;cht=qr&amp;chl=".$all_data['bitcoin_address'] ?> />
               <br/>
               <br/>
-              <p class="text-center" id="resp_address"></p>
+              <p class="text-center" id="resp_address"><?php echo $all_data['bitcoin_address']?></p>
+            <?php } ?>
+            <?php if($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid']){ ?>
+              <h3 class="heading">Document is Verified on Bitcoin Blockchain</h3>
+              <p class="heading"><strong>BITCOIN TXID : </strong> <?php echo $all_data['bitcoin_txid']?></p>
+              <p class="heading"><a href=<?php echo "https://www.blocktrail.com/tBTC/tx/".$all_data['bitcoin_txid']; ?> target="_blank" class="btn btn-primary">View on Blockchain</a></p>
+            <?php } ?>
             </div>
           </div>
         </div>
