@@ -102,7 +102,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							// mail($_POST['email'],"Document Added ...",$mssg,$headers);
 							// $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
 							// header('Location: '.$URL);
-               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>50000)); 
+               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>$value_fees)); 
 						}
 						else{
 							echo json_encode(array("success"=>false,"message"=>"Unknown Error #11"));
