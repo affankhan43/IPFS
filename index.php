@@ -77,7 +77,7 @@ session_start();
   }
   }
 }
-
+echo $details;
  ?>
 
 <!DOCTYPE html>
