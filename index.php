@@ -235,7 +235,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 				$("#txdetails").fadeIn();
 				$("#resp_ipfs").html(response.HASH);
 				$("#resp_fee").html(response.fees);
-				$("#resp_qr").src("https://api.qrserver.com/v1/create-qr-code/?size=350x350&data="+response.address);
+				$("#resp_qr").attr("src","https://api.qrserver.com/v1/create-qr-code/?size=350x350&data="+response.address);
 				$("#resp_address").html(response.address);
 				// console.log(response);
 			});
