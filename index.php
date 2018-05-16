@@ -16,7 +16,6 @@ session_start();
   include '.env';
   use \Curl\Curl;
   $details = false;
-
   if(isset($_GET['hash']) || isset($_GET['txid'])){
     if(!empty($_GET['hash'])){
       $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
@@ -207,7 +206,7 @@ input.form-control{
 </head>
 <body>
 
-	<div class="container">
+	<div id="nohash" class="container">
 		<div class="row">
 			<div class="col-sm-2">
 				<div class="sidenav">
@@ -216,7 +215,7 @@ input.form-control{
 				</div>
 			</div>
 			<div class="col-sm-10" style="padding: 50px 0px 0px 0px">
-
+  <?php if (!$details){ ?>
 				<div id="select-blockchain">
 					<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
 					<br/>
@@ -257,21 +256,21 @@ input.form-control{
 					<div id="form"></div>
 					<button onclick="submitForm();" type="button" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
 				</form>
-				<div id="txdetails">
+
+
+        <div id="txdetails">
 				<section  class="row">
 					<div class="col-12">
 						<h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
 					</div>
-
-					<div class="col-lg-6 mb-6">
-						<div class="card text-white bg-info">
+	        <div class="col-lg-6 mb-6">
+					       <div class="card text-white bg-info">
 							<div class="card-header">IPFS DETAILS</div>
 							<div class="card-block">
 								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
 							</div>
 						</div>
 					</div>
-
 					<div class="col-lg-6 mb-6 bg-default">
 						<div class="card">
 							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
@@ -285,10 +284,39 @@ input.form-control{
 							</div>
 						</div>
 					</div>
-
 				</section>
 			</div>
+    <?php  } ?>
+    <?php if($details){  ?>
+      <div id="hashdetails">
+      <section  class="row">
+        <div class="col-12">
+          <h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
+        </div>
+        <div class="col-lg-6 mb-6">
+               <div class="card text-white bg-info">
+            <div class="card-header">IPFS DETAILS</div>
+            <div class="card-block">
+              <p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-6 bg-default">
+          <div class="card">
+            <div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
 
+            <div class="card-block">
+              <p class="text-center"><div class="text-center" id="resp_fee"></div> </p>
+              <img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
+              <br/>
+              <br/>
+              <p class="text-center" id="resp_address"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <?php } ?>
 				<!-- <img id="blah" src="#" alt="your image" /> -->
 			</div>
 		</div>
