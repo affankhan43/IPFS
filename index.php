@@ -237,8 +237,6 @@ input.form-control{
 							<div class="col-md-1"></div>
 							</div>
 							<br/>
-							<br/>
-							<br/>
 							<div class="row">
                 <div class="col-lg-12 mb-12 bg-default">
                   <div class="card">
