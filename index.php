@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 /*-- Affan --*/
 include 'core/.env';
 $db = mysqli_connect($HostName,$HostUser,$HostPass,$dbName) or die("Could not connect to the database");
