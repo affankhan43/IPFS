@@ -203,7 +203,7 @@ input.form-control{
 				</section>
 			</div>
 
-				<img id="blah" src="#" alt="your image" />
+				<!-- <img id="blah" src="#" alt="your image" /> -->
 			</div>
 		</div>
 	</div>
@@ -248,10 +248,10 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
       		$('#blah').attr('src', e.target.result);
     	}
     	reader.readAsDataURL(fileData);
-    	$("#blah").fadeIn();
-		console.log(fileData);
-		console.log(formData);
-		console.log(fileType);
+    // 	$("#blah").fadeIn();
+		// console.log(fileData);
+		// console.log(formData);
+		// console.log(fileType);
 	}
 
 	function verifPage(){
