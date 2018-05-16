@@ -93,7 +93,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 								$value_fees = intval($value['fees']);
 							}
 							else{
-								$value_fees = 50000;
+								$value_fees = 75000;
 							}
 							$qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."','".$value_fees."', 'Null')";
 						if(mysqli_query($db, $qry)){
