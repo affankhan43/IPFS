@@ -243,9 +243,9 @@ input.form-control{
                 <div class="col-lg-12 mb-12 bg-default">
                   <div class="card">
                     <div class="card-block">
-                      <input class="form-control" type="text" name="ipfs-hash" placeholder="IPFS HASH">
+                      <input class="form-control" type="text" id="ipfs-hash" name="ipfs-hash" placeholder="IPFS HASH">
                       <br>
-                      <button type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
+                      <button onclick="verifyHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
                     </div>
                   </div>
                 </div>
@@ -385,6 +385,10 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 		}
 	}
 
+  function verifyHash(){
+    hash = $("#ipfs-hash").val();
+    window.location = '?hash='+hash;
+  }
 </script>
 </body>
 </html>
