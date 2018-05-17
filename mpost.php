@@ -35,7 +35,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$pdf->MultiCell(0,5,$post_string,0);
 	$info = getimagesize($_POST['fileData']);
 	$pdf->Image($_POST['fileData'],10,$image_y,$info[0]/3,$info[1]/3,$file_type);
-	$filename = uniqid().'.pdf';
+	$filename = 'pdf/'.uniqid().'.pdf';
 	$pdf->Output($filename,'F');
 	if(file_exists($filename)){
 		$path_parts = pathinfo($filename);
@@ -72,7 +72,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 		echo json_encode(array("success"=>false,"message"=>"cUrl Error#"));
 		 	}
 		 	else{
-		 		unlink($filename);
+		 		// unlink($filename);
 				$data_compose = json_decode($response,true);
 				if(isset($data_compose['Hash'])){
 					$curl = new curl();
