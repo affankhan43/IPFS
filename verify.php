@@ -243,6 +243,7 @@ input.form-control{
             <div class="card-header">IPFS DETAILS</div>
             <div class="card-block">
               <p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"><?php echo $all_data['ipfs_hash']?></span></p>
+              <button class="btn btn-lg btn-default" id="resp_file" onclick="<?php echo "openFile('http://159.65.131.43/ipfs/".$all_data['ipfs_name']."')"; ?>">View File</button>
             </div>
           </div>
         </div>
@@ -284,6 +285,9 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 <script type="text/javascript" src="form-builder.min.js"></script>
 <script type="text/javascript" src="form-render.min.js"></script>
 <script type="text/javascript">
+function openFile(url){
+  window.open(url, '_blank');
+}
 	function selectBlock(){
 		$("#select-blockchain").fadeOut();
 		$("#form-submission").fadeIn();
