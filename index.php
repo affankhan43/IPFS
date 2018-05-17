@@ -183,7 +183,7 @@ input.form-control{
 							<div class="card-header">IPFS DETAILS</div>
 							<div class="card-block">
 								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
-                <a id="resp_file" href="" target="_blank">View File</a>
+                <a class="btn btn-lg" id="resp_file" href="" target="_blank">View File</a>
 							</div>
 						</div>
 					</div>
