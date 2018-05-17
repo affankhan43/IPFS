@@ -15,7 +15,7 @@ header("Access-Control-Allow-Headers: *");
 	include 'core/funcs.php';
 	include '.env';
 	use \Curl\Curl;
-	
+
 if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData']) && isset($_POST['file_type']) && $_POST['msg'] == "make_pdf"){
 	$type = explode("/",$_POST['file_type']);
 	if(!isset($type[1])){
@@ -36,7 +36,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$info = getimagesize($_POST['fileData']);
 	$pdf->Image($_POST['fileData'],10,$image_y,$info[0]/3,$info[1]/3,$file_type);
 	$filename = uniqid().'.pdf';
-	$pdf->Output('pdf/'.$filename,'F');
+	$pdf->Output($filename,'F');
 	if(file_exists($filename)){
 		$path_parts = pathinfo($filename);
 		$extension = $path_parts['extension'];
@@ -103,7 +103,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							// $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
 							// header('Location: '.$URL);
 <<<<<<< HEAD
-               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>$value_fees)); 
+               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>$value_fees));
 =======
                				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>50000));
 >>>>>>> 18f6731f81f3b1098ff1706752685328187f75a1
