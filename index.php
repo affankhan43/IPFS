@@ -133,6 +133,8 @@ input.form-control{
 #loader img{
 	display: table;
 	margin: 0 auto;
+  position: relative;
+  top: 50%;
 }
 	</style>
 </head>
