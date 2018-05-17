@@ -181,9 +181,9 @@ input.form-control{
 	        <div class="col-lg-6 mb-6">
 					       <div class="card text-white bg-info">
 							<div class="card-header">IPFS DETAILS</div>
-							<div class="card-block">
+							<div class="card-block text-center">
 								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
-                <button class="btn btn-lg" id="resp_file" onclick="openFile()">View File</button>
+                <button class="btn btn-lg btn-default" id="resp_file" onclick="openFile()">View File</button>
 							</div>
 						</div>
 					</div>
