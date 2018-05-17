@@ -255,8 +255,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
     		//console.log(e.target.result);
     		$.post('http://159.65.131.43/ipfs/mpost.php',{'msg' : 'make_pdf','form_data': formData,'fileData':e.target.result, 'file_type' : fileType } , function(msg) {
         console.log(msg);
-        remove_loader('body');
-
+        remove_loader();
       	var response = JSON.parse(msg);
 				$("#form-submission").fadeOut();
 				$("#txdetails").fadeIn();
@@ -290,8 +289,8 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 	   var loaderWrap = '<div id="loader"><img src="loading.gif" /></div>';
 	   $(div).prepend(loaderWrap);
   }
-  function remove_loader(div) {
-	$(div).remove();
+  function remove_loader() {
+	$("#loader").remove();
   }
 </script>
 </body>
