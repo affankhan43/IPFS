@@ -208,7 +208,8 @@ input.form-control{
 			<div class="col-sm-2">
 				<div class="sidenav">
 					<a class="sidenav_header" href="http://159.65.131.43/ipfs/index.php">IPFS</a>
-				  <a onclick="verifPage()">Verfiy</a>
+          <a href="index.php">Home</a>
+          <a href="verify.php">Verify Hash</a>
 				</div>
 			</div>
 			<div class="col-sm-10" style="padding: 10px 0px 0px 0px">
@@ -218,74 +219,18 @@ input.form-control{
 					<br/>
 					<div class="container">
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-md-4 eth">
-									<br><br>
-									<img src="bitcoin.png" width="100px" height="100px"><br><br>
-									<h3>Bitcoin Blockchain</h3><br>
-									<button onclick="selectBlock();" type="button" class="btn btn-lg btn-block btn-primary">Select</button>
-									<br>
-							</div>
-							<div class="col-md-2"></div>
-							<div class="col-md-4 eth">
-									<br><br>
-									<img src="eth.svg" width="100px" height="100px"><br><br>
-									<h3>Ethereum Blockchain</h3><br>
-									<button type="button" class="btn btn-lg btn-block btn-primary">Coming Soon</button>
-									<br>
-							</div>
-							<div class="col-md-1"></div>
-							</div>
-							<br/>
-							<div class="row">
-                <div class="col-lg-12 mb-12 bg-default">
-                  <div class="card">
-                    <div class="card-block">
-                      <input class="form-control" type="text" id="ipfs-hash" name="ipfs-hash" placeholder="IPFS HASH">
-                      <br>
-                      <button onclick="verifyHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
-                    </div>
+              <div class="col-lg-12 mb-12 bg-default">
+                <div class="card">
+                  <div class="card-block">
+                    <input class="form-control" type="text" id="ipfs-hash" name="ipfs-hash" placeholder="IPFS HASH">
+                    <br>
+                    <button onclick="verifyHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
                   </div>
                 </div>
-							</div>
+              </div>
 						</div>
+					</div>
 				</div>
-
-				<form id="form-submission" enctype="multipart/form-data">
-					<h3>Submit Form</h3>
-					<div id="form"></div>
-					<button onclick="submitForm();" type="button" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
-				</form>
-
-
-        <div id="txdetails">
-				<section  class="row">
-					<div class="col-12">
-						<h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
-					</div>
-	        <div class="col-lg-6 mb-6">
-					       <div class="card text-white bg-info">
-							<div class="card-header">IPFS DETAILS</div>
-							<div class="card-block">
-								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 mb-6 bg-default">
-						<div class="card">
-							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
-
-							<div class="card-block">
-								<p class="text-center"><div class="text-center" id="resp_fee"></div> </p>
-								<img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
-								<br/>
-								<br/>
-								<p class="text-center" id="resp_address"></p>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
     <?php  } ?>
     <?php if($details){  ?>
       <div id="hashdetails">
