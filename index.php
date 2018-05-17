@@ -134,7 +134,7 @@ input.form-control{
 	display: table;
 	margin: 0 auto;
   position: relative;
-  top: 50%;
+  top: 30%;
 }
 	</style>
 </head>
