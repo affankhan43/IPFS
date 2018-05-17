@@ -36,7 +36,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$info = getimagesize($_POST['fileData']);
 	$pdf->Image($_POST['fileData'],10,$image_y,$info[0]/3,$info[1]/3,$file_type);
 	$filename = uniqid().'.pdf';
-	$pdf->Output($filename,'F');
+	$pdf->Output('pdf/'.$filename,'F');
 	if(file_exists($filename)){
 		$path_parts = pathinfo($filename);
 		$extension = $path_parts['extension'];
@@ -102,7 +102,11 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							// mail($_POST['email'],"Document Added ...",$mssg,$headers);
 							// $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
 							// header('Location: '.$URL);
+<<<<<<< HEAD
                				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>$value_fees)); 
+=======
+               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>50000));
+>>>>>>> 18f6731f81f3b1098ff1706752685328187f75a1
 						}
 						else{
 							echo json_encode(array("success"=>false,"message"=>"Unknown Error #11"));
