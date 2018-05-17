@@ -282,7 +282,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
     window.location = '?hash='+hash;
   }
   function add_loader(div) {
-	   var loaderWrap = '<div id="loader"><img src="images/loading.gif" /></div>';
+	   var loaderWrap = '<div id="loader"><img src="loading.gif" /></div>';
 	   $(div).prepend(loaderWrap);
   }
 </script>
