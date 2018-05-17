@@ -183,6 +183,7 @@ input.form-control{
 							<div class="card-header">IPFS DETAILS</div>
 							<div class="card-block">
 								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
+                <a id="resp_file" href="" target="_blank">View File</a>
 							</div>
 						</div>
 					</div>
@@ -242,6 +243,7 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 				$("#resp_fee").html("Please send exactly " + parseInt(response.fees)/100000000 + " Bitcoin to");
 				$("#resp_qr").attr("src","https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+response.address);
 				$("#resp_address").html(response.address);
+        $("#resp_file").attr("href","http://159.65.131.43/ipfs/"+response.file);
 			});
       		$('#blah').attr('src', e.target.result);
     	}
