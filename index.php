@@ -122,6 +122,18 @@ margin-left: 10px !important;
 input.form-control{
 	height: inherit !important;
 }
+#loader{
+	position: absolute;
+	background: #fff;
+	opacity: 0.6;
+	width: 100%;
+	height: 100%;
+	z-index: 99999;
+}
+#loader img{
+	display: table;
+	margin: 0 auto;
+}
 	</style>
 </head>
 <body>
@@ -268,6 +280,10 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
   function verifyHash(){
     hash = $("#ipfs-hash").val();
     window.location = '?hash='+hash;
+  }
+  export function add_loader(div) {
+	   var loaderWrap = '<div id="loader"><img src="images/loading.gif" /></div>';
+	   $(div).prepend(loaderWrap);
   }
 </script>
 </body>
