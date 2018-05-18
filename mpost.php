@@ -118,4 +118,5 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 }
 }
 
+/*-- End --*/
 ?>
