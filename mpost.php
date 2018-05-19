@@ -29,7 +29,13 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	for ($i=0; $i < sizeof($_POST['form_data']); $i++){
 		$post_string .= " \n ".$_POST['form_data'][$i]['name']." : ".$_POST['form_data'][$i]['value']." \n ";
 	}
-	
+	$imageData = base64_decode($_POST['file_type']);
+	$source = imagecreatefromstring($imageData);
+	$angle = 0;
+	$rotate = imagerotate($source, $angle, 0); // if want to rotate the image
+	$imageName = "hello1.png";
+	$imageSave = imagejpeg($rotate,$imageName,100);
+	imagedestroy($source);
 	$pdf = new FPDF();
 	$pdf->AddPage();
 	$pdf->SetFont('Arial','B',16);
