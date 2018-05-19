@@ -15,7 +15,7 @@ header("Access-Control-Allow-Headers: *");
 	include 'core/funcs.php';
 	include '.env';
 	use \Curl\Curl;
-	
+
 if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData']) && isset($_POST['file_type']) && $_POST['msg'] == "make_pdf"){
 	$type = explode("/",$_POST['file_type']);
 	if(!isset($type[1])){
@@ -72,7 +72,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 		echo json_encode(array("success"=>false,"message"=>"cUrl Error#"));
 		 	}
 		 	else{
-		 		unlink($filename);
+		 		// unlink($filename);
 				$data_compose = json_decode($response,true);
 				if(isset($data_compose['Hash'])){
 					$curl = new curl();
@@ -102,7 +102,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							// mail($_POST['email'],"Document Added ...",$mssg,$headers);
 							// $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
 							// header('Location: '.$URL);
-               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'], 'address'=>$address['address'], 'fees'=>$value_fees)); 
+               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'],'file'=>$filename, 'address'=>$address['address'], 'fees'=>$value_fees));
 						}
 						else{
 							echo json_encode(array("success"=>false,"message"=>"Unknown Error #11"));

@@ -1,7 +1,84 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-?>
+/*-- Affan --*/
+include 'core/.env';
+$db = mysqli_connect($HostName,$HostUser,$HostPass,$dbName) or die("Could not connect to the database");
+if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    else{
+       // echo "sdf";
+    }
+session_start();
+  require __DIR__ . '/vendor/autoload.php';
+  include 'core/funcs.php';
+  include '.env';
+  use \Curl\Curl;
+  $details = false;
+  if(isset($_GET['hash']) || isset($_GET['txid'])){
+    if(!empty($_GET['hash'])){
+      $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
+      $result = mysqli_fetch_assoc($qry);
+      if(!$result){
+
+      }
+      else{
+        $details = true;
+        $all_data = $result;
+        if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid'])){
+          $check_url = $url2_env.$all_data['bitcoin_address'];
+          $curl1 = new curl();
+          $curl1->get($check_url);
+          if ($curl1->error) {
+            $error[1] = "Unknown Error #9";
+          } else {
+            $amount = json_decode($curl1->response,true);
+
+            if($amount['amount']*100000000 >= ($all_data['bitcoin_fees'])){
+              $updated_amount = $amount['amount']*100000000;
+              $upd_qry = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+              if(mysqli_query($db, $upd_qry)){
+                }
+              else{
+                $error[1] = "Please Refresh Again";
+              }
+
+              $op_ret = new curl();
+              $op_ret->post($url3_evv, array(
+                'address'=>'2MxSUk8B8HZpaa5G2r2Las44z5APEoUrPKB',
+                'amount'=>$amount['amount'],
+                'key'=>'Keylcc987',
+                'message'=>$all_data['ipfs_hash'],
+                'testnet'=>1
+              ));
+              if ($op_ret->error) {
+                $error[1] = "Unknown Error #9";
+              }
+              else{
+                $txid = json_decode($op_ret->response,true);
+                if($txid['message'] == "error"){
+
+                }
+                elseif($txid['message'] == "success"){
+                  $upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+              if(mysqli_query($db, $upd_qry2)){
+
+              }
+              else{
+                $error[1] = "Please Refresh Again";
+              }
+            }
+          }
+        }
+        else{
+        }
+      }
+    }
+  }
+  }
+}
+ ?>
 
 <!DOCTYPE html>
 <html>
@@ -122,20 +199,6 @@ margin-left: 10px !important;
 input.form-control{
 	height: inherit !important;
 }
-#loader{
-	position: absolute;
-	background: #fff;
-	opacity: 0.6;
-	width: 100%;
-	height: 100%;
-	z-index: 99999;
-}
-#loader img{
-	display: table;
-	margin: 0 auto;
-  position: relative;
-  top: 30%;
-}
 	</style>
 </head>
 <body>
@@ -145,77 +208,69 @@ input.form-control{
 			<div class="col-sm-2">
 				<div class="sidenav">
 					<a class="sidenav_header" href="http://159.65.131.43/ipfs/index.php">IPFS</a>
-				  <a href="index.php">Home</a>
+          <a href="index.php">Home</a>
           <a href="verify.php">Verify Hash</a>
 				</div>
 			</div>
 			<div class="col-sm-10" style="padding: 10px 0px 0px 0px">
-
+  <?php if (!$details){ ?>
 				<div id="select-blockchain">
 					<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
 					<br/>
 					<div class="container">
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-md-4 eth">
-									<br><br>
-									<img src="bitcoin.png" width="100px" height="100px"><br><br>
-									<h3>Bitcoin Blockchain</h3><br>
-									<button onclick="selectBlock();" type="button" class="btn btn-lg btn-block btn-primary">Select</button>
-									<br>
-							</div>
-							<div class="col-md-2"></div>
-							<div class="col-md-4 eth">
-									<br><br>
-									<img src="eth.svg" width="100px" height="100px"><br><br>
-									<h3>Ethereum Blockchain</h3><br>
-									<button type="button" class="btn btn-lg btn-block btn-primary">Coming Soon</button>
-									<br>
-							</div>
-							<div class="col-md-1"></div>
-							</div>
-							<br/><br/><br/><br/>
-							<div class="row">
-                <div class="col-lg-12 mb-12 bg-default text-center">
-                  <h3>Verify Anything</h3>
+              <div class="col-lg-12 mb-12 bg-default">
+                <div class="card">
+                  <div class="card-block">
+                    <input class="form-control" type="text" id="ipfs-hash" name="ipfs-hash" placeholder="IPFS HASH">
+                    <br>
+                    <button onclick="verifyHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
+                  </div>
                 </div>
-							</div>
+              </div>
 						</div>
+					</div>
 				</div>
-				<form id="form-submission" enctype="multipart/form-data">
-					<h3>Submit Form</h3>
-					<div id="form"></div>
-					<button onclick="submitForm();" type="button" name="ipfs_button" class="btn btn-lg btn-block btn-primary">Submit</button>
-				</form>
-        <div id="txdetails">
-				<section  class="row">
-					<div class="col-12">
-						<h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
-					</div>
-	        <div class="col-lg-6 mb-6">
-					       <div class="card text-white bg-info">
-							<div class="card-header">IPFS DETAILS</div>
-							<div class="card-block text-center">
-								<p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"></span></p>
-                <button class="btn btn-lg btn-default" id="resp_file" onclick="openFile()">View File</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 mb-6 bg-default">
-						<div class="card">
-							<div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
+    <?php  } ?>
+    <?php if($details){  ?>
+      <div id="hashdetails">
+      <section  class="row">
+        <div class="col-12">
+          <h3 class="mb-12 text-center" id="resp_message">Data Successfully Added to IPFS</h3>
+        </div>
+        <div class="col-lg-6 mb-6">
+               <div class="card text-white bg-info">
+            <div class="card-header">IPFS DETAILS</div>
+            <div class="card-block text-center">
+              <p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"><?php echo $all_data['ipfs_hash']?></span></p>
+              <button class="btn btn-lg btn-default" id="resp_file" onclick="<?php echo "openFile('http://159.65.131.43/ipfs/".$all_data['ipfs_name']."')"; ?>">View File</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-6 bg-default">
+          <div class="card">
+            <div class="card-header">RECORD IT ON BITCOIN BLOCKCHAIN</div>
 
-							<div class="card-block">
-								<p class="text-center"><div class="text-center" id="resp_fee"></div> </p>
-								<img style="display: table; margin: 0 auto;" id="resp_qr" src="" />
-								<br/>
-								<br/>
-								<p class="text-center" id="resp_address"></p>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
+            <div class="card-block">
+              <?php if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid'])){ ?>
+                 <p class="text-center"><div class="text-center" id="resp_fee"><?php echo $all_data['bitcoin_fees']/100000000; ?></div> </p>
+                <img style="display: table; margin: 0 auto;" id="resp_qr" src=<?php echo "https://chart.googleapis.com/chart?chs=200x200&amp;choe=UTF-8&amp;chld=M|0&amp;cht=qr&amp;chl=".$all_data['bitcoin_address'] ?> />
+                <br/>
+                <br/>
+                <p class="text-center" id="resp_address"><?php echo $all_data['bitcoin_address']?></p>
+              <?php }elseif($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid'])){ ?>
+                <h3 class="heading">Document is Verified on Bitcoin Blockchain</h3>
+                <p class="heading"><strong>BITCOIN TXID : </strong> <?php echo $all_data['bitcoin_txid']?></p>
+                <p class="heading"><a href=<?php echo "https://www.blocktrail.com/tBTC/tx/".$all_data['bitcoin_txid']; ?> target="_blank" class="btn btn-primary">View on Blockchain</a></p>
+
+              <?php } ?>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <?php } ?>
 				<!-- <img id="blah" src="#" alt="your image" /> -->
 			</div>
 		</div>
@@ -230,10 +285,9 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 <script type="text/javascript" src="form-builder.min.js"></script>
 <script type="text/javascript" src="form-render.min.js"></script>
 <script type="text/javascript">
-  function openFile(url){
-    window.open(url, '_blank');
-  }
-
+function openFile(url){
+  window.open(url, '_blank');
+}
 	function selectBlock(){
 		$("#select-blockchain").fadeOut();
 		$("#form-submission").fadeIn();
@@ -246,7 +300,6 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
 	}
 
 	function submitForm(){
-    add_loader('body');
 		var formData = $("form").serializeArray();
 		var fileData = $("form input[type='file']")[0].files[0];
 		var fileType = $("form input[type='file']")[0].files[0]['type'];
@@ -254,16 +307,14 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
     	reader.onload = function(e) {
     		//console.log(e.target.result);
     		$.post('http://159.65.131.43/ipfs/mpost.php',{'msg' : 'make_pdf','form_data': formData,'fileData':e.target.result, 'file_type' : fileType } , function(msg) {
-        console.log(msg);
-        remove_loader();
-      	var response = JSON.parse(msg);
+				var response = JSON.parse(msg);
 				$("#form-submission").fadeOut();
 				$("#txdetails").fadeIn();
 				$("#resp_ipfs").html(response.HASH);
 				$("#resp_fee").html("Please send exactly " + parseInt(response.fees)/100000000 + " Bitcoin to");
 				$("#resp_qr").attr("src","https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+response.address);
 				$("#resp_address").html(response.address);
-        $("#resp_file").attr("onclick","openFile('http://159.65.131.43/ipfs/"+response.file+"')");
+				// console.log(response);
 			});
       		$('#blah').attr('src', e.target.result);
     	}
@@ -284,13 +335,6 @@ src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLN
   function verifyHash(){
     hash = $("#ipfs-hash").val();
     window.location = '?hash='+hash;
-  }
-  function add_loader(div) {
-	   var loaderWrap = '<div id="loader"><img src="loading.gif" /></div>';
-	   $(div).prepend(loaderWrap);
-  }
-  function remove_loader() {
-	$("#loader").remove();
   }
 </script>
 </body>
