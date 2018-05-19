@@ -69,11 +69,11 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 		echo json_encode(array("success"=>false,"message"=>"cUrl Error#"));
 		 	}
 		 	else{
-		 		//unlink($uploaded_filename);
+		 		unlink($uploaded_filename);
 		 		$data_compose2 = json_decode($response,true);
 				if(isset($data_compose2['Hash'])){
 					$file_hash_name = "IPFS-File-Hash";
-					$post_string .= " \n ".$file_hash_name." : ".$data_compose2['Hash']." \n ";
+					$post_string .= "\n".$file_hash_name.":".$data_compose2['Hash']."\n";
 				} 
 		 	}
 		}
