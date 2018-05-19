@@ -75,6 +75,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 					$post_string .= " \n IPFS HASH : ".$data_compose2['Hash']." \n ";
 				} 
 		 	}
+		}
 	}
 	$pdf = new FPDF();
 	$pdf->AddPage();
