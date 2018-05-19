@@ -72,7 +72,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 		//unlink($uploaded_filename);
 		 		$data_compose2 = json_decode($response,true);
 				if(isset($data_compose2['Hash'])){
-					$post_string .= "\nFILE-IPFS-HASH".":".$data_compose2['Hash']."\n";
+					$post_string .= "\n FILE-IPFS-HASH "." : ".$data_compose2['Hash']."\n";
 				} 
 		 	}
 		}
