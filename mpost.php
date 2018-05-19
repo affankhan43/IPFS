@@ -32,7 +32,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	list($type, $data) = explode(';', $_POST['fileData']);
 	list(, $data)      = explode(',', $data);
 	$data = base64_decode($data);
-	$uploaded_filename = uniqid().'.'.$_POST['file_type'];
+	$uploaded_filename = uniqid().'.'.$file_type;
 	file_put_contents($uploaded_filename, $data);
 	if(file_exists($uploaded_filename)){
 		$path_parts1 = pathinfo($uploaded_filename);
