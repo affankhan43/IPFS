@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
-
+	
 	include 'core/.env';
 	$db = mysqli_connect($HostName,$HostUser,$HostPass,$dbName) or die("Could not connect to the database");
 	if (mysqli_connect_errno()) {
@@ -32,7 +32,50 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	list($type, $data) = explode(';', $_POST['fileData']);
 	list(, $data)      = explode(',', $data);
 	$data = base64_decode($data);
-	file_put_contents('tmp/image.png', $data);
+	$uploaded_filename = uniqid().'.'.$_POST['file_type'];
+	file_put_contents($uploaded_filename, $data);
+	if(file_exists($uploaded_filename)){
+		$path_parts1 = pathinfo($uploaded_filename);
+		$extension1 = $path_parts1['extension'];
+		if($extension1 == "jpeg" && $extension1 == "png" && $extension1 == "jpg" && $extension1 == "PNG" && $extension1 == "JPG" && $extension1 == "GIF" && $extension1 == "gif"){
+         	$fields1 = array();
+         	$filenames1 = array($path_parts1['basename']);
+         	$files1 = array();
+         	foreach ($filenames1 as $f1){
+           		$files1[$path_parts1['basename']] = file_get_contents($f1);
+         	}
+		 	$url = "http://159.65.131.43:5001/api/v0/add";
+		 	$curl = curl_init();
+		 	$boundary = uniqid();
+		 	$delimiter = '-------------' . $boundary;
+		 	$post_data1 = build_data_files($boundary, $fields1, $files1);
+		 	curl_setopt_array($curl, array(
+		 		CURLOPT_URL => $url,
+		 		CURLOPT_RETURNTRANSFER => 1,
+		 		CURLOPT_MAXREDIRS => 10,
+		 		CURLOPT_TIMEOUT => 30,
+		 		CURLOPT_CUSTOMREQUEST => "POST",
+		 		CURLOPT_POST => 1,
+		 		CURLOPT_POSTFIELDS => $post_data1,
+		 		CURLOPT_HTTPHEADER => array(
+		 			"Content-Type: multipart/form-data; boundary=" . $delimiter,
+		 			"Content-Length: " . strlen($post_data1)),
+		 	));
+		 	$response = curl_exec($curl);
+		 	$err = curl_error($curl);
+		 	curl_close($curl);
+		 	if($err){
+		 		unlink($uploaded_filename);
+		 		echo json_encode(array("success"=>false,"message"=>"cUrl Error#"));
+		 	}
+		 	else{
+		 		//unlink($uploaded_filename);
+		 		$data_compose2 = json_decode($response,true);
+				if(isset($data_compose2['Hash'])){
+					$post_string .= " \n IPFS HASH : ".$data_compose2['Hash']." \n ";
+				} 
+		 	}
+	}
 	$pdf = new FPDF();
 	$pdf->AddPage();
 	$pdf->SetFont('Arial','B',16);
@@ -76,7 +119,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 		echo json_encode(array("success"=>false,"message"=>"cUrl Error#"));
 		 	}
 		 	else{
-		 		// unlink($filename);
+		 		unlink($filename);
 				$data_compose = json_decode($response,true);
 				if(isset($data_compose['Hash'])){
 					$curl = new curl();
