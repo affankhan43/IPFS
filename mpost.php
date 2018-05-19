@@ -31,9 +31,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	}
 	$imageData = base64_decode($_POST['file_type']);
 	$photo = imagecreatefromstring($imageData);
-	$new_dir = 'temp/user/';
-	    mkdir($new_dir);
-	imagejpeg($photo,$new_dir.uniqid().$file_type,100);
+	imagejpeg($photo,uniqid().'.'.$file_type,100);
 	$pdf = new FPDF();
 	$pdf->AddPage();
 	$pdf->SetFont('Arial','B',16);
