@@ -33,7 +33,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	$photo = imagecreatefromstring($imageData);
 	$new_dir = 'temp/user/';
 	if(!is_dir($new_dir)){
-	    @mkdir($new_dir);
+	    mkdir($new_dir);
 	}
 	imagejpeg($photo,$new_dir.uniqid().$file_type,100);
 	$pdf = new FPDF();
