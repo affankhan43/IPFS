@@ -226,6 +226,11 @@ input.form-control{
                     <br>
                     <button onclick="verifyHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
                   </div>
+                  <div class="card-block">
+                    <input class="form-control" type="text" id="ipfs-hash" name="ipfs-hash" placeholder="IPFS HASH">
+                    <br>
+                    <button onclick="verifyHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
+                  </div>
                 </div>
               </div>
 						</div>
