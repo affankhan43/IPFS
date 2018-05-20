@@ -243,7 +243,7 @@ input.form-control{
             <div class="card-header">IPFS DETAILS</div>
             <div class="card-block text-center">
               <p class="text-center"><b>IPFS HASH:</b><span id="resp_ipfs"><?php echo $all_data['ipfs_hash']?></span></p>
-              <button class="btn btn-lg btn-default" id="resp_file" onclick="<?php echo "openFile('http://159.65.131.43/ipfs/".$all_data['ipfs_name']."')"; ?>">View File</button>
+              <button class="btn btn-lg btn-default" id="resp_file" onclick="<?php echo "openFile('http://159.65.131.43/ipfs/".$all_data['ipfs_hash']."')"; ?>">View File</button>
             </div>
           </div>
         </div>
