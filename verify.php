@@ -227,9 +227,9 @@ input.form-control{
                     <button onclick="verifyHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
                   </div>
                   <div class="card-block">
-                    <input class="form-control" type="text" id="ipfs-hash" name="ipfs-hash" placeholder="IPFS HASH">
+                    <input class="form-control" type="text" id="ipfs-hash1" name="ipfs-hash1" placeholder="IPFS HASH">
                     <br>
-                    <button onclick="verifyHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View</button>
+                    <button onclick="veiwHash()" type="button" name="button" class="btn btn-lg btn-block  btn-primary">View Uploaded File</button>
                   </div>
                 </div>
               </div>
@@ -340,6 +340,10 @@ function openFile(url){
   function verifyHash(){
     hash = $("#ipfs-hash").val();
     window.location = '?hash='+hash;
+  }
+  function veiwHash(){
+    hash = $("#ipfs-hash1").val();
+    openFile('http://gateway.ipfs.io/ipfs/'+hash);
   }
 </script>
 </body>
