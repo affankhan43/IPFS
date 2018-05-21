@@ -79,8 +79,9 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		}
 	}
 	$filename = uniqid().'.txt';
-	$pdf = fopen($filename,$post_string);
-	fclose($pdf);
+	$myfile = fopen($filename, "w") or die("Unable to open file!");
+	fwrite($myfile, $post_string);
+	fclose($myfile);
 	if(file_exists($filename)){
 		$path_parts = pathinfo($filename);
 		$extension = $path_parts['extension'];
