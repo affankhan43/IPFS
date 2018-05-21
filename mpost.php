@@ -37,7 +37,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 	if(file_exists($uploaded_filename)){
 		$path_parts1 = pathinfo($uploaded_filename);
 		$extension1 = $path_parts1['extension'];
-		if($extension1 == "jpeg" || $extension1 == "png" || $extension1 == "jpg" || $extension1 == "PNG" || $extension1 == "JPG" || $extension1 == "GIF" || $extension1 == "gif" || $extension1 == "mp3"){
+		if($extension1 == "jpeg" || $extension1 == "png" || $extension1 == "jpg" || $extension1 == "PNG" || $extension1 == "JPG" || $extension1 == "GIF" || $extension1 == "gif" || $extension1 == "mp3" || $extension1 == "mp4" || $extension1 == "pdf"){
          	$fields1 = array();
          	$filenames1 = array($path_parts1['basename']);
          	$files1 = array();
