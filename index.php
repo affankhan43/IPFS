@@ -152,7 +152,7 @@ input.form-control{
 			<div class="col-sm-10" style="padding: 10px 0px 0px 0px">
 
 				<div id="select-blockchain">
-					<h2 class="text-center" style="font-weight:bold;">Select Blockchain</h2>
+					<h2 class="text-center" style="font-weight:bold;">Select Blockchain Please</h2>
 					<br/>
 					<div class="container">
 						<div class="row">
