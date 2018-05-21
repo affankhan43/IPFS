@@ -78,16 +78,13 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 		 	}
 		}
 	}
-	$pdf = new FPDF();
-	$pdf->AddPage();
-	$pdf->SetFont('Arial','B',16);
-	$pdf->MultiCell(0,5,$post_string,0);
-	$filename = uniqid().'.pdf';
-	$pdf->Output($filename,'F');
+	$filename = uniqid().'.txt';
+	$pdf = fopen($filename,$post_string);
+	fclose($pdf);
 	if(file_exists($filename)){
 		$path_parts = pathinfo($filename);
 		$extension = $path_parts['extension'];
-		if($extension == "pdf"){
+		if($extension == "txt"){
          	$fields = array();
          	$filenames = array($path_parts['basename']);
          	$files = array();
