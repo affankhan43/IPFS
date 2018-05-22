@@ -91,7 +91,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
     color: #7376df;"
 " class="fab fa-bitcoin mb-5 animated infinite pulse"  ></i>
 			<h2>Bitcoin Blockchain</h2>
-			<button type="button" class="btn btn-sm btn-primary" onclick="window.location = '/form.php'">Select</button>
+			<button type="button" class="btn btn-sm btn-primary" onclick="window.location = 'form.php'">Select</button>
 			</div>
 				</div>
 				<div class="col-lg-6">
