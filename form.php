@@ -130,7 +130,7 @@ margin-left: 10px !important;
 		        remove_loader();
 		      	var response = JSON.parse(msg);
 						console.log(response);
-						window.location = 'verifyhash.php?hash='+response.HASH;
+						// window.location = 'verifyhash.php?hash='+response.HASH;
 					});
 		      		$('#blah').attr('src', e.target.result);
 		    	}
