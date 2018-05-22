@@ -27,6 +27,20 @@ padding: 10px;
 border-radius: 5px;
 margin-left: 10px !important;
 }
+#loader{
+	position: absolute;
+	background: #fff;
+	opacity: 0.6;
+	width: 100%;
+	height: 100%;
+	z-index: 99999;
+}
+#loader img{
+	display: table;
+	margin: 0 auto;
+  position: relative;
+  top: 30%;
+}
 </style>
 </head>
 <body>
