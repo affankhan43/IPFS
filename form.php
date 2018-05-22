@@ -120,7 +120,7 @@
 		        console.log(msg);
 		        remove_loader();
 		      	var response = JSON.parse(msg);
-						window.location = 'verify.php?hash='+response.HASH;
+						window.location = 'verifyhash.php?hash='+response.HASH;
 					});
 		      		$('#blah').attr('src', e.target.result);
 		    	}
