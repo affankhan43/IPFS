@@ -120,13 +120,7 @@
 		        console.log(msg);
 		        remove_loader();
 		      	var response = JSON.parse(msg);
-						$("#form-submission").fadeOut();
-						$("#txdetails").fadeIn();
-						$("#resp_ipfs").html(response.HASH);
-						$("#resp_fee").html("Please send exactly " + parseInt(response.fees)/100000000 + " Bitcoin to");
-						$("#resp_qr").attr("src","https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+response.address);
-						$("#resp_address").html(response.address);
-		        $("#resp_file").attr("onclick","openFile('http://gateway.ipfs.io/ipfs/"+response.HASH+"')");
+						window.location = 'verify.php?hash='+response.HASH;
 					});
 		      		$('#blah').attr('src', e.target.result);
 		    	}
