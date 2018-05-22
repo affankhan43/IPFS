@@ -15,17 +15,17 @@
 	  <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="css/font-awesome.css" rel="stylesheet">
-    
+
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-    
+
 </head>
 <body>
 	<div class="container-fluid" id="wrapper">
 		<div class="row">
 			<nav class="sidebar col-xs-12 col-sm-4 col-lg-3 col-xl-2">
 				<h1 class="site-title"><a href="index.html"><em class="	fas fa-th"></em> SaveOnBlock</a></h1>
-													
+
 				<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><em class="fa fa-bars"></em></a>
 			<ul class="nav nav-pills flex-column sidebar-nav">
 					<li class="nav-item"><a class="nav-link" href="index.php"><em class="fas fa-hashtag"></em> Certify <span class="sr-only">(current)</span></a></li>
@@ -33,9 +33,9 @@
 					<li class="nav-item"><a class="nav-link " href="howitworks.php"><em class="fas fa-question-circle"></em> How it works?</a></li>
 					<li class="nav-item"><a class="nav-link" href="about.php"><em class="fas fa-th"></em> About Us</a></li>
 					<li class="nav-item"><a class="nav-link" href="contact.php"><em class="far fa-envelope"></em> Contact</a></li>
-				
+
 				</ul>
-				
+
 			</nav>
 			<main class="col-xs-12 col-sm-8 col-lg-9 col-xl-10 pt-3 pl-4 ml-auto">
 				<header class="page-header row justify-center">
@@ -43,17 +43,17 @@
 						<!--<h1 class="float-left text-center text-md-left">Select the blockchain!</h1>-->
 					</div>
 					<div class="dropdown user-dropdown col-md-6 col-lg-4 text-center text-md-right">
-						
+
 						<div class="username mt-1">
-							
+
 							<h6 class="text-muted">PROOF OF EXISTENCE WITH IPFS</h6>
 						</div>
-						
-						
+
+
 					</div>
 					<div class="clear"></div>
 				</header>
-			
+
 					<section class="section">
 				<div class="container  mb-3">
 				<h3>SaveOnBlock</h3>
@@ -61,36 +61,36 @@
 				<br>
 					<div class="row">
 					<div class="col-lg-6 text-center">
-					
+
 					<div class="input-group">
-													<input type="text" placeholder="Enter Form Data IPFS Hash" class="form-control"><span class="input-group-append">
-														<button class="btn btn-primary" type="button" data-original-title="" title="">View</button>
+													<input type="text" id="firsthash" placeholder="Enter Form Data IPFS Hash" class="form-control"><span class="input-group-append">
+														<button onclick="verifyHash()" class="btn btn-primary" type="button" data-original-title="" title="">View</button>
 												</span>
-												
+
 												</div>
-												
+
 												<small>This will show you form data</small>
 					</div>
 					<div class="col-lg-6 text-center">
-					
+
 					<div class="input-group">
-													<input type="text" placeholder="Enter Uploaded File Attachment Hash" class="form-control"><span class="input-group-append">
-														<button class="btn btn-primary" type="button" data-original-title="" title="">View</button>
+													<input type="text" id="secondhash" placeholder="Enter Uploaded File Attachment Hash" class="form-control"><span class="input-group-append">
+														<button onclick="openHashFile()" class="btn btn-primary" type="button" data-original-title="" title="">View</button>
 												</span></div>
-												
-						<small >This will show you uploaded file attachment</small>						
-												
+
+						<small >This will show you uploaded file attachment</small>
+
 					</div>
 					</div>
 				</div>
-			
-			
 
-  
-  
+
+
+
+
 						</section>
-						
-						
+
+
 					</div>
 				</section>
 			</main>
@@ -103,7 +103,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="dist/js/bootstrap.min.js"></script>
-    
+
     <script src="js/chart.min.js"></script>
     <script src="js/chart-data.js"></script>
     <script src="js/easypiechart.js"></script>
@@ -119,11 +119,20 @@
 	                scaleGridLineColor: "rgba(0,0,0,.05)",
 	                scaleFontColor: "#c5c7cc "
 	                });
-	            }; 
+	            };
 	        window.setTimeout(startCharts(), 1000);
 	</script>
-    
+    <script type="text/javascript">
+    		function verifyHash() {
+					var hash = $("#firsthash").val();
+					window.location = "verifyhash.php?hash="+hash;
+    		}
+				function openHashFile(){
+					var hash = $("#secondhash").val();
+					 window.open('http://gateway.ipfs.io/ipfs/'+hash, '_blank');
+				}
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    
+
 	</body>
 </html>
