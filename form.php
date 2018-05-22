@@ -18,7 +18,16 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-
+<style media="screen">
+input{
+	background-color: #ffffff;
+	border: solid 1px #efefef;
+box-shadow: none;
+padding: 10px;
+border-radius: 5px;
+margin-left: 10px !important;
+}
+</style>
 </head>
 <body>
 	<div class="container-fluid" id="wrapper">
