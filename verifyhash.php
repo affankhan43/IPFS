@@ -169,7 +169,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 			<div class="input-group"><span class="input-group-prepend">
 													<button class="btn btn-primary" type="button" title="">IPFS Hash</button>
 													</span>
-													<input type="text" value="<?php echo $all_data['ipfs_hash']?>" disabled class="form-control">
+													<input type="text" value="<?php echo $all_data['ipfs_hash']?>"   class="form-control">
 												</div>
 
 												<hr>
@@ -193,14 +193,14 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 			<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<?php echo $all_data['bitcoin_address']; ?>">
 			<hr class="bg-primary">
 			<div class="input-group">
-			<input type="text" disabled value="<?php echo $all_data['bitcoin_address']?>" class="form-control"><span class="input-group-append">
+			<input type="text" value="<?php echo $all_data['bitcoin_address']?>" class="form-control"><span class="input-group-append">
 		</span>
 		</div>
 		<?php }elseif($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid'])){ ?>
 			<p class="lead">Data is Verified on Bitcoin Blockchain</p>
 			<hr class="bg-primary">
 			<div class="input-group">
-			<input type="text" disabled value="<?php echo $all_data['bitcoin_txid']?>" class="form-control"><span class="input-group-append">
+			<input type="text" value="<?php echo $all_data['bitcoin_txid']?>" class="form-control"><span class="input-group-append">
 		</span>
 		</div>
 		  <?php } ?>
