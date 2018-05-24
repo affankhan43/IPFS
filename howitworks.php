@@ -18,6 +18,7 @@
     
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     
 </head>
 <body>
