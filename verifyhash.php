@@ -201,6 +201,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 			<hr class="bg-primary">
 			<div class="input-group">
 			<input type="text" value="<?php echo $all_data['bitcoin_txid']?>" class="form-control"><span class="input-group-append">
+			<button type="button" onclick="<?php echo "openFile('https://live.blockcypher.com/btc-testnet/tx/".$all_data['bitcoin_txid']."')"; ?>" class="btn btn-sm btn-primary">VIEW ON BLOCKCHAIN</button>
 		</span>
 		</div>
 		  <?php } ?>
