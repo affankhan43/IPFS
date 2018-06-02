@@ -87,12 +87,7 @@ margin-left: 10px !important;
 
 
 			<form id="form">
-				<div class="radio">
-					<label><input type="radio" name="optradio">Option 1</label>
-				</div>
-				<div class="radio">
-					<label><input type="radio" name="optradio">Option 2</label>
-				</div>
+				
 			</form>
 
 
