@@ -186,6 +186,14 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 				<div id="payme" class="alert bg-primary animated bounce" role="alert"><em class="fa fa-check-circle mr-2"></em> Make a payment to embed this data onto blockchain <a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>
 
 
+			<div class="input-group">
+				<span class="input-group-prepend">
+					<button class="btn btn-primary" type="button" title="">IPFS Hash</button>
+				</span>
+				<input type="text" value="<?php echo $all_data['ipfs_hash']?>"   class="form-control">
+			</div>
+				<hr>
+
 				</div>
 				<div class="col-lg-5">
 				<div class="jumbotron text-center">
