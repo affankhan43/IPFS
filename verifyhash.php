@@ -185,7 +185,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 
 				<div id="payme" class="alert bg-primary animated bounce" role="alert"><em class="fa fa-check-circle mr-2"></em> Make a payment to embed this data onto blockchain <a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>
 
-
+		<?php if($all_data['is_private'] == 1){ ?>
 			<div class="jumbotron text-center">
 				<h3>Make Document Private</h3>
 				<div class="input-group">
@@ -199,6 +199,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 				<br>
 				<h6 class="mt-3">Your form data and upload file be hashed separately. Same file and data will generate same IPFS hash.</h6>
 			</div>
+		<?php } ?>
 			<hr>
 
 				</div>
