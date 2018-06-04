@@ -140,8 +140,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							else{
 								$value_fees = 75000;
 							}
-							$pub_priv = json_decode($_POST['form_data'], true);
-							$pub_priv = $pub_priv[sizeof($pub_priv)-1]['value'];
+							$pub_priv = $_POST['form_data'][sizeof($pub_priv)-1]['value'];
 							if($pub_priv=='private'){
 								$is_private = 1;
 							}
