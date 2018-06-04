@@ -187,21 +187,17 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 
 
 			<div class="jumbotron text-center">
-
-			<h3>IPFS Details</h3>
-			<div class="input-group"><span class="input-group-prepend">
-													<button class="btn btn-primary" type="button" title="">IPFS Hash</button>
-													</span>
-													<input type="text" value="<?php echo $all_data['ipfs_hash']?>"   class="form-control">
-												</div>
-
-												<hr>
-			<button type="button" onclick="<?php echo "openFile('http://gateway.ipfs.io/ipfs/".$all_data['ipfs_hash']."')"; ?>" class="btn btn-sm btn-primary">VIEW</button>
-			<br>
-			<h6 class="mt-3">Your form data and upload file be hashed separately. Same file and data will generate same IPFS hash.</h6>
-
-
-
+				<h3>Make Document Private</h3>
+				<div class="input-group">
+					<span class="input-group-prepend">
+					<button class="btn btn-primary" type="button" title="">IPFS Hash</button>
+					</span>
+					<input type="text" value="<?php echo $all_data['ipfs_hash']?>"   class="form-control">
+				</div>
+				<hr>
+				<button type="button" onclick="<?php echo "openFile('http://gateway.ipfs.io/ipfs/".$all_data['ipfs_hash']."')"; ?>" class="btn btn-sm btn-primary">VIEW</button>
+				<br>
+				<h6 class="mt-3">Your form data and upload file be hashed separately. Same file and data will generate same IPFS hash.</h6>
 			</div>
 			<hr>
 
