@@ -141,7 +141,9 @@ margin-left: 10px !important;
 										<tr>
 											<td><a href=<?php echo "http://saveonblock.com/verifyhash.php?hash=".$all_dataa[$i]['ipfs_hash']; ?> target="_blank"><?php echo $all_dataa[$i]['ipfs_hash']; ?></a></td>
 											<td><?php if($all_dataa[$i]['verified'] == 1){ ?>
+												<span class="label label-success">Verified</span>
 												<?php }else{ ?>
+												<span class="label label-danger">Not Verified</span>
 												<?php } ?>
 												</td>
 											<td><?php echo $all_dataa[$i]['bitcoin_txid']; ?></td>
