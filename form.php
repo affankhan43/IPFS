@@ -1,10 +1,20 @@
 <?php 
-require __DIR__ . '/vendor/autoload.php';
-include 'core/funcs.php';
-include '.env';
-use \Curl\Curl;
+include 'core/.env';
+$db = mysqli_connect($HostName,$HostUser,$HostPass,$dbName) or die("Could not connect to the database");
+if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    else{
+       // echo "sdf";
+    }
+$qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE is_private=0 LIMIT 30 ");
+    $result = mysqli_fetch_assoc($qry);
+    if(!$result){
 
-get_data_list();  
+    }
+    else{
+        print_r($result);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
