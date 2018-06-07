@@ -59,6 +59,15 @@ margin-left: 10px !important;
   position: relative;
   top: 30%;
 }
+.table {
+  table-layout:fixed;
+}
+
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 </style>
 </head>
 <body>
@@ -130,7 +139,7 @@ margin-left: 10px !important;
 									<tbody>
 										<?php for ($i=0; $i < sizeof($all_dataa) ; $i++) { ?>
 										<tr>
-											<td><a href=<?php echo "http://saveonblock.com/verifyhash.php?hash=".$all_dataa[$i]['ipfs_hash']; ?> target="_blank"></a><?php echo $all_dataa[$i]['ipfs_hash']; ?></td>
+											<td><a href=<?php echo "http://saveonblock.com/verifyhash.php?hash=".$all_dataa[$i]['ipfs_hash']; ?> target="_blank"><?php echo $all_dataa[$i]['ipfs_hash']; ?></a></td>
 											<td><?php echo $all_dataa[$i]['verified']; ?></td>
 											<td><?php echo $all_dataa[$i]['bitcoin_txid']; ?></td>
 										</tr>
