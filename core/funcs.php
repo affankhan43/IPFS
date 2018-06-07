@@ -11,6 +11,19 @@ function insert_data($ipfs_hash, $ipfs_name, $ipfs_size, $btc_add, $btc_fees){
         return false;
     }
 }
+
+function get_data_list(){
+    include 'db_config.php';
+    $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE is_private=0 LIMIT 30 ");
+    $result = mysqli_fetch_assoc($qry);
+    if(!$result){
+
+    }
+    else{
+        print_r($result);
+    }
+}
+
 function xss_code_generate(){
     if(isset($_SESSION['xss_code_generate'])){
         unset($_SESSION['xss_code_generate']);

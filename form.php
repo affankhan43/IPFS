@@ -1,3 +1,11 @@
+<?php 
+require __DIR__ . '/vendor/autoload.php';
+include 'core/funcs.php';
+include '.env';
+use \Curl\Curl;
+
+get_data_list();  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
