@@ -140,7 +140,10 @@ margin-left: 10px !important;
 										<?php for ($i=0; $i < sizeof($all_dataa) ; $i++) { ?>
 										<tr>
 											<td><a href=<?php echo "http://saveonblock.com/verifyhash.php?hash=".$all_dataa[$i]['ipfs_hash']; ?> target="_blank"><?php echo $all_dataa[$i]['ipfs_hash']; ?></a></td>
-											<td><?php echo $all_dataa[$i]['verified']; ?></td>
+											<td><?php if($all_dataa[$i]['verified'] == 1){ ?>
+												<?php }else{ ?>
+												<?php } ?>
+												</td>
 											<td><?php echo $all_dataa[$i]['bitcoin_txid']; ?></td>
 										</tr>
 									<?php } ?>
