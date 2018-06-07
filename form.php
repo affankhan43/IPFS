@@ -7,13 +7,13 @@ if (mysqli_connect_errno()) {
     else{
        // echo "sdf";
     }
-$qry = mysqli_query($db,"SELECT  `ipfs_hash`,`verified`,`bitcoin_txid` FROM `document_details` WHERE is_private=0 LIMIT 30 ");
+$qry = mysqli_query($db,"SELECT  `ipfs_hash`,`verified`,`bitcoin_txid` FROM `document_details` WHERE is_private=0 LIMIT 10 ");
     $result = mysqli_fetch_all($qry,MYSQLI_ASSOC);
     if(!$result){
 
     }
     else{
-        print_r($result);
+        $all_dataa = ($result);
     }
 ?>
 <!DOCTYPE html>
@@ -128,11 +128,13 @@ margin-left: 10px !important;
 										</tr>
 									</thead>
 									<tbody>
+										<?php for ($i=0; $i < sizeof($all_dataa) ; $i++) { ?>
 										<tr>
-											<td>John</td>
-											<td>Doe</td>
-											<td>john@example.com</td>
+											<td><?php echo $all_dataa[$i]['ipfs_hash']; ?></td>
+											<td><?php echo $all_dataa[$i]['verified']; ?></td>
+											<td><?php echo $all_dataa[$i]['bitcoin_txid']; ?></td>
 										</tr>
+									<?php } ?>
 									</tbody>
 								</table>
 							</div>
