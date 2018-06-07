@@ -7,7 +7,7 @@ if (mysqli_connect_errno()) {
     else{
        // echo "sdf";
     }
-$qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE is_private=0 LIMIT 30 ");
+$qry = mysqli_query($db,"SELECT  `ipfs_hash`,`verified`,`bitcoin_txid` FROM `document_details` WHERE is_private=0 LIMIT 30 ");
     $result = mysqli_fetch_all($qry,MYSQLI_ASSOC);
     if(!$result){
 
