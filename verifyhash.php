@@ -104,6 +104,8 @@ session_start();
 </head>
 <style type="text/css">
 	.PayBear__Icons{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+	.PayBear__Item{padding:12px;}
+	.PayBear__Item{background:#fff;padding:21px 6px 15px;border-radius:4px;box-shadow:0 2px 2px rgba(0,0,0,.06),0 2px 24px rgba(0,0,0,.06);width:calc(33.33% - 6.66px);text-align:center;color:#686868;font-size:12px;line-height:1.35;margin-top:10px;margin-right:10px;cursor:pointer;outline:0;position:relative;transition:all .1s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media (min-width:500px) and (min-height:700px){.PayBear__Item{font-size:14px}}
 </style>
 <body>
 	<div class="container-fluid" id="wrapper">
