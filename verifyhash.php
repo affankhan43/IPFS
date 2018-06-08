@@ -102,6 +102,9 @@ session_start();
     <link href="css/style.css" rel="stylesheet">
 
 </head>
+<style type="text/css">
+	.PayBear__Icons{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
+</style>
 <body>
 	<div class="container-fluid" id="wrapper">
 		<div class="row">
