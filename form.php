@@ -126,33 +126,6 @@ margin-left: 10px !important;
 							<div class="col-12 mt-1 text-center mb-4"><button onclick="submitForm();" type="button" name="button" class="btn btn-lg btn-primary">Submit</button></div>
 
 						</section>
-						<section class="row">
-							<div class="col-12 mt-1 text-center mb-4">
-								<table class="table table-hover">
-									<thead>
-										<tr>
-											<th>IPFS Hash</th>
-											<th>Status</th>
-											<th>Bitcoin TXID</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php for ($i=0; $i < sizeof($all_dataa) ; $i++) { ?>
-										<tr>
-											<td><a href=<?php echo "http://saveonblock.com/verifyhash.php?hash=".$all_dataa[$i]['ipfs_hash']; ?> target="_blank"><?php echo $all_dataa[$i]['ipfs_hash']; ?></a></td>
-											<td><?php if($all_dataa[$i]['verified'] == 1){ ?>
-												<span class="badge badge-pill badge-success">Verified</span>
-												<?php }else{ ?>
-												<span class="badge badge-pill badge-danger">Not Verified</span>
-												<?php } ?>
-												</td>
-											<td><?php echo $all_dataa[$i]['bitcoin_txid']; ?></td>
-										</tr>
-									<?php } ?>
-									</tbody>
-								</table>
-							</div>
-						</section>
 					</div>
 				</section>
 			</main>
