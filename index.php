@@ -153,7 +153,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 												<?php } ?>
 												</td>
 											<td><?php echo $all_dataa[$i]['bitcoin_txid']; ?></td>
-											<td></td>
+											<td><?php echo $all_dataa[$i]['timestamp']; ?></td>
 										</tr>
 									<?php } ?>
 									</tbody>
