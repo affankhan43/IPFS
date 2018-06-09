@@ -105,7 +105,7 @@ session_start();
 <style type="text/css">
 	.PayBear__Icons{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 	.PayBear__Item{padding:11px;}
-	.PayBear__Item{background:#fff;padding:20px 6px 14px;border-radius:4px;box-shadow:0 2px 2px rgba(0,0,0,.06),0 2px 24px rgba(0,0,0,.06);width:calc(33.33% - 6.66px);text-align:center;color:#686868;font-size:12px;line-height:1.35;margin-top:10px;margin-right:10px;cursor:pointer;outline:0;position:relative;transition:all .1s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media (min-width:500px) and (min-height:700px){.PayBear__Item{font-size:14px}}
+	.PayBear__Item{background:#fff;padding:23px 6px 14px;border-radius:4px;box-shadow:0 2px 2px rgba(0,0,0,.06),0 2px 24px rgba(0,0,0,.06);width:calc(30.0% - 6.0px);text-align:center;color:#686868;font-size:12px;line-height:1.35;margin-top:10px;margin-right:10px;cursor:pointer;outline:0;position:relative;transition:all .1s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media (min-width:500px) and (min-height:700px){.PayBear__Item{font-size:14px}}
 	.PayBear__Item__icon{width:50px;height:50px;margin:5px auto 0;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}
 	.PayBear__Item__icon{width:50px;height:50px;margin:5px auto 0}
 	.PayBear__Item__icon img,.PayBear__Item__icon svg{max-width:100%;max-height:100%;width:100%;height:100%}
@@ -196,9 +196,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 			<div class="jumbotron text-center">
 				<h3>Make Document Private</h3>
 				<div class="input-group">
-					<span class="input-group-prepend">
-					<button class="btn btn-primary" type="button" title="">IPFS Hash</button>
-					</span>			
+								
 				</div>
 				<hr>
 				<br>
