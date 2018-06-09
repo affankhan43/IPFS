@@ -242,15 +242,14 @@ session_start();
 						</div>
 					</div>
 				</section>
-			</div>
-			<section class="row">
-				<div class="col-12 mt-1 text-center mb-4">
-					<a href="how.php" class="btn btn-lg btn-outline-primary">How It Works?</a>
-				</div>
-			</section>
-		</main>
+				<section class="row">
+					<div class="col-12 mt-1 text-center mb-4">
+						<a href="how.php" class="btn btn-lg btn-outline-primary">How It Works?</a>
+					</div>
+				</section>
+			</main>
+		</div>
 	</div>
-</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
