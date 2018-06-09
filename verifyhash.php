@@ -106,6 +106,9 @@ session_start();
 	.PayBear__Icons{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 	.PayBear__Item{padding:12px;}
 	.PayBear__Item{background:#fff;padding:21px 6px 15px;border-radius:4px;box-shadow:0 2px 2px rgba(0,0,0,.06),0 2px 24px rgba(0,0,0,.06);width:calc(33.33% - 6.66px);text-align:center;color:#686868;font-size:12px;line-height:1.35;margin-top:10px;margin-right:10px;cursor:pointer;outline:0;position:relative;transition:all .1s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media (min-width:500px) and (min-height:700px){.PayBear__Item{font-size:14px}}
+	.PayBear__Item__icon{width:52px;height:52px;margin:5px auto 0;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}
+	.PayBear__Item__icon{width:54px;height:54px;margin:8px auto 0}
+	.PayBear__Item__icon img,.PayBear__Item__icon svg{max-width:100%;max-height:100%;width:100%;height:100%}
 </style>
 <body>
 	<div class="container-fluid" id="wrapper">
