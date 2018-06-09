@@ -168,7 +168,7 @@ session_start();
 						<div id="payme" class="alert bg-primary animated bounce" role="alert">
 							<em class="fa fa-check-circle mr-2"></em> Make a payment to embed this data onto blockchain <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
 						</div>
-						<div class="jumbotron text-center">
+						<0div class="jumbotron text-center">
 							<h3>Make Document Private</h3>
 							<hr>
 							<br>
@@ -217,7 +217,6 @@ session_start();
 								</div>
 							</div>
 						</div>
-						<hr>
 					</div>
 					<div class="col-lg-5">
 						<div class="jumbotron text-center">
@@ -242,6 +241,7 @@ session_start();
 						</div>
 					</div>
 				</section>
+				<hr>
 				<section class="row">
 					<div class="col-12 mt-1 text-center mb-4">
 						<a href="how.php" class="btn btn-lg btn-outline-primary">How It Works?</a>
