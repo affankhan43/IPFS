@@ -1,3 +1,21 @@
+<?php 
+include 'core/.env';
+$db = mysqli_connect($HostName,$HostUser,$HostPass,$dbName) or die("Could not connect to the database");
+if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    else{
+       // echo "sdf";
+    }
+$qry = mysqli_query($db,"SELECT  `ipfs_hash`,`verified`,`bitcoin_txid` FROM `document_details` WHERE is_private=0 LIMIT 10 ");
+    $result = mysqli_fetch_all($qry,MYSQLI_ASSOC);
+    if(!$result){
+
+    }
+    else{
+        $all_dataa = ($result);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
