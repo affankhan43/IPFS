@@ -168,7 +168,7 @@ session_start();
 						<div id="payme" class="alert bg-primary animated bounce" role="alert">
 							<em class="fa fa-check-circle mr-2"></em> Make a payment to embed this data onto blockchain <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
 						</div>
-						<0div class="jumbotron text-center">
+						<div class="jumbotron text-center">
 							<h3>Make Document Private</h3>
 							<hr>
 							<br>
