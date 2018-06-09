@@ -125,9 +125,6 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 				</div>
 						</section>
 						<section class="row">
-							<div class="col-12 mt-1 text-center mb-4">	<a href="howitworks.php" class="btn btn-lg btn-outline-primary">How It Works?</a></div>
-						</section>
-						<section class="row">
 							<div class="col-12 mt-1 text-center mb-4">
 								<table class="table table-hover">
 									<thead>
@@ -135,6 +132,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 											<th>IPFS Hash</th>
 											<th>Status</th>
 											<th>Bitcoin TXID</th>
+											<th>Timestamp</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -148,11 +146,15 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 												<?php } ?>
 												</td>
 											<td><?php echo $all_dataa[$i]['bitcoin_txid']; ?></td>
+											<td></td>
 										</tr>
 									<?php } ?>
 									</tbody>
 								</table>
 							</div>
+						</section>
+						<section class="row">
+							<div class="col-12 mt-1 text-center mb-4">	<a href="howitworks.php" class="btn btn-lg btn-outline-primary">How It Works?</a></div>
 						</section>
 					</div>
 				</section>
