@@ -88,7 +88,14 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
     animation: pulse 1s;
 
 				}
-
+				.table {
+					table-layout:fixed;
+					}
+				.table td {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
 				</style>
 					<section class="section row">
 				<div class="container  mb-3">
