@@ -149,12 +149,10 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							}
 							$qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`,`is_private`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."','".$value_fees."', 'Null', '".$is_private."')";
 						if(mysqli_query($db, $qry)){
-							// $mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
-							// $headers = "From: bitcoinbays@gmail.com\r\n";
-							// mail($_POST['email'],"Document Added ...",$mssg,$headers);
-							// $URL = 'http://'.$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF'].'?hash='.$data_compose['Hash'];
-							// header('Location: '.$URL);
-               				echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'],'file'=>$filename, 'address'=>$address['address'], 'fees'=>$value_fees));
+							 $mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
+							 $headers = "From: bitcoinbays@gmail.com\r\n";
+							 mail($_POST['email'],"Document Added ...",$mssg,$headers);
+							 echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'],'file'=>$filename, 'address'=>$address['address'], 'fees'=>$value_fees));
 						}
 						else{
 							echo json_encode(array("success"=>false,"message"=>"Unknown Error #11"));
