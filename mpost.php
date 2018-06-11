@@ -140,8 +140,8 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 							else{
 								$value_fees = 75000;
 							}
-							$email = $_POST['form_data'][sizeof($_POST['form_data'])-1]['value'];
-							$qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."','".$value_fees."', 'Null')";
+							$emailer = $_POST['form_data'][sizeof($_POST['form_data'])-1]['value'];
+							$qry = "INSERT INTO `document_details` (`ipfs_hash`, `ipfs_name`, `ipfs_size`, `verified`, `bitcoin_address`, `bitcoin_fees`,`email`) VALUES ('".$data_compose['Hash']."','".$data_compose['Name']."','".$data_compose['Size']."',0,'".$address['address']."','".$value_fees."', '".$emailer."')";
 						if(mysqli_query($db, $qry)){
 							 $mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
 							 $headers = "From: bitcoinbays@gmail.com\r\n";
