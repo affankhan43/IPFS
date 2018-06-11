@@ -145,7 +145,7 @@ if(isset($_POST['msg']) && isset($_POST['form_data']) && isset($_POST['fileData'
 						if(mysqli_query($db, $qry)){
 							 $mssg = "Your Document is Added in IPFS \n\n Document IPFS HASH :".$data_compose['Hash'];
 							 $headers = "From: bitcoinbays@gmail.com\r\n";
-							 mail($_POST['email'],"Document Added ...",$mssg,$headers);
+							 mail($emailer,"Document Added ...",$mssg,$headers);
 							 echo json_encode(array("success"=>true,"message"=>"Successfully Data Added",'HASH'=>$data_compose['Hash'],'file'=>$filename, 'address'=>$address['address'], 'fees'=>$value_fees));
 						}
 						else{
