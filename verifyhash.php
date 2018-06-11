@@ -149,6 +149,10 @@ session_start();
 						<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em> Your data has been successfully hashed with IPFS <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
 						</div>
 					</div>
+					<div class="container  mb-3">
+						<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em> Your data was secured privately <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
+						</div>
+					</div>
 					<div class="col-lg-12 text-center"></div>
 					<div class="col-lg-7">
 						<div class="jumbotron text-center">
