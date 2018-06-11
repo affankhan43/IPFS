@@ -152,7 +152,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 												<span class="badge badge-pill badge-danger">Not Verified</span>
 												<?php } ?>
 												</td>
-											<td><?php echo $all_dataa[$i]['bitcoin_txid']; ?></td>
+											<td><?php if(empty($all_dataa[$i]['bitcoin_txid'])){echo "None";}else{echo $all_dataa[$i]['bitcoin_txid'];} ?></td>
 											<td><?php echo $all_dataa[$i]['timestamp']; ?></td>
 										</tr>
 									<?php } ?>
