@@ -119,7 +119,7 @@ session_start();
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title"></h4>
 	    		</div>
 				<div class="modal-body">
 					<p>Some text in the modal.</p>
@@ -200,7 +200,7 @@ session_start();
 							<hr>
 							<br>
 							<div class="PayBear__Icons">
-								<div role="button" tabindex="0" class="PayBear__Item" data-toggle="modal" data-target="#myModal">
+								<div role="button" tabindex="0" class="PayBear__Item" onclick="create_pay('eth')">
 									<div class="PayBear__Item__icon">
 										<img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjU0IiB2aWV3Qm94PSIwIDAgNDIuMTE3ODQgNDIuMTI5NDQ2IiB3aWR0aD0iNTQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxjbGlwUGF0aCBpZD0iYSI+PHBhdGggZD0ibTcyMC42IDMwNi40aDUwOC43djI2NmgtNTA4Ljd6IiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0iIiB3aWR0aD0iMTAwJSIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJiIj48cGF0aCBkPSJtNzIwLjYgMGgyNTQuNHY1NzIuNGgtMjU0LjR6IiBoZWlnaHQ9IjEwMCUiIHRyYW5zZm9ybT0iIiB3aWR0aD0iMTAwJSIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjIj48cGF0aCBkPSJtOTc1IDBoMjU0LjR2NTcyLjRoLTI1NC40eiIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09IiIgd2lkdGg9IjEwMCUiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iZCI+PHBhdGggZD0ibTcyMC42IDQ3MC4zaDI1NC40djM1OC40aC0yNTQuNHoiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSIiIHdpZHRoPSIxMDAlIi8+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImUiPjxwYXRoIGQ9Im05NzUgNDcwLjNoMjU0LjV2MzU4LjRoLTI1NC41eiIgaGVpZ2h0PSIxMDAlIiB0cmFuc2Zvcm09IiIgd2lkdGg9IjEwMCUiLz48L2NsaXBQYXRoPjxnIGZpbGw9IiMwMTAxMDEiPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNhKSIgZD0ibTk3NSAzMDYuNC0yNTQuNCAxMTUuNyAyNTQuNCAxNTAuMyAyNTQuMy0xNTAuM3oiIG9wYWNpdHk9Ii42IiB0cmFuc2Zvcm09Im1hdHJpeCguMDUwODM3OTkgMCAwIC4wNTA4Mzc5OSAtMjguNTEwNjYyIDApIi8+PHBhdGggY2xpcC1wYXRoPSJ1cmwoI2IpIiBkPSJtNzIwLjYgNDIyLjEgMjU0LjQgMTUwLjN2LTU3Mi40eiIgb3BhY2l0eT0iLjQ1IiB0cmFuc2Zvcm09Im1hdHJpeCguMDUwODM3OTkgMCAwIC4wNTA4Mzc5OSAtMjguNTEwNjYyIDApIi8+PHBhdGggY2xpcC1wYXRoPSJ1cmwoI2MpIiBkPSJtOTc1IDB2NTcyLjRsMjU0LjMtMTUwLjN6IiBvcGFjaXR5PSIuOCIgdHJhbnNmb3JtPSJtYXRyaXgoLjA1MDgzNzk5IDAgMCAuMDUwODM3OTkgLTI4LjUxMDY2MiAwKSIvPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNkKSIgZD0ibTcyMC42IDQ3MC4zIDI1NC40IDM1OC40di0yMDguMXoiIG9wYWNpdHk9Ii40NSIgdHJhbnNmb3JtPSJtYXRyaXgoLjA1MDgzNzk5IDAgMCAuMDUwODM3OTkgLTI4LjUxMDY2MiAwKSIvPjxwYXRoIGNsaXAtcGF0aD0idXJsKCNlKSIgZD0ibTk3NSA2MjAuNnYyMDguMWwyNTQuNS0zNTguNHoiIG9wYWNpdHk9Ii44IiB0cmFuc2Zvcm09Im1hdHJpeCguMDUwODM3OTkgMCAwIC4wNTA4Mzc5OSAtMjguNTEwNjYyIDApIi8+PC9nPjwvc3ZnPg==" alt="Ethereum">
 									</div>
@@ -308,6 +308,14 @@ session_start();
 					function openFile(url){
 					  window.open(url, '_blank');
 					}
+	</script>
+	<script>
+		function create_pay(coin){
+			if(coin == 'eth'){
+				$(".modal-title").html(' Pay Ethereum');
+				$("#myModal").modal()
+			}
+		}
 	</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
