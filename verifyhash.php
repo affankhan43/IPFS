@@ -313,7 +313,7 @@ session_start();
 			$(".modal-body").html('');
 			if(coin == 'eth'){
 				$(".modal-title").html(' Pay Ethereum');
-				$.get('https://baconipsum.com/api/?type=meat-and-filler&paras',function(msg){
+				$.get('https://api.paybear.io/v2/eth/payment/?token=sec74680f32a95b7cfe3ce2320993c4f2ce',function(msg){
 					$(".modal-body").html(msg);
 				});
 				$("#myModal").modal();
