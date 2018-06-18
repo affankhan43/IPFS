@@ -310,6 +310,7 @@ session_start();
 	</script>
 	<script>
 		function create_pay(coin){
+			$(".modal-body").html('');
 			if(coin == 'eth'){
 				$(".modal-title").html(' Pay Ethereum');
 				$.get('https://baconipsum.com/api/?type=meat-and-filler&paras',function(msg){
