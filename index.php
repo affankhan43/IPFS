@@ -153,7 +153,7 @@ box-shadow: 0px 6px 44px -12px rgba(0,0,0,0.38);
 												<?php } ?>
 												</td>
 											<td><?php if(empty($all_dataa[$i]['bitcoin_txid'])){echo "None";}else{ ?>
-												<a href=""><?php echo $all_dataa[$i]['bitcoin_txid'];} ?></a></td>
+												<a href=<?php echo "https://live.blockcypher.com/btc-testnet/".$all_dataa[$i]['bitcoin_txid']; ?> ><?php echo $all_dataa[$i]['bitcoin_txid']; ?></a><?php } ?></td>
 											<td><?php echo $all_dataa[$i]['timestamp']; ?></td>
 										</tr>
 									<?php } ?>
