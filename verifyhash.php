@@ -312,6 +312,8 @@ session_start();
 		function create_pay(coin){
 			if(coin == 'eth'){
 				$(".modal-title").html(' Pay Ethereum');
+				$(".modal-body").html('loading....').load('https://baconipsum.com/api/?type=meat-and-filler&paras=', function() {
+					$('.modal').removeClass('modal-scrollfix').modal('handleUpdate');});
 				$("#myModal").modal()
 			}
 			else if(coin == 'btc'){
@@ -328,6 +330,10 @@ session_start();
 			}
 			else if(coin == 'btg'){
 				$(".modal-title").html(' Pay Bitcoin Gold');
+				$("#myModal").modal()
+			}
+			else if(coin == 'dash'){
+				$(".modal-title").html(' Pay Dash');
 				$("#myModal").modal()
 			}
 		}
