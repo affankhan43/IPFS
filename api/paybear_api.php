@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: *");
 
 
 if(isset($_POST['msg'])){
-	if($_POST['msg'] == 'payment_address'){
+	if($_POST['msg'] == 'payment_address' && isset($_POST[''])){
 
 	}
 }
