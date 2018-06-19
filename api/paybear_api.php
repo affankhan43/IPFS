@@ -21,8 +21,15 @@ if(isset($_POST['msg'])){
 			echo json_encode(array('success'=>false,'error'=>'hash not found'));
 		}
 		else{
-			//$get_url = 'https://api.paybear.io/v2/'.$_POST['coin'].'/payment/?token='.$priv_env_key;
-			//$address_data = file_get_contents($get_url);
+			if(is_null($result['coin_data'])){
+				$get_url = 'https://api.paybear.io/v2/'.$_POST['coin'].'/payment/?token='.$priv_env_key;
+				$address_data = file_get_contents($get_url);
+				$address_data = json_decode($address_data, true);
+				if($address_data['success'] == true){
+					$upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+					if(mysqli_query($db, $upd_qry2)){}
+				}
+			}
 			echo json_encode($result);
 		}
 	}
