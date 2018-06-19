@@ -14,7 +14,7 @@ header("Access-Control-Allow-Headers: *");
 
 if(isset($_POST['msg'])){
 	if($_POST['msg'] == 'payment_address' && isset($_POST['hash'])){
-		$qry = "SELECT `ipfs_hash` FROM `document_details` WHERE ipfs_hash='".$_POST['hash']."' ";
+		$qry = "SELECT `ipfs_hash` FROM document_details WHERE ipfs_hash='".$_POST['hash']."' ";
 		$result = mysqli_fetch_assoc($db,$qry);
 		print_r($result);
 	}
