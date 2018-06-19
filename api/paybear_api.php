@@ -15,7 +15,7 @@ header("Access-Control-Allow-Headers: *");
 
 if(isset($_POST['msg'])){
 	if($_POST['msg'] == 'payment_address' && isset($_POST['hash']) && isset($_POST['btc_address']) && isset($_POST['coin'])){
-		$qry = mysqli_query($db,"SELECT `ipfs_hash` FROM `document_details` WHERE ipfs_hash='".$_POST['hash']."' ");
+		$qry = mysqli_query($db,"SELECT `ipfs_hash` FROM `document_details` WHERE ipfs_hash='".$_POST['hash']."' AND bitcoin_address='".$_POST['btc_address']."' ");
 		$result = mysqli_fetch_assoc($qry);
 		if(!$result){
 			echo json_encode(array('success'=>false,'error'=>'hash not found'));
