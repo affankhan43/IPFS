@@ -26,11 +26,17 @@ if(isset($_POST['msg'])){
 				$address_data = file_get_contents($get_url);
 				$address_data = json_decode($address_data, true);
 				if($address_data['success'] == true){
-					$upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
-					if(mysqli_query($db, $upd_qry2)){}
+					$coin_data = array(array('coin'=>$_POST['coin'],'address'=>$address_data['data']['address'],'status'=>'pending'));
+					$coin_data = json_encode($coin_data);
+					$upd_qry2 = "UPDATE `document_details` SET `coin_data` = '".$coin_data."'  WHERE ipfs_hash='".$_POST['hash']."' AND bitcoin_address='".$_POST['btc_address']."' ";
+					if(mysqli_query($db, $upd_qry2)){
+						echo "data inserted";
+					}
 				}
 			}
-			echo json_encode($result);
+			else{
+				echo json_encode($result);
+			}
 		}
 	}
 }
