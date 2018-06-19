@@ -10,7 +10,7 @@ header("Access-Control-Allow-Headers: *");
 	else{
 		//echo "sdf";
 	}
-	require __DIR__ . '/vendor/autoload.php';
+	require __DIR__ . '../vendor/autoload.php';
 
 if(isset($_POST['msg'])){
 	if($_POST['msg'] == 'payment_address' && isset($_POST['hash'])){
