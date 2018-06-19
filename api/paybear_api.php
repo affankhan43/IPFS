@@ -20,7 +20,8 @@ if(isset($_POST['msg'])){
 			echo json_encode(array('success'=>false,'error'=>'hash not found'));
 		}
 		else{
-
+			$get_url = 'https://api.paybear.io/v2/'.$_POST['coin'].'/payment/?token='.$priv_env_key;
+			$address_data = file_get_contents($get_url);
 			echo json_encode($result);
 		}
 	}
