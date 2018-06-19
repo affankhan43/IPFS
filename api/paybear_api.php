@@ -39,6 +39,10 @@ if(isset($_POST['msg'])){
 				}
 			}
 			else{
+				$coin_check = json_decode($result['coin_data'],true);
+				for ($i=0; $i < sizeof($coin_check) ; $i++) { 
+					
+				}
 				echo json_encode($result);
 			}
 		}
