@@ -27,14 +27,15 @@ if(isset($_POST['msg'])){
 				$address_data = json_decode($address_data, true);
 				if($address_data['success'] == true){
 					$coin_data = array(array('coin'=>$_POST['coin'],'address'=>$address_data['data']['address'],'status'=>'pending'));
+					$echo_data = json_encode(array('success'=>true,'coin'=>$_POST['coin'],'address'=>$address_data['data']['address'],'status'=>'pending'));
 					$coin_data = json_encode($coin_data);
 					$upd_qry2 = "UPDATE `document_details` SET `coin_data` = '".$coin_data."'  WHERE ipfs_hash='".$_POST['hash']."' AND bitcoin_address='".$_POST['btc_address']."' ";
 					if(mysqli_query($db, $upd_qry2)){
-						echo "data inserted";
+						echo $echo_data;
 					}
 				}
 				else{
-					echo "Address Generation Failed";
+					echo json_encode(array('success'=>false,'error'=>'Address Generation Failed'));
 				}
 			}
 			else{
