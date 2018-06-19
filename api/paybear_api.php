@@ -14,11 +14,14 @@ header("Access-Control-Allow-Headers: *");
 
 if(isset($_POST['msg'])){
 	if($_POST['msg'] == 'payment_address' && isset($_POST['hash'])){
-		echo "string";
-		$qry = "SELECT * FROM document_details WHERE ipfs_hash='".$_POST['hash']."' ";
-		$result = mysqli_fetch_assoc($db,$qry);
-		print_r($result);
-
+		$qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_POST['hash']."' ");
+		$result = mysqli_fetch_assoc($qry);
+		if(!$result){
+			echo json_encode(array('success'=>false,'error'=>'hash not found'));
+		}
+		else{
+			echo json_encode($result);
+		}
 	}
 }
 ?>
