@@ -33,6 +33,9 @@ if(isset($_POST['msg'])){
 						echo "data inserted";
 					}
 				}
+				else{
+					echo "Address Generation Failed";
+				}
 			}
 			else{
 				echo json_encode($result);
