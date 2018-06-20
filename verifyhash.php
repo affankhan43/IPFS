@@ -310,16 +310,21 @@ session_start();
 	</script>
 	<script>
 		function create_pay(coin){
+			var ipfshash = <?php echo $all_data['ipfs_hash']; ?> ;
+			var btcaddress = <?php echo $all_data['btc_address']; ?> ;
 			$(".modal-body").html('');
 			if(coin == 'eth'){
 				$(".modal-title").html(' Pay Ethereum');
-				$.get('https://api.paybear.io/v2/eth/payment/?token=sec74680f32a95b7cfe3ce2320993c4f2ce',function(msg){
-					$(".modal-body").html(msg);
+				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'eth'}, function(msg){
+					console.log(msg);
 				});
 				$("#myModal").modal();
 			}
 			else if(coin == 'btc'){
 				$(".modal-title").html(' Pay Bitcoin');
+				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'eth'}, function(msg){
+					console.log(msg);
+				});
 				$("#myModal").modal()
 			}
 			else if(coin == 'ltc'){
