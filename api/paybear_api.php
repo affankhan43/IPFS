@@ -41,7 +41,6 @@ if(isset($_POST['msg'])){
 			else{
 				$coin_check = json_decode($result['coin_data'],true);
 				for($i=0; $i < sizeof($coin_check) ; $i++){ 
-					echo $coin_check[$i]['coin'].' : '.$_POST['coin'];
 					if(strcasecmp($coin_check[$i]['coin'], $_POST['coin']) == 0){
 						$coin_exist = $coin_check[$i];
 					}
@@ -67,7 +66,6 @@ if(isset($_POST['msg'])){
 					else{
 						echo json_encode(array('success'=>false,'error'=>'Address Generation Failed'));
 					}
-					echo 'asd';
 				}
 			}
 		}
