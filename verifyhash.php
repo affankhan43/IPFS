@@ -323,35 +323,65 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$(".modal-body").html('<p>Please Send Exactly  xx  Ethereum to</p><br><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  xx  Ethereum to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
-				
 			}
 			else if(coin == 'btc'){
 				$(".modal-title").html(' Pay Bitcoin');
-				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'eth'}, function(msg){
+				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'btc'}, function(msg){
 					console.log(msg);
-					$(".modal-body").html(msg);
+					var data = JSON.parse(msg);
+					if(data['success'] == true){
+						$(".modal-body").html('<p>Please Send Exactly  xx  Bitcoin to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$("#myModal").modal();
+					}
 				});
-				$("#myModal").modal()
 			}
 			else if(coin == 'ltc'){
 				$(".modal-title").html(' Pay Litecoin');
-				$("#myModal").modal()
+				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'ltc'}, function(msg){
+					console.log(msg);
+					var data = JSON.parse(msg);
+					if(data['success'] == true){
+						$(".modal-body").html('<p>Please Send Exactly  xx  Litecoin to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$("#myModal").modal();
+					}
+				});
 			}
 			else if(coin == 'bch'){
 				$(".modal-title").html(' Pay Bitcoin Cash');
-				$("#myModal").modal()
+				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'bch'}, function(msg){
+					console.log(msg);
+					var data = JSON.parse(msg);
+					if(data['success'] == true){
+						$(".modal-body").html('<p>Please Send Exactly  xx  Bitcoin-Cash to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$("#myModal").modal();
+					}
+				});
 			}
 			else if(coin == 'btg'){
 				$(".modal-title").html(' Pay Bitcoin Gold');
-				$("#myModal").modal()
+				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'btg'}, function(msg){
+					console.log(msg);
+					var data = JSON.parse(msg);
+					if(data['success'] == true){
+						$(".modal-body").html('<p>Please Send Exactly  xx  Bitcoin-Gold to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$("#myModal").modal();
+					}
+				});
 			}
 			else if(coin == 'dash'){
 				$(".modal-title").html(' Pay Dash');
-				$("#myModal").modal()
+				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'dash'}, function(msg){
+					console.log(msg);
+					var data = JSON.parse(msg);
+					if(data['success'] == true){
+						$(".modal-body").html('<p>Please Send Exactly  xx  DASH to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$("#myModal").modal();
+					}
+				});
 			}
 		}
 	</script>
