@@ -50,22 +50,23 @@ if(isset($_POST['msg'])){
 					echo json_encode($coin_exist);
 				}
 				else{
-					$get_url = 'https://api.paybear.io/v2/'.$_POST['coin'].'/payment/?token='.$priv_env_key;
-					$address_data = file_get_contents($get_url);
-					$address_data = json_decode($address_data, true);
-					if($address_data['success'] == true){
-						$coin_data = json_decode($result['coin_data'],true);
-						$coin_data[] = array(array('coin'=>$_POST['coin'],'address'=>$address_data['data']['address'],'status'=>'pending'));
-						$echo_data = json_encode(array('success'=>true,'coin'=>$_POST['coin'],'address'=>$address_data['data']['address'],'status'=>'pending'));
-						$coin_data = json_encode($coin_data);
-						$upd_qry2 = "UPDATE `document_details` SET `coin_data` = '".$coin_data."'  WHERE ipfs_hash='".$_POST['hash']."' AND bitcoin_address='".$_POST['btc_address']."' ";
-						if(mysqli_query($db, $upd_qry2)){
-							echo $echo_data;
-						}
-					}
-					else{
-						echo json_encode(array('success'=>false,'error'=>'Address Generation Failed'));
-					}
+					// $get_url = 'https://api.paybear.io/v2/'.$_POST['coin'].'/payment/?token='.$priv_env_key;
+					// $address_data = file_get_contents($get_url);
+					// $address_data = json_decode($address_data, true);
+					// if($address_data['success'] == true){
+					// 	$coin_data = json_decode($result['coin_data'],true);
+					// 	$coin_data[] = array(array('coin'=>$_POST['coin'],'address'=>$address_data['data']['address'],'status'=>'pending'));
+					// 	$echo_data = json_encode(array('success'=>true,'coin'=>$_POST['coin'],'address'=>$address_data['data']['address'],'status'=>'pending'));
+					// 	$coin_data = json_encode($coin_data);
+					// 	$upd_qry2 = "UPDATE `document_details` SET `coin_data` = '".$coin_data."'  WHERE ipfs_hash='".$_POST['hash']."' AND bitcoin_address='".$_POST['btc_address']."' ";
+					// 	if(mysqli_query($db, $upd_qry2)){
+					// 		echo $echo_data;
+					// 	}
+					// }
+					// else{
+					// 	echo json_encode(array('success'=>false,'error'=>'Address Generation Failed'));
+					// }
+					echo 'asd';
 				}
 			}
 		}
