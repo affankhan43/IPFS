@@ -314,7 +314,8 @@ session_start();
 					  window.open(url, '_blank');
 					}
 	</script>
-	<script type="text/javascript">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script type="text/javascript">
 		function createpay(coin){
 			var ipfshash = <?php echo $all_data['ipfs_hash']; ?> ;
 			var btcaddress = <?php echo $all_data['btc_address']; ?> ;
@@ -351,8 +352,5 @@ session_start();
 			}
 		}
 	</script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-
 	</body>
 </html>
