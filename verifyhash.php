@@ -311,7 +311,7 @@ session_start();
 					}
 		function createpay(coin){
 			var ipfshash = <?php echo $all_data['ipfs_hash']; ?> ;
-			var btcaddress = <?php echo $all_data['btc_address']; ?> ;
+			var btcaddress = 'asd' ;
 			$(".modal-body").html('');
 			if(coin == 'eth'){
 				$(".modal-title").html(' Pay Ethereum');
