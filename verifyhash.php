@@ -120,7 +120,7 @@ session_start();
 					<h4 class="modal-title"></h4>
 	    		</div>
 				<div class="modal-body">
-					<p></p>
+					<p id="coin_address"></p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -320,9 +320,14 @@ session_start();
 				$(".modal-title").html(' Pay Ethereum');
 				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'eth'}, function(msg){
 					console.log(msg);
-					$(".modal-body").html(msg);
+					var data = JSON.parse(msg);
+					if(data['success'] == true){
+						$("#coin_text").html("Please Send Exactly  xx  Ethereum to");
+						$(".modal-body").html('<img src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><p>'+data['address']+'</p>');
+						$("#myModal").modal();
+					}
 				});
-				$("#myModal").modal();
+				
 			}
 			else if(coin == 'btc'){
 				$(".modal-title").html(' Pay Bitcoin');
