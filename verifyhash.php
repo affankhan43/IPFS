@@ -310,7 +310,7 @@ session_start();
 					  window.open(url, '_blank');
 					}
 		function createpay(coin){
-			var ipfshash = <?php echo $all_data['ipfs_hash']; ?> ;
+			var ipfshash = 'QmVbd8924P3z5pKa2FmoRh7dg1JvRYWCYSuyAaiZYHWwQ4' ;
 			var btcaddress = 'asd' ;
 			$(".modal-body").html('');
 			if(coin == 'eth'){
