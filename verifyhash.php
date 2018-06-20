@@ -108,6 +108,8 @@ session_start();
 	.PayBear__Item__icon{width:50px;height:50px;margin:5px auto 0;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}
 	.PayBear__Item__icon{width:50px;height:50px;margin:5px auto 0}
 	.PayBear__Item__icon img,.PayBear__Item__icon svg{max-width:100%;max-height:100%;width:100%;height:100%}
+	.modal-body{text-align: center;}
+	
 </style>
 <body>
 	<!-- Modal -->
@@ -120,7 +122,6 @@ session_start();
 					<h4 class="modal-title"></h4>
 	    		</div>
 				<div class="modal-body">
-					<p id="coin_address"></p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -322,7 +323,7 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$(".modal-body").html('<p>Please Send Exactly  xx  Ethereum to</p><img src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  xx  Ethereum to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
