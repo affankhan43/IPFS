@@ -322,8 +322,7 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$("#coin_text").html("Please Send Exactly  xx  Ethereum to");
-						$(".modal-body").html('<img src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  xx  Ethereum to</p><img src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
