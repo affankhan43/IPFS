@@ -40,6 +40,7 @@ if(isset($_POST['msg'])){
 			}
 			else{
 				$coin_check = json_decode($result['coin_data'],true);
+				print_r($coin_check);
 				for($i=0; $i < sizeof($coin_check) ; $i++){ 
 					if($coin_check[$i]['coin'] == $_POST['coin']){
 						$coin_exist = $coin_check[$i];
