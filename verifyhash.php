@@ -308,7 +308,7 @@ session_start();
 					  window.open(url, '_blank');
 					}
 	</script>
-	<script>
+	<script type="text/javascript">
 		function create_pay(coin){
 			var ipfshash = <?php echo $all_data['ipfs_hash']; ?> ;
 			var btcaddress = <?php echo $all_data['btc_address']; ?> ;
