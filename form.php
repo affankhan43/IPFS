@@ -152,7 +152,7 @@ margin-left: 10px !important;
 		src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="old-website/form-builder.min.js"></script>
 		<script type="text/javascript" src="old-website/form-render.min.js"></script>
-    <script type="text/javascript">
+	<script type="text/javascript">
 			var container = document.getElementById('form');
 			$.post('http://159.65.131.43/ipfs-admin/upload.php',{'action' : 'getFormData'} , function(msg) {
 				var formData = msg;
