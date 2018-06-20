@@ -290,6 +290,10 @@ session_start();
     <script src="js/easypiechart-data.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/custom.js"></script>
+    <script
+		src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="old-website/form-builder.min.js"></script>
+		<script type="text/javascript" src="old-website/form-render.min.js"></script>
     <script>
 		function done(){
 			console.log('asd');
