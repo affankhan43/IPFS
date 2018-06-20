@@ -293,7 +293,10 @@ session_start();
     <script src="js/custom.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="old-website/form-builder.min.js"></script>
+		<script type="text/javascript" src="old-website/form-render.min.js"></script>
 	<script type="text/javascript">
 		function done(){
 			console.log('asd');
@@ -313,41 +316,41 @@ session_start();
 					function openFile(url){
 					  window.open(url, '_blank');
 					}
-		function createpay(coin){
-			var ipfshash = <?php echo $all_data['ipfs_hash']; ?> ;
-			var btcaddress = <?php echo $all_data['btc_address']; ?> ;
-			$(".modal-body").html('');
-			if(coin == 'eth'){
-				$(".modal-title").html(' Pay Ethereum');
-				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'eth'}, function(msg){
-					console.log(msg);
-				});
-				$("#myModal").modal();
-			}
-			else if(coin == 'btc'){
-				$(".modal-title").html(' Pay Bitcoin');
-				$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'eth'}, function(msg){
-					console.log(msg);
-				});
-				$("#myModal").modal()
-			}
-			else if(coin == 'ltc'){
-				$(".modal-title").html(' Pay Litecoin');
-				$("#myModal").modal()
-			}
-			else if(coin == 'bch'){
-				$(".modal-title").html(' Pay Bitcoin Cash');
-				$("#myModal").modal()
-			}
-			else if(coin == 'btg'){
-				$(".modal-title").html(' Pay Bitcoin Gold');
-				$("#myModal").modal()
-			}
-			else if(coin == 'dash'){
-				$(".modal-title").html(' Pay Dash');
-				$("#myModal").modal()
-			}
-		}
+		// function createpay(coin){
+		// 	var ipfshash = <?php echo $all_data['ipfs_hash']; ?> ;
+		// 	var btcaddress = <?php echo $all_data['btc_address']; ?> ;
+		// 	$(".modal-body").html('');
+		// 	if(coin == 'eth'){
+		// 		$(".modal-title").html(' Pay Ethereum');
+		// 		$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'eth'}, function(msg){
+		// 			console.log(msg);
+		// 		});
+		// 		$("#myModal").modal();
+		// 	}
+		// 	else if(coin == 'btc'){
+		// 		$(".modal-title").html(' Pay Bitcoin');
+		// 		$.post('http://159.65.131.43/ipfs/api/paybear_api.php',{'msg':'payment_address','hash':ipfshash,'btc_address':btcaddress,'coin':'eth'}, function(msg){
+		// 			console.log(msg);
+		// 		});
+		// 		$("#myModal").modal()
+		// 	}
+		// 	else if(coin == 'ltc'){
+		// 		$(".modal-title").html(' Pay Litecoin');
+		// 		$("#myModal").modal()
+		// 	}
+		// 	else if(coin == 'bch'){
+		// 		$(".modal-title").html(' Pay Bitcoin Cash');
+		// 		$("#myModal").modal()
+		// 	}
+		// 	else if(coin == 'btg'){
+		// 		$(".modal-title").html(' Pay Bitcoin Gold');
+		// 		$("#myModal").modal()
+		// 	}
+		// 	else if(coin == 'dash'){
+		// 		$(".modal-title").html(' Pay Dash');
+		// 		$("#myModal").modal()
+		// 	}
+		// }
 	</script>
 	</body>
 </html>
