@@ -46,6 +46,7 @@ if(isset($_POST['msg'])){
 					}
 				}
 				if(isset($coin_exist)){
+					$coin_exist['success'] = true;
 					echo json_encode($coin_exist);
 				}
 				else{
