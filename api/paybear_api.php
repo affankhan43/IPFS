@@ -26,7 +26,7 @@ if(isset($_POST['msg'])){
 				$address_data = file_get_contents($get_url);
 				$address_data = json_decode($address_data, true);
 				$get_url_rate = 'https://api.paybear.io/v2/'.$_POST['coin'].'/exchange/usd/rate';
-				$rate_data = file_get_contents($rate_data);
+				$rate_data = file_get_contents($get_url_rate);
 				$rate_data = json_decode($rate_data, true);
 				if($address_data['success'] == true && $rate_data['success'] == true){
 					$rate_amount = round((8/$rate_data['data']['bittrex']),7);
@@ -58,7 +58,7 @@ if(isset($_POST['msg'])){
 					$address_data = file_get_contents($get_url);
 					$address_data = json_decode($address_data, true);
 					$get_url_rate = 'https://api.paybear.io/v2/'.$_POST['coin'].'/exchange/usd/rate';
-					$rate_data = file_get_contents($rate_data);
+					$rate_data = file_get_contents($get_url_rate);
 					$rate_data = json_decode($rate_data, true);
 					if($address_data['success'] == true && $rate_data['success'] == true){
 						$rate_amount = round((8/$rate_data['data']['bittrex']),7);
