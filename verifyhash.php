@@ -323,7 +323,7 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$(".modal-body").html('<p>Please Send Exactly  xx  Ethereum to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  <strong>'+data['amount']+'</strong>  Ethereum to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
@@ -334,7 +334,7 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$(".modal-body").html('<p>Please Send Exactly  xx  Bitcoin to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  <strong>'+data['amount']+'</strong>  Bitcoin to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
@@ -345,7 +345,7 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$(".modal-body").html('<p>Please Send Exactly  xx  Litecoin to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  <strong>'+data['amount']+'</strong>  Litecoin to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
@@ -356,7 +356,7 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$(".modal-body").html('<p>Please Send Exactly  xx  Bitcoin-Cash to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  <strong>'+data['amount']+'</strong>  Bitcoin-Cash to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
@@ -367,7 +367,7 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$(".modal-body").html('<p>Please Send Exactly  xx  Bitcoin-Gold to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  <strong>'+data['amount']+'</strong>  Bitcoin-Gold to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
@@ -378,7 +378,7 @@ session_start();
 					console.log(msg);
 					var data = JSON.parse(msg);
 					if(data['success'] == true){
-						$(".modal-body").html('<p>Please Send Exactly  xx  DASH to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
+						$(".modal-body").html('<p>Please Send Exactly  <strong>'+data['amount']+'</strong>  DASH to</p><img class="img-responsive" src="https://chart.googleapis.com/chart?chs=200x200&choe=UTF-8&chld=M|0&cht=qr&chl='+data['address']+'" /><br><br><p>'+data['address']+'</p>');
 						$("#myModal").modal();
 					}
 				});
