@@ -107,6 +107,16 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 					}
 				}
 			}
+			else{
+				$qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
+				$result = mysqli_fetch_assoc($qry);
+				if(!$result){
+				}
+				else{
+					$details = true;
+					$all_data = $result;
+				}
+			}
 		}
 	}
 }
