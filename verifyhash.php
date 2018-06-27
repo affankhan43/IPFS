@@ -34,16 +34,15 @@ session_start();
             $error[1] = "Unknown Error #9";
           } else {
             $amount = json_decode($curl1->response,true);
-
             if($amount['amount']*100000000 >= ($all_data['bitcoin_fees'])){
               $updated_amount = $amount['amount']*100000000;
-              $upd_qry = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
-              if(mysqli_query($db, $upd_qry)){
-                }
-              else{
-                $error[1] = "Please Refresh Again";
-              }
+              $upd_qry = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." AND `bit_conf`='0' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+				if(mysqli_query($db, $upd_qry)){
 
+				}
+				else{
+					$error[1] = "Please Refresh Again";
+				}
               $op_ret = new curl();
               $op_ret->post($url3_evv, array(
                 'address'=>'2MxSUk8B8HZpaa5G2r2Las44z5APEoUrPKB',
