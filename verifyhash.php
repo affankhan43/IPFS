@@ -289,7 +289,7 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 					</div>
 					<div class="col-lg-5">
 						<div class="jumbotron text-center">
-							<?php if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid'])){ ?>
+							<?php if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid']) && is_null($all_data['bitcoin_received'])){ ?>
 							<p class="lead">Send exactly <?php echo $all_data['bitcoin_fees']/100000000; ?></p>
 							<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<?php echo $all_data['bitcoin_address']; ?>">
 							<hr class="bg-primary">
