@@ -77,7 +77,9 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 													elseif($txid['message'] == "success"){
 														$upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."',`bit_conf`=2 WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
 														if(mysqli_query($db, $upd_qry2)){
-
+															$mssg = "Your Data is Verified on Bitcoin Blockchain \n\n Bitcoin TXID:".$txid['txid'];
+															$headers = "From: bitcoinbays@gmail.com\r\n";
+															mail($all_data['email'],"Document Added ...",$mssg,$headers);
 														}
 														else{
 															$error[1] = "Please Refresh Again";
@@ -285,6 +287,9 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 								<input type="text" value="<?php echo $all_data['bitcoin_address']?>" class="form-control">
 								<span class="input-group-append"></span>
 							</div>
+							<?php }elseif($all_data['verified'] == 0 && !empty($all_data['bitcoin_received']) && $all_data['bit_conf'] <= 0){ ?>
+							<p class="lead">Waiting For Confirmations <?php echo $all_data['bit_conf']?> / 2</p>
+							<hr class="bg-primary">
 							<?php }elseif($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid'])){ ?>
 							<p class="lead">Data is Verified on Bitcoin Blockchain</p>
 							<hr class="bg-primary">
