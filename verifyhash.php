@@ -16,66 +16,68 @@ session_start();
   include '.env';
   use \Curl\Curl;
   $details = false;
-  if(isset($_GET['hash']) || isset($_GET['txid'])){
-    if(!empty($_GET['hash'])){
-      $qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
-      $result = mysqli_fetch_assoc($qry);
-      if(!$result){
-
-      }
-      else{
-        $details = true;
-        $all_data = $result;
-        if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid'])){
-          $check_url = $url2_env.$all_data['bitcoin_address'];
-          $curl1 = new curl();
-          $curl1->get($check_url);
-          if ($curl1->error) {
-            $error[1] = "Unknown Error #9";
-          } else {
-            $amount = json_decode($curl1->response,true);
-            if($amount['amount']*100000000 >= ($all_data['bitcoin_fees'])){
-              $updated_amount = $amount['amount']*100000000;
-              $upd_qry = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." AND `bit_conf`='0' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
-				if(mysqli_query($db, $upd_qry)){
-
+if(isset($_GET['hash']) || isset($_GET['txid'])){
+	if(!empty($_GET['hash'])){
+		$qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
+		$result = mysqli_fetch_assoc($qry);
+		if(!$result){
+		}
+		else{
+			$details = true;
+			$all_data = $result;
+			if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid'])){
+				$check_url = $url2_env.$all_data['bitcoin_address'];
+				$curl1 = new curl();
+				$curl1->get($check_url);
+				if ($curl1->error) {
+					$error[1] = "Unknown Error #9";
 				}
 				else{
-					$error[1] = "Please Refresh Again";
+					$amount = json_decode($curl1->response,true);
+					if($amount['amount']*100000000 >= ($all_data['bitcoin_fees'])){
+						$updated_amount = $amount['amount']*100000000;
+						$upd_qry = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." AND `bit_conf`='0' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+						if(mysqli_query($db, $upd_qry)){
+							$op_ret = new curl();
+							$op_ret->post($url3_evv, array(
+								'address'=>'2MxSUk8B8HZpaa5G2r2Las44z5APEoUrPKB',
+								'amount'=>$amount['amount'],
+								'key'=>'Keylcc987',
+								'message'=>$all_data['ipfs_hash'],
+								'testnet'=>1
+							));
+							if ($op_ret->error) {
+								$error[1] = "Unknown Error #9";
+							}
+							else{
+								$txid = json_decode($op_ret->response,true);
+								if($txid['message'] == "error"){
+								}
+								elseif($txid['message'] == "success"){
+									$upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+									if(mysqli_query($db, $upd_qry2)){
+
+									}
+									else{
+										$error[1] = "Please Refresh Again";
+									}
+								}
+								else{
+									$error[1] = "Please Refresh Again";
+								}
+							}
+						}
+						else{
+
+						}
+					}
+					else{
+
+					}
 				}
-              $op_ret = new curl();
-              $op_ret->post($url3_evv, array(
-                'address'=>'2MxSUk8B8HZpaa5G2r2Las44z5APEoUrPKB',
-                'amount'=>$amount['amount'],
-                'key'=>'Keylcc987',
-                'message'=>$all_data['ipfs_hash'],
-                'testnet'=>1
-              ));
-              if ($op_ret->error) {
-                $error[1] = "Unknown Error #9";
-              }
-              else{
-                $txid = json_decode($op_ret->response,true);
-                if($txid['message'] == "error"){
-
-                }
-                elseif($txid['message'] == "success"){
-                  $upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
-              if(mysqli_query($db, $upd_qry2)){
-
-              }
-              else{
-                $error[1] = "Please Refresh Again";
-              }
-            }
-          }
-        }
-        else{
-        }
-      }
-    }
-  }
-  }
+			}
+		}
+	}
 }
  ?>
 <!DOCTYPE html>
