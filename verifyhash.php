@@ -297,7 +297,7 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 								<input type="text" value="<?php echo $all_data['bitcoin_address']?>" class="form-control">
 								<span class="input-group-append"></span>
 							</div>
-							<?php }elseif($all_data['verified'] == 0 && !empty($all_data['bitcoin_received']) && $all_data['bit_conf'] <= 0){ ?>
+							<?php }elseif($all_data['verified'] == 0 && !empty($all_data['bitcoin_received']) && $all_data['bit_conf'] >= 0){ ?>
 							<p class="lead">Waiting For Confirmations <?php echo $all_data['bit_conf']?> / 2</p>
 							<hr class="bg-primary">
 							<?php }elseif($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid'])){ ?>
