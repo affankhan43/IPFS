@@ -38,32 +38,61 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 						$updated_amount = $amount['amount']*100000000;
 						$upd_qry = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." AND `bit_conf`='0' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
 						if(mysqli_query($db, $upd_qry)){
-							$op_ret = new curl();
-							$op_ret->post($url3_evv, array(
-								'address'=>'2MxSUk8B8HZpaa5G2r2Las44z5APEoUrPKB',
-								'amount'=>$amount['amount'],
-								'key'=>'Keylcc987',
-								'message'=>$all_data['ipfs_hash'],
-								'testnet'=>1
-							));
-							if ($op_ret->error) {
+							$check_url1 = $url4_env.$all_data['bitcoin_address'];
+							$curl_check = new curl();
+							$curl_check->get($check_url1);
+							if ($curl_check->error) {
 								$error[1] = "Unknown Error #9";
 							}
 							else{
-								$txid = json_decode($op_ret->response,true);
-								if($txid['message'] == "error"){
-								}
-								elseif($txid['message'] == "success"){
-									$upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
-									if(mysqli_query($db, $upd_qry2)){
+								$amount = json_decode($curl_check->response,true);
+								if($amount['amount']*100000000 >= ($all_data['bitcoin_fees'])){
+									$updated_amount = $amount['amount']*100000000;
+									$upd_qry1 = "UPDATE `document_details` SET `bitcoin_received`=".$updated_amount." AND `bit_conf`='1' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+									if(mysqli_query($db, $upd_qry1)){
+										$check_url2 = $url5_env.$all_data['bitcoin_address'];
+										$curl_check1 = new curl();
+										$curl_check1->get($check_url2);
+										if ($curl_check1->error) {
+											$error[1] = "Unknown Error #9";
+										}
+										else{
+											$amount = json_decode($curl_check1->response,true);
+											if($amount['amount']*100000000 >= ($all_data['bitcoin_fees'])){
+												$op_ret = new curl();
+												$op_ret->post($url3_evv, array(
+													'address'=>'2MxSUk8B8HZpaa5G2r2Las44z5APEoUrPKB',
+													'amount'=>$amount['amount'],
+													'key'=>'Keylcc987',
+													'message'=>$all_data['ipfs_hash'],
+													'testnet'=>1
+												));
+												if ($op_ret->error) {
+													$error[1] = "Unknown Error #9";
+												}
+												else{
+													$txid = json_decode($op_ret->response,true);
+													if($txid['message'] == "error"){
+													}
+													elseif($txid['message'] == "success"){
+														$upd_qry2 = "UPDATE `document_details` SET `verified`=1,`bitcoin_txid`='".$txid['txid']."' WHERE `ipfs_hash`='".$all_data['ipfs_hash']."' ";
+														if(mysqli_query($db, $upd_qry2)){
 
+														}
+														else{
+															$error[1] = "Please Refresh Again";
+														}
+													}
+													else{
+														$error[1] = "Please Refresh Again";
+													}
+												}
+											}
+										}
 									}
 									else{
-										$error[1] = "Please Refresh Again";
+										$error[1] = "Unknown Error #10";
 									}
-								}
-								else{
-									$error[1] = "Please Refresh Again";
 								}
 							}
 						}
