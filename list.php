@@ -134,7 +134,6 @@ else{
 					<div class="col-lg-12 text-center"></div>
 					<div class="col-lg-5">
 						<div class="jumbotron text-center">
-							<?php if($all_data['verified'] == 0 && empty($all_data['bitcoin_txid']) && is_null($all_data['bitcoin_received'])){ ?>
 							<p class="lead">Send exactly <?php echo $all_data['bitcoin_fees']/100000000; ?></p>
 							<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<?php echo $all_data['bitcoin_address']; ?>">
 							<hr class="bg-primary">
@@ -142,19 +141,6 @@ else{
 								<input type="text" value="<?php echo $all_data['bitcoin_address']?>" class="form-control">
 								<span class="input-group-append"></span>
 							</div>
-							<?php }elseif($all_data['verified'] == 0 && !empty($all_data['bitcoin_received']) && $all_data['bit_conf'] >= 0){ ?>
-							<p class="lead">Waiting For Confirmations <?php echo $all_data['bit_conf']?> / 2</p>
-							<hr class="bg-primary">
-							<?php }elseif($all_data['verified'] == 1 && !empty($all_data['bitcoin_txid'])){ ?>
-							<p class="lead">Data is Verified on Bitcoin Blockchain</p>
-							<hr class="bg-primary">
-							<div class="input-group">
-								<input type="text" value="<?php echo $all_data['bitcoin_txid']?>" class="form-control">
-								<span class="input-group-append">
-									<button type="button" onclick="<?php echo "openFile('https://live.blockcypher.com/btc-testnet/tx/".$all_data['bitcoin_txid']."')"; ?>" class="btn btn-sm btn-primary">VIEW ON BLOCKCHAIN</button>
-								</span>
-							</div>
-							<?php } ?>
 						</div>
 					</div>
 				<?php }?>
