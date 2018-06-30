@@ -23,7 +23,7 @@
 <body>
 	<style type="text/css">
 		.input-boxx{
-			padding-bottom: 20px;
+			padding-bottom: 30px;
 		}
 	</style>
 	<div class="container-fluid" id="wrapper">
@@ -81,7 +81,7 @@
 					</div>
 					<div class="col-lg-6 text-center input-boxx">
 						<div class="input-group">
-							<input type="text" id="email_data" placeholder="Enter Uploaded File Attachment Hash" class="form-control"><span class="input-group-append">
+							<input type="text" id="email_data" placeholder="Enter Uploaded File Email" class="form-control"><span class="input-group-append">
 							<button onclick="console.log('asdsd')" class="btn btn-primary" type="button" data-original-title="" title="">View</button></span>
 						</div>
 						<small >This will show you all records of email</small>
