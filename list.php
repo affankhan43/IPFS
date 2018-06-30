@@ -134,7 +134,7 @@ else{
 					</div>
 					<?php }else{?>
 					<div class="container  mb-3">
-						<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em> <?php print_r($all_data); ?> <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
+						<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em> Form Data Submitted With Email (<?php echo $_GET['email']; ?>) <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
 						</div>
 					</div>
 					<div class="col-lg-12 text-center"></div>
