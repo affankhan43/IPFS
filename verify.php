@@ -82,7 +82,7 @@
 					<div class="col-lg-6 text-center input-boxx">
 						<div class="input-group">
 							<input type="text" id="email_data" placeholder="Enter Uploaded File Email" class="form-control"><span class="input-group-append">
-							<button onclick="console.log('asdsd')" class="btn btn-primary" type="button" data-original-title="" title="">View</button></span>
+							<button onclick="openEmail()" class="btn btn-primary" type="button" data-original-title="" title="">View</button></span>
 						</div>
 						<small >This will show you all records of email</small>
 					</div>
@@ -132,6 +132,10 @@
 					var hash = $("#firsthash").val();
 					window.location = "verifyhash.php?hash="+hash;
     		}
+    		function openEmail() {
+					var eemail = $("#email_data").val();
+					window.location = "list.php?email="+eemail;
+			}
 				function openHashFile(){
 					var hash = $("#secondhash").val();
 					 window.open('http://gateway.ipfs.io/ipfs/'+hash, '_blank');
