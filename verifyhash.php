@@ -21,6 +21,7 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 		$qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE ipfs_hash='".$_GET['hash']."' ");
 		$result = mysqli_fetch_assoc($qry);
 		if(!$result){
+			$data_available = 'not found';
 		}
 		else{
 			$details = true;
@@ -119,8 +120,15 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 			}
 		}
 	}
+	else{
+		$data_available = 'not found';
+	}
+}
+else{
+	$data_available = 'not found';
 }
  ?>
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -206,6 +214,12 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 				}
 				</style>
 				<section class="section row">
+					<?php if(isset($data_available) && $data_available == 'not found'){?>
+					<div class="container  mb-3">
+						<div class="alert bg-danger" role="alert"><em class="fa fa-check-circle mr-2"></em> Data Not Available <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
+						</div>
+					</div>
+					<?php }else{?>
 					<div class="container  mb-3">
 						<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em> Your data has been successfully hashed with IPFS <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
 						</div>
@@ -312,6 +326,7 @@ if(isset($_GET['hash']) || isset($_GET['txid'])){
 							<?php } ?>
 						</div>
 					</div>
+				<?php } ?>
 				</section>
 				<hr>
 				<section class="row">
