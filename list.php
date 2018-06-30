@@ -19,7 +19,7 @@ session_start();
 if(isset($_GET['email'])){
 	if(!empty($_GET['email'])){
 		$qry = mysqli_query($db,"SELECT * FROM `document_details` WHERE email='".$_GET['email']."' ");
-		$result = mysqli_fetch_assoc($qry);
+		$result = mysqli_fetch_all($qry,MYSQLI_ASSOC);
 		if(!$result){
 			$data_available = 'not found';
 		}
