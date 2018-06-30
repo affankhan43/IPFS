@@ -141,30 +141,22 @@ else{
 					<div class="col-lg-9">
 						<div class="jumbotron text-center">
 							<table class="table table-hover">
-									<thead>
-										<tr>
-											<th>IPFS Hash</th>
-											<th>Status</th>
-											<th>Bitcoin TXID</th>
-											<th>Timestamp</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php for ($i=0; $i < sizeof($all_data) ; $i++) { ?>
-										<tr>
-											<td><a href=<?php echo "http://saveonblock.com/verifyhash.php?hash=".$all_data[$i]['ipfs_hash']; ?> target="_blank"><?php echo $all_data[$i]['ipfs_hash']; ?></a></td>
-											<td><?php if($all_data[$i]['verified'] == 1){ ?>
-												<span class="badge badge-pill badge-success">Verified</span>
-												<?php }else{ ?>
-												<span class="badge badge-pill badge-danger">Not Verified</span>
-												<?php } ?>
-												</td>
-											<td><?php if(empty($all_data[$i]['bitcoin_txid'])){echo "None";}else{ ?>
-												<a target="_blank" href=<?php echo "https://live.blockcypher.com/btc-testnet/tx/".$all_data[$i]['bitcoin_txid']; ?> ><?php echo $all_data[$i]['bitcoin_txid']; ?></a><?php } ?></td>
-											<td><?php echo $all_data[$i]['timestamp']; ?></td>
-										</tr>
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>IPFS Hash</th>
+										<th>Timestamp</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php for ($i=0; $i < sizeof($all_data) ; $i++) { ?>
+									<tr>
+									<td><?php echo $i; ?></td>
+									<td><a href=<?php echo "http://saveonblock.com/verifyhash.php?hash=".$all_data[$i]['ipfs_hash']; ?> target="_blank"><?php echo $all_data[$i]['ipfs_hash']; ?></a></td>
+									<td><?php echo $all_data[$i]['timestamp']; ?></td>
+									</tr>
 									<?php } ?>
-									</tbody>
+								</tbody>
 							</table>
 						</div>
 					</div>
