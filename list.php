@@ -24,7 +24,7 @@ if(isset($_GET['email'])){
 			$data_available = 'not found';
 		}
 		else{
-
+			$all_data = $result;
 		}
 	}
 	else{
@@ -127,6 +127,10 @@ else{
 						</div>
 					</div>
 					<?php }else{?>
+					<div class="container  mb-3">
+						<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em> <?php print_r($all_data); ?> <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
+						</div>
+					</div>	
 					<div class="container  mb-3">
 						<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em> Your data has been successfully hashed with IPFS <a href="#" class="float-right"><em class="fa fa-remove"></em></a>
 						</div>
