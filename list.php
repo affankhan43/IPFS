@@ -66,6 +66,12 @@ else{
 	.PayBear__Item__icon{width:50px;height:50px;margin:5px auto 0}
 	.PayBear__Item__icon img,.PayBear__Item__icon svg{max-width:100%;max-height:100%;width:100%;height:100%}
 	.modal-body{text-align: center;}
+	.table {table-layout:fixed;}
+	.table td {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 
 </style>
 <body>
