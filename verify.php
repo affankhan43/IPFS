@@ -21,6 +21,11 @@
 
 </head>
 <body>
+	<style type="text/css">
+		.input-boxx{
+			padding-bottom: 20px;
+		}
+	</style>
 	<div class="container-fluid" id="wrapper">
 		<div class="row">
 			<nav class="sidebar col-xs-12 col-sm-4 col-lg-3 col-xl-2">
@@ -60,21 +65,21 @@
 				<p>Get your data directly from IPFS</p>
 				<br>
 				<div class="row">
-					<div class="col-lg-6 text-center">
+					<div class="col-lg-6 text-center input-boxx">
 						<div class="input-group">
 							<input type="text" id="firsthash" placeholder="Enter Form Data IPFS Hash" class="form-control"><span class="input-group-append">
 							<button onclick="verifyHash()" class="btn btn-primary" type="button" data-original-title="" title="">View</button></span>
 						</div>
 						<small>This will show you form data</small>
 					</div>
-					<div class="col-lg-6 text-center">
+					<div class="col-lg-6 text-center input-boxx">
 						<div class="input-group">
 							<input type="text" id="secondhash" placeholder="Enter Uploaded File Attachment Hash" class="form-control"><span class="input-group-append">
 							<button onclick="openHashFile()" class="btn btn-primary" type="button" data-original-title="" title="">View</button></span>
 						</div>
 						<small >This will show you uploaded file attachment</small>
 					</div>
-					<div class="col-lg-6 text-center">
+					<div class="col-lg-6 text-center input-boxx">
 						<div class="input-group">
 							<input type="text" id="email_data" placeholder="Enter Uploaded File Attachment Hash" class="form-control"><span class="input-group-append">
 							<button onclick="console.log('asdsd')" class="btn btn-primary" type="button" data-original-title="" title="">View</button></span>
