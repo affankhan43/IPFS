@@ -132,15 +132,34 @@ else{
 						</div>
 					</div>
 					<div class="col-lg-12 text-center"></div>
-					<div class="col-lg-5">
+					<div class="col-lg-9">
 						<div class="jumbotron text-center">
-							<p class="lead">Send exactly <?php echo $all_data['bitcoin_fees']/100000000; ?></p>
-							<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<?php echo $all_data['bitcoin_address']; ?>">
-							<hr class="bg-primary">
-							<div class="input-group">
-								<input type="text" value="<?php echo $all_data['bitcoin_address']?>" class="form-control">
-								<span class="input-group-append"></span>
-							</div>
+							<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>IPFS Hash</th>
+											<th>Status</th>
+											<th>Bitcoin TXID</th>
+											<th>Timestamp</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php for ($i=0; $i < sizeof($all_data) ; $i++) { ?>
+										<tr>
+											<td><a href=<?php echo "http://saveonblock.com/verifyhash.php?hash=".$all_data[$i]['ipfs_hash']; ?> target="_blank"><?php echo $all_data[$i]['ipfs_hash']; ?></a></td>
+											<td><?php if($all_data[$i]['verified'] == 1){ ?>
+												<span class="badge badge-pill badge-success">Verified</span>
+												<?php }else{ ?>
+												<span class="badge badge-pill badge-danger">Not Verified</span>
+												<?php } ?>
+												</td>
+											<td><?php if(empty($all_data[$i]['bitcoin_txid'])){echo "None";}else{ ?>
+												<a target="_blank" href=<?php echo "https://live.blockcypher.com/btc-testnet/tx/".$all_data[$i]['bitcoin_txid']; ?> ><?php echo $all_data[$i]['bitcoin_txid']; ?></a><?php } ?></td>
+											<td><?php echo $all_data[$i]['timestamp']; ?></td>
+										</tr>
+									<?php } ?>
+									</tbody>
+							</table>
 						</div>
 					</div>
 				<?php }?>
