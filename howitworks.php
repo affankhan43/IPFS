@@ -18,12 +18,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     
-=======
-
->>>>>>> 71df8ba82aeeae9fd27256c8686cc33ec33523d1
 </head>
 <body>
 	<div class="container-fluid" id="wrapper">
