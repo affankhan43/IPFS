@@ -44,7 +44,7 @@ ORDER BY `document_details`.`timestamp`  DESC LIMIT 15");
 	<div class="container-fluid" id="wrapper">
 		<div class="row">
 			<nav class="sidebar col-xs-12 col-sm-4 col-lg-3 col-xl-2">
-				<h1 class="site-title"><a href="index.html"><em class="fas fa-th"></em> SaveOnBlock</a></h1>
+				<h1 class="site-title"><a href="index.php"><em class="fas fa-th"></em> SaveOnBlock</a></h1>
 
 				<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><em class="fa fa-bars"></em></a>
 				<ul class="nav nav-pills flex-column sidebar-nav">
