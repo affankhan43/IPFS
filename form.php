@@ -112,7 +112,7 @@ margin-left: 10px !important;
 				</div>
 
 
-				<div class="row col-md-12 col-lg-12" style="padding-left: 20px">
+				<div class="row col-md-12 col-lg-12" style="padding-left: 30px">
 					<form id="form">
 						
 					</form>
