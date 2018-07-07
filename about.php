@@ -15,12 +15,8 @@
 	  <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="css/font-awesome.css" rel="stylesheet">
-<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    
-=======
 
->>>>>>> 71df8ba82aeeae9fd27256c8686cc33ec33523d1
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -29,7 +25,7 @@
 	<div class="container-fluid" id="wrapper">
 		<div class="row">
 			<nav class="sidebar col-xs-12 col-sm-4 col-lg-3 col-xl-2">
-				<h1 class="site-title"><a href="index.html"><em class="	fas fa-th"></em> SaveOnBlock</a></h1>
+				<h1 class="site-title"><a href="index.php"><em class="	fas fa-th"></em> SaveOnBlock</a></h1>
 
 				<a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><em class="fa fa-bars"></em></a>
 			<ul class="nav nav-pills flex-column sidebar-nav">
