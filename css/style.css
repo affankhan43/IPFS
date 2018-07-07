@@ -1,5 +1,5 @@
 input.form-control{
-	height: inherit !important;
+  height: inherit !important;
 }
 /*Google Fonts*/
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i");
@@ -137,8 +137,8 @@ p {
   font-size: 14px;
   margin-left: 0;
   margin-bottom: 15px;
-  width: 50%;
-  padding: 15px 12px;
+  width: 120%;
+  padding: 3px 12px;
   display: block;
 }
 
